@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708120628) do
+ActiveRecord::Schema.define(version: 20160708121547) do
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
 
   create_table "hobbies", force: :cascade do |t|
     t.string   "name"

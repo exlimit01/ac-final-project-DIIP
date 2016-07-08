@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :profession_tags, dependent: :destroy
   has_many :professions, through: :profession_tags
 
+  has_many :feedbacks, dependent: :destroy
+
   def self.from_omniauth(auth)
      # Case 1: Find existing user by facebook uid
      user = User.find_by_fb_uid( auth.uid )
