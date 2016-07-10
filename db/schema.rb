@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710114041) do
+ActiveRecord::Schema.define(version: 20160710114820) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(version: 20160710114041) do
   end
 
   create_table "profession_tags", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.integer  "profession_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["profession_id"], name: "index_profession_tags_on_profession_id"
-    t.index ["user_id"], name: "index_profession_tags_on_user_id"
+    t.index ["profile_id"], name: "index_profession_tags_on_profile_id"
   end
 
   create_table "professions", force: :cascade do |t|

@@ -5,9 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :profession_tags, dependent: :destroy
-  has_many :professions, through: :profession_tags
-
   has_many :feedbacks, dependent: :destroy
 
   has_many :answers, dependent: :destroy
