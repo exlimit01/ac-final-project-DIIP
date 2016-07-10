@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710114820) do
+ActiveRecord::Schema.define(version: 20160710121705) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(version: 20160710114820) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "qa_customs", force: :cascade do |t|
+    t.text     "question"
+    t.text     "answer"
+    t.integer  "loves",         default: 0
+    t.integer  "friendship_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["friendship_id"], name: "index_qa_customs_on_friendship_id"
   end
 
   create_table "questions", force: :cascade do |t|
