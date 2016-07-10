@@ -5,4 +5,7 @@ class Friendship < ApplicationRecord
 
   has_many :qa_customs, dependent: :destroy
 
+  has_many :interactions, dependent: :destroy
+  has_many :missions, through: :interactions
+
 end

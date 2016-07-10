@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710121705) do
+ActiveRecord::Schema.define(version: 20160710123008) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -54,6 +54,25 @@ ActiveRecord::Schema.define(version: 20160710121705) do
     t.datetime "updated_at", null: false
     t.index ["hobby_id"], name: "index_hobby_tags_on_hobby_id"
     t.index ["profile_id"], name: "index_hobby_tags_on_profile_id"
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.integer  "mission_id"
+    t.integer  "friendship_id"
+    t.integer  "score",         default: 0
+    t.text     "comment"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["friendship_id"], name: "index_interactions_on_friendship_id"
+    t.index ["mission_id"], name: "index_interactions_on_mission_id"
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "unlock_level", default: 0
+    t.integer  "popular",      default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "profession_tags", force: :cascade do |t|
