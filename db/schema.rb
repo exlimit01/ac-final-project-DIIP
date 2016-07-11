@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710123008) do
+ActiveRecord::Schema.define(version: 20160711081609) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -92,8 +92,17 @@ ActiveRecord::Schema.define(version: 20160710123008) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "nickname"
+    t.integer  "age",                   default: 18
+    t.text     "description"
+    t.string   "facebook_link"
+    t.integer  "facebook_access_level", default: 0
+    t.string   "line_account"
+    t.integer  "line_access_level",     default: 0
+    t.string   "wechat_account"
+    t.integer  "wechat_access_level",   default: 0
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
