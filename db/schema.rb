@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711081609) do
+ActiveRecord::Schema.define(version: 20160712025008) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -67,6 +67,12 @@ ActiveRecord::Schema.define(version: 20160711081609) do
     t.index ["mission_id"], name: "index_interactions_on_mission_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "missions", force: :cascade do |t|
     t.text     "content"
     t.integer  "unlock_level", default: 0
@@ -103,6 +109,8 @@ ActiveRecord::Schema.define(version: 20160711081609) do
     t.integer  "line_access_level",     default: 0
     t.string   "wechat_account"
     t.integer  "wechat_access_level",   default: 0
+    t.integer  "location_id"
+    t.index ["location_id"], name: "index_profiles_on_location_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

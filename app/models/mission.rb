@@ -4,3 +4,4 @@ class Mission < ApplicationRecord
   has_many :friendships, through: :interactions
 
 end
+

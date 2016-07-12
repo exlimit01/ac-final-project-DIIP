@@ -6,4 +6,6 @@ class Profile < ApplicationRecord
 
   has_many :profession_tags, dependent: :destroy
   has_many :professions, through: :profession_tags
+
+  belongs_to :location
 end
