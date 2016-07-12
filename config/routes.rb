@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+<<<<<<< 7ad0031ce765efb4126e7c3522916f44fa214637
   resources :profiles do
     resources :answers
 
@@ -38,6 +40,8 @@ Rails.application.routes.draw do
     resources :talks, :controller => "room_talks"
   end
 
+=======
+>>>>>>> Add controller rooms
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
     resources :missions
     resources :profiles do
@@ -52,5 +56,7 @@ Rails.application.routes.draw do
   end
 
   root 'welcome#welcome_page'
+
+  get 'rooms/show'
 
 end
