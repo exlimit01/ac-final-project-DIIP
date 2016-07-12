@@ -78,12 +78,27 @@ ActiveRecord::Schema.define(version: 20160721121926) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< f03095b90ca0ab069286b09494146a0e90fd8938
   create_table "missions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",      limit: 65535
     t.integer  "unlock_level",               default: 0
     t.integer  "popular",                    default: 0
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+=======
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "unlock_level", default: 0
+    t.integer  "popular",      default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+>>>>>>> Add Model message
   end
 
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
