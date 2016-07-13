@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require cable
 //= require bootstrap-sprockets
 //= require plugins/jquery/jquery.min.js
 //= require plugins/jquery/jquery-migrate.min.js
