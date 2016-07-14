@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712025008) do
+ActiveRecord::Schema.define(version: 20160714075531) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -81,6 +81,17 @@ ActiveRecord::Schema.define(version: 20160712025008) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "profile_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["profile_id"], name: "index_photos_on_profile_id"
+  end
+
   create_table "profession_tags", force: :cascade do |t|
     t.integer  "profile_id"
     t.integer  "profession_id"
@@ -110,6 +121,10 @@ ActiveRecord::Schema.define(version: 20160712025008) do
     t.string   "wechat_account"
     t.integer  "wechat_access_level",   default: 0
     t.integer  "location_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["location_id"], name: "index_profiles_on_location_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
