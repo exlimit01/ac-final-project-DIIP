@@ -1,0 +1,65 @@
+<div>
+  <%= f.label :nickname, "暱稱" %>
+  <%= f.text_field :nickname %>
+</div>
+
+<div>
+  <%= f.label :age, "年齡" %>
+  <%= f.number_field :age %>
+</div>
+
+<div>
+  <%= f.label :avatar, "個人圖像" %>
+  <%= f.file_field :avatar %>
+  <% if @profile.avatar.exists? %>
+    <%= check_box_tag "_remove_avatar", "1" %> Remove Avatar
+  <% end %>
+</div>
+
+<div>
+  <%= f.label :photos, "照片" %>
+  <%= file_field_tag "photos[]", :type => :file, :multiple => true %>
+  <% if @profile.photos.exists? %>
+    <%= check_box_tag "_remove_photos", "1" %> Remove Photos
+  <% end %>
+</div>
+
+<div>
+  <%= f.label :location_id, "Location" %>
+  <%= f.collection_select :location_id, Location.all, :id, :name, :class => "form-control", :prompt => "請選擇" %>
+</div>
+
+<div>
+  <%= f.label :description, "一句話" %>
+  <%= f.text_area :description %>
+</div>
+
+<div>
+  <%= f.label :facebook_link, "Facebook網址" %>
+  <%= f.url_field :facebook_link %>
+</div>
+
+<div>
+  <%= f.label :facebook_access_level, "Facebook權重" %>
+  <%= f.number_field :facebook_access_level %>
+</div>
+
+<div>
+  <%= f.label :line_account, "Line帳號" %>
+  <%= f.text_field :line_account %>
+</div>
+
+<div>
+  <%= f.label :line_access_level, "Line權重" %>
+  <%= f.number_field :line_access_level %>
+</div>
+
+<div>
+  <%= f.label :wechat_account, "Wechat帳號" %>
+  <%= f.text_field :wechat_account %>
+</div>
+
+<div>
+  <%= f.label :wechat_access_level, "Wechat權重" %>
+  <%= f.number_field :wechat_access_level %>
+</div>

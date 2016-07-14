@@ -1,0 +1,66 @@
+<div>
+  暱稱 : <%= @profile.nickname %>
+</div>
+
+<div>
+  年齡 : <%= @profile.age %>
+</div>
+
+<div>
+  個人圖像 :
+  <% if @profile.avatar.exists? %>
+    <%= image_tag(@profile.avatar.url(:medium)) %>
+  <% else %>
+    沒有圖片
+  <% end %>
+</div>
+
+<div>
+  照片 :
+  <% if @profile.photos.exists? %>
+    <% @profile.photos.each do |image| %>
+      <%= image_tag image.photo.url(:medium) %>
+    <% end %>
+  <% else %>
+    沒有照片
+  <% end %>
+</div>
+
+<div>
+  地區 :
+  <% if @profile.location.present? %>
+    <%= @profile.location.name %>
+  <% else %>
+    沒有地區
+  <% end %>
+</div>
+
+<div>
+  一句話 : <%= @profile.description %>
+</div>
+
+<div>
+  Facebook網址 : <%= @profile.facebook_link %>
+</div>
+
+<div>
+  Facebook權重 : <%= @profile.facebook_access_level %>
+</div>
+
+<div>
+  Line帳號 : <%= @profile.line_account %>
+</div>
+
+<div>
+  Line權重 : <%= @profile.line_access_level %>
+</div>
+
+<div>
+  Wechat帳號 : <%= @profile.wechat_account %>
+</div>
+
+<div>
+  Wechat權重 : <%= @profile.wechat_access_level %>
+</div>
+
+<%= link_to "回到使用者列表", profiles_path %>

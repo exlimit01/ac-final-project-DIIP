@@ -1,0 +1,9 @@
+<%= form_for @profile do |f| %>
+
+  <%= render partial: "form", locals: {f: f} %>
+
+  <%= f.submit "建立" %>
+
+<% end %>
+
+<%= link_to "回到使用者列表", profiles_path %>
