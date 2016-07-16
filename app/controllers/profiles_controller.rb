@@ -66,6 +66,15 @@ class ProfilesController < ApplicationController
     redirect_to profiles_path
   end
 
+  # GET /profiles/entrance
+  def entrance
+    if current_user
+      redirect_to profiles_path
+    else
+      redirect_to new_session_path(:user)
+    end
+  end
+
   private
 
   def set_profile
