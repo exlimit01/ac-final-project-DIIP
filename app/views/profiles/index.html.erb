@@ -5,34 +5,14 @@
   <thead>
     <tr>
       <th>暱稱</th>
-<!--       <th>Avatar</th>
-      <th>Photos</th>
- -->    </tr>
+    </tr>
   </thead>
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= link_to profile.nickname, profile_path(profile) %></td>
-<!--         <td>
-          <% if profile.avatar.exists? %>
-            <%= image_tag(profile.avatar.url(:medium)) %>
-          <% else %>
-            No Image
-          <% end %>
-        </td>
-        <td>
-          <% if profile.photos.exists? %>
-            <% profile.photos.each do |image| %>
-              <%= image_tag image.photo.url(:medium) %>
-            <% end %>
-          <% else %>
-            No Photos.
-          <% end %>
-        </td>
-        <td>
-          <%= link_to "刪除", profile_path(profile), method: :delete, class: "btn btn-danger" %>
-        </td>
--->
+        <% unless profile.is_current_user?(current_user) %>
+          <td><%= link_to profile.nickname, profile_path(profile) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

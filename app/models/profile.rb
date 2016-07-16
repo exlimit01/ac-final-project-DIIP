@@ -17,4 +17,8 @@ class Profile < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :questions, through: :answers
 
+  def is_current_user?(user)
+    self.user == user
+  end
+
 end
