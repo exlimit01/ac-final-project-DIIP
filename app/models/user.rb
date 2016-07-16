@@ -7,9 +7,6 @@ class User < ApplicationRecord
 
   has_many :feedbacks, dependent: :destroy
 
-  has_many :answers, dependent: :destroy
-  has_many :questions, through: :answers
-
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 

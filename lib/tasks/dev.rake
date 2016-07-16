@@ -75,6 +75,11 @@ namespace :dev do
                           :wechat_account => "yakushou730",
                           :wechat_access_level => 30,
                           :location_id => 3)
+    5.times do
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: user.profile.id,
+                     content: Faker::Lorem.sentence)
+    end
 
     10.times do |i|
       u = User.create!(:email =>  Faker::Internet.email, :password => "000000")
@@ -89,6 +94,12 @@ namespace :dev do
                           :wechat_account => Faker::Name.name,
                           :wechat_access_level => Faker::Number.between(0, 100),
                           :location_id => Faker::Number.between(Location.first.id, Location.last.id))
+
+      5.times do
+        Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                       profile_id: u.profile.id,
+                       content: Faker::Lorem.sentence)
+      end
     end
 
     puts "---LOG---"

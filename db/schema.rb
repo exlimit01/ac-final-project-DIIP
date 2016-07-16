@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714075531) do
+ActiveRecord::Schema.define(version: 20160716071010) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
     t.integer  "likes",                     default: 0
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.integer  "question_id"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.index ["profile_id"], name: "index_answers_on_profile_id", using: :btree
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
-    t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
   end
 
   create_table "feedbacks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

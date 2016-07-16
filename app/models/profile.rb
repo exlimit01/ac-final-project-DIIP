@@ -14,4 +14,7 @@ class Profile < ApplicationRecord
 
   has_many :photos, dependent: :destroy
 
+  has_many :answers, dependent: :destroy
+  has_many :questions, through: :answers
+
 end
