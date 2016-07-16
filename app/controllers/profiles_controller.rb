@@ -9,7 +9,11 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/:id
   def show
-
+    if params[:aid]
+      @answer = Answer.find(params[:aid])
+    else
+      @answer = Answer.new
+    end
   end
 
   # GET /profiles/new

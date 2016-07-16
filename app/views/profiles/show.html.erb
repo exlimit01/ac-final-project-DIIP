@@ -62,3 +62,26 @@
 <div>
   Wechat權重 : <%= @profile.wechat_access_level %>
 </div>
+
+<hr>
+
+
+<h2>問與答</h2>
+
+<div>
+  <% @profile.answers.each do |answer| %>
+    <% if answer.question.present? %>
+      <h3><%= answer.question.content %><%= link_to "編輯", profile_path(@profile, aid: answer.id) %><%= link_to "刪除", profile_answer_path(@profile, answer), method: :delete %></h3>
+      <h4><%= answer.content %></h4>
+    <% end %>
+  <% end %>
+</div>
+
+<hr>
+
+<%= link_to "回答新問題", profile_path(@profile), class: "btn btn-default btn-lg" %>
+<div id="QA_block">
+  <%= render partial: "answers/QA_block" %>
+</div>
+
+
