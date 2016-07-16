@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :profiles do
     collection do
       get :entrance
+      get :empty
     end
   end
 

@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
   #POST /profiles
   def create
     @profile = Profile.new(profile_params)
+    @profile.user = current_user
     @profile.save
 
     if params[:photos]
@@ -27,7 +28,7 @@ class ProfilesController < ApplicationController
         @profile.photos.create(:photo => photo)
       end
     end
-    redirect_to profiles_path
+    redirect_to profile_path(@profile)
   end
 
   #GET /profiles/:id/edit
@@ -53,9 +54,7 @@ class ProfilesController < ApplicationController
           @profile.photos.create(:photo => photo)
         end
       end
-
-      redirect_to profiles_path
-
+      redirect_to profile_path(@profile)
     end
 
   end
@@ -63,15 +62,21 @@ class ProfilesController < ApplicationController
   #DELETE /profiles/:id
   def destroy
     @profile.destroy
-    redirect_to profiles_path
+    redirect_to profile_path(@profile)
   end
 
   # GET /profiles/entrance
   def entrance
     if current_user
-      redirect_to profiles_path
+      redirect_to empty_profiles_path
     else
       redirect_to new_session_path(:user)
+    end
+  end
+
+  def empty
+    if current_user.profile
+      redirect_to profile_path(current_user.profile.id)
     end
   end
 
