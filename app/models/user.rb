@@ -15,6 +15,15 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  def friend_status_none?(profile)
+    friendship = self.friendships.where(friend_id: profile.user.id)
+    if friendship.count == 0 || friendship.status == "none"
+      true
+    else
+      false
+    end
+  end
+
   def self.from_omniauth(auth)
      # Case 1: Find existing user by facebook uid
      user = User.find_by_fb_uid( auth.uid )

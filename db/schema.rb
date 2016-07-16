@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160716071010) do
+ActiveRecord::Schema.define(version: 20160716104007) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 20160716071010) do
     t.integer  "user_id"
     t.integer  "friend_id"
     t.integer  "love_level", default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "status",     default: "none"
     t.index ["friend_id"], name: "index_friendships_on_friend_id", using: :btree
     t.index ["user_id"], name: "index_friendships_on_user_id", using: :btree
   end
