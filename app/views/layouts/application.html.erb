@@ -33,7 +33,7 @@
       </div>
 
       <section>
-        <% if current_user %>
+        <% if current_user && current_user.profile %>
           <div><%= link_to "個人資料", empty_profiles_path %></div>
           <div><%= link_to "任務", "#" %></div>
           <div><%= link_to "使用者列表", profiles_path %></div>
