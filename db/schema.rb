@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717110637) do
+ActiveRecord::Schema.define(version: 20160717114136) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20160717110637) do
     t.datetime "avatar_updated_at"
     t.string   "sex"
     t.string   "relation"
+    t.text     "aboutme",               limit: 65535
     t.index ["location_id"], name: "index_profiles_on_location_id", using: :btree
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
