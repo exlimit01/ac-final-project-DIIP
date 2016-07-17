@@ -21,4 +21,8 @@ class Profile < ApplicationRecord
     self.user == user
   end
 
+  def get_lasest_3_answers
+    self.answers.order("updated_at desc").limit(3)
+  end
+
 end

@@ -1,21 +1,22 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>暱稱</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="row">
     <% @profiles.each do |profile| %>
-      <tr>
+      <div>
         <% unless profile.is_current_user?(current_user) %>
-          <td><%= link_to profile.nickname, profile_path(profile) %></td>
-          <%= make_friend_signs(profile) %>
+          <div class="col-sm-12">
+            <%= link_to profile.nickname, profile_path(profile) %>
+          </div>
+          <div class="col-sm-12">
+            <% if profile.avatar.exists? %>
+              <%= image_tag(profile.avatar.url(:thumb)) %>
+            <% end %>
+          </div>
+          <div class="col-sm-12">
+            <%= make_friend_signs(profile) %>
+          </div>
+          <div class="col-sm-12">
+            <%= make_answer_list(profile) %>
+          </div>
         <% end %>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
