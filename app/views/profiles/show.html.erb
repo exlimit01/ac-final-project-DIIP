@@ -60,6 +60,24 @@
 </div>
 
 <div>
+  興趣
+  <ul>
+    <% @profile.professions.each do |p| %>
+      <li><%= p.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  專業
+  <ul>
+    <% @profile.hobbies.each do |h| %>
+      <li><%= h.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
   Facebook網址 : <%= @profile.facebook_link %>
 </div>
 

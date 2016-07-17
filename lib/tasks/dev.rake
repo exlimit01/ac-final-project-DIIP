@@ -68,7 +68,7 @@ namespace :dev do
 
     puts "建立使用者 & 個人資料"
     user = User.create!(:email => "yakushou730@gmail.com", :password => "000000")
-    Profile.create!(:nickname => "Yao-Shang", :user_id => user.id,
+    profile = Profile.create!(:nickname => "Yao-Shang", :user_id => user.id,
                           :age => 18,
                           :sex => "男",
                           :relation => "單身",
@@ -81,11 +81,19 @@ namespace :dev do
                           :wechat_account => "yakushou730",
                           :wechat_access_level => 30,
                           :location_id => 3)
+
     5.times do
       Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
-                     profile_id: user.profile.id,
+                     profile_id: profile.id,
                      content: Faker::Lorem.sentence)
     end
+
+    HobbyTag.create!(profile_id: profile.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+    ProfessionTag.create!(profile_id: profile.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+
+
 
     10.times do |i|
       u = User.create!(:email =>  Faker::Internet.email, :password => "000000")
@@ -106,9 +114,14 @@ namespace :dev do
 
       5.times do
         Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
-                       profile_id: u.profile.id,
+                       profile_id: p.id,
                        content: Faker::Lorem.sentence)
       end
+
+      HobbyTag.create!(profile_id: p.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      ProfessionTag.create!(profile_id: p.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
     end
 
     puts "---LOG---"
