@@ -1,5 +1,10 @@
-<%= link_to "編輯個人檔案", edit_profile_path(current_user.profile), class: "btn btn-default" %>
-
+<div>
+  <% if @profile.is_current_user?(current_user) %>
+    <%= link_to "編輯個人檔案", edit_profile_path(current_user.profile), class: "btn btn-default" %>
+  <% else %>
+    <%= make_friend_signs(@profile) %>
+  <% end %>
+</div>
 
 <div>
   暱稱 : <%= @profile.nickname %>

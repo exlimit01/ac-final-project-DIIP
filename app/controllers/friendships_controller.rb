@@ -7,7 +7,7 @@ class FriendshipsController < ApplicationController
     else
       friendships.first.update(friend_id: params[:friend_id], status: "liked" )
     end
-    redirect_to profiles_path
+    redirect_to :back
   end
 
   def none
@@ -17,7 +17,7 @@ class FriendshipsController < ApplicationController
     else
       friendships.first.update(friend_id: params[:friend_id], status: "none" )
     end
-    redirect_to profiles_path
+    redirect_to :back
 
   end
 
@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
     else
       friendships.first.update(friend_id: params[:friend_id], status: "blocked" )
     end
-    redirect_to profiles_path
+    redirect_to :back
 
   end
 
