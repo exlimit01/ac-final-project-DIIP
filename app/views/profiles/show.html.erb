@@ -15,6 +15,14 @@
 </div>
 
 <div>
+  性別 : <%= @profile.sex %>
+</div>
+
+<div>
+  關係 : <%= @profile.relation %>
+</div>
+
+<div>
   個人圖像 :
   <% if @profile.avatar.exists? %>
     <%= image_tag(@profile.avatar.url(:medium)) %>

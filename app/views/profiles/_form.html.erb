@@ -9,6 +9,16 @@
 </div>
 
 <div>
+  <%= f.label :sex, "性別" %>
+  <%= f.select :sex, [["男", "男"], ["女", "女"]] %>
+</div>
+
+<div>
+  <%= f.label :relation, "關係" %>
+  <%= f.select :relation, [["未婚", "未婚"], ["交往中", "交往中"], ["已婚","已婚"]] %>
+</div>
+
+<div>
   <%= f.label :avatar, "個人圖像" %>
   <%= f.file_field :avatar %>
   <% if @profile.avatar.exists? %>

@@ -92,7 +92,8 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:nickname, :age, :avatar, :photos, :description, :facebook_link,
-      :facebook_access_level ,:line_account, :line_access_level, :wechat_account, :wechat_access_level, :location_id)
+      :facebook_access_level ,:line_account, :line_access_level, :wechat_account, :wechat_access_level, :location_id,
+      :sex, :relation)
   end
 
 

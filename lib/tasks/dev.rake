@@ -2,6 +2,9 @@ namespace :dev do
 
   task :fake => :environment do
 
+    sex_array = ["男", "女"]
+    relation_array = ["單身", "交往中", "已婚"]
+
     puts "清除資料!!"
     User.destroy_all
     Profile.destroy_all
@@ -67,6 +70,8 @@ namespace :dev do
     user = User.create!(:email => "yakushou730@gmail.com", :password => "000000")
     Profile.create!(:nickname => "Yao-Shang", :user_id => user.id,
                           :age => 18,
+                          :sex => "男",
+                          :relation => "單身",
                           :description => "Go Go Go",
                           :facebook_link => "https://www.facebook.com/yakushou730",
                           :facebook_access_level => 10,
@@ -86,6 +91,8 @@ namespace :dev do
       p = Profile.create!(:nickname => Faker::Name.name,
                           :user_id => u.id,
                           :age => Faker::Number.between(18, 30),
+                          :sex => sex_array[Faker::Number.between(0,1)],
+                          :relation => relation_array[Faker::Number.between(0,2)],
                           :description => Faker::Lorem.sentence,
                           :facebook_link => Faker::Internet.url('facebook.com'),
                           :facebook_access_level => Faker::Number.between(0, 100),
@@ -105,7 +112,6 @@ namespace :dev do
     puts "---LOG---"
     puts "Create User id from #{User.first.id} to #{User.last.id}"
     puts "Create Profile id from #{Profile.first.id} to #{Profile.last.id}"
-
 
   end
 
