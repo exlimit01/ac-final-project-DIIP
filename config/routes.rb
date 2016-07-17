@@ -19,6 +19,13 @@ Rails.application.routes.draw do
 
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
     resources :missions
+    resources :profiles do
+      collection do
+        get :me
+      end
+    end
+
+
   end
 
   root 'welcome#hello_world'
