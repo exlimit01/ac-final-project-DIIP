@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
-  def hello_world
+  def welcome_page
     render :layout => false
   end
 

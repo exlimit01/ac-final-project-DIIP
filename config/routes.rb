@@ -43,6 +43,6 @@ Rails.application.routes.draw do
 
   end
 
-  root 'welcome#hello_world'
+  root 'welcome#welcome_page'
 
 end

@@ -1,7 +1,7 @@
 /*Timeline v1
 ------------------------------------*/
 .timeline-v1 {
-	padding: 20px 0;
+	padding: 35px 0;
 	list-style: none;
 	position: relative;
 }
@@ -164,7 +164,7 @@
 }
 
 .timeline-v1 > li.timeline-inverted{
-	float: right; 
+	float: right;
 	clear: right;
 	margin-bottom: 40px;
 }
@@ -261,9 +261,9 @@
         left: -11px;
         right: auto;
     }
-    
+
 	.timeline-v1 > li.timeline-inverted{
-		float: left; 
+		float: left;
 		clear: left;
 		margin-top: 30px;
 		margin-bottom: 30px;

@@ -2242,7 +2242,7 @@
   height: auto;
   padding: 50px 0;
   position: relative;
-  background: url(../img/bg/11.jpg) repeat fixed;
+  background: url(../img/team.jpg) repeat fixed;
   background-size: cover;
 }
 
@@ -2263,7 +2263,7 @@
   height: auto;
   padding: 50px 0;
   position: relative;
-  background: url(../img/bg/7.jpg) repeat fixed;
+  background: url(../img/team.jpg) repeat fixed;
 }
 
 .bg-image-v2:before {
@@ -7747,7 +7747,7 @@ img.img-mouse {
 .service-info {
 	position: relative;
 	padding: 40px 0 50px;
-	background: url(../img/patterns/17.png) repeat;
+	background: url() repeat;
 }
 
 .service-info .info-description {
