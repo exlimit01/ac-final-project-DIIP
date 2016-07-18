@@ -1,5 +1,7 @@
 class ApiV1::ProfilesController < ApiController
 
+  before_action :authenticate_user!
+
   def me
     @profile = current_user.profile
     @photos = []

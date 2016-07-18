@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       end
     end
 
+    post "login" => "auth#login"
+    post "logout" => "auth#logout"
 
   end
 
