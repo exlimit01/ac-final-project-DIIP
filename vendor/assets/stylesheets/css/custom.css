@@ -1,1 +1,6 @@
 /* Add here all your css styles (customizations) */
+
+.cus-logo {
+  max-width: 35%;
+  margin-top: -40px;
+}

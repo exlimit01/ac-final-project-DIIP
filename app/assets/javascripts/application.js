@@ -13,5 +13,23 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
-//= require_tree .
+//= require plugins/bootstrap/js/bootstrap.min.js
+//= require plugins/jquery/jquery.min.js
+//= require plugins/jquery/jquery-migrate.min.js
+//= require plugins/back-to-top.js
+//= require plugins/smoothScroll.js
+//= require plugins/circles-master/circles.js
+//= require plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js
+//= require plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js
+//= require js/custom.js
+//= require js/app.js
+//= require js/plugins/datepicker.js
+//= require js/plugins/circles-master.js
+//= require js/plugins/style-switcher.js
+
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    App.init();
+    StyleSwitcher.initStyleSwitcher();
+  });
+</script>

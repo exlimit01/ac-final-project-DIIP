@@ -10,9 +10,21 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require plugins/bootstrap/css/bootstrap.min.css
+ *= require css/style.css
+ *= require css/headers/header-default.css
+ *= require css/footers/footer-v1.css
+ *= require plugins/animate.css
+ *= require plugins/line-icons/line-icons.css
+ *= require plugins/font-awesome/css/font-awesome.min.css
+ *= require plugins/scrollbar/css/jquery.mCustomScrollbar.css
+ *= require plugins/sky-forms-pro/skyforms/css/sky-forms.css
+ *= require plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css
+ *= require css/pages/profile.css
+ *= require css/pages/shortcode_timeline2.css
+ *= require css/theme-colors/default.css
+ *= require css/theme-skins/dark.css
+ *= require css/custom.css
  *= require_self
  */
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
