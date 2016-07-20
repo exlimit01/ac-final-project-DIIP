@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718071534) do
+ActiveRecord::Schema.define(version: 20160718125844) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -62,8 +62,9 @@ ActiveRecord::Schema.define(version: 20160718071534) do
     t.integer  "friendship_id"
     t.integer  "score",                       default: 0
     t.text     "comment",       limit: 65535
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "status",                      default: "request"
     t.index ["friendship_id"], name: "index_interactions_on_friendship_id", using: :btree
     t.index ["mission_id"], name: "index_interactions_on_mission_id", using: :btree
   end

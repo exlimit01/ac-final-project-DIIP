@@ -1,0 +1,27 @@
+<% if @current_interaction_item.present? %>
+  <% @current_interaction_item.each do |current_interaction| %>
+  <div style="border:1px solid blue;margin-top: 5px">
+    <%= current_interaction.mission.content %>
+    <%= show_interaction_status(current_interaction) %>
+  </div>
+  <% end %>
+<% end %>
+
+<% if @current_inverse_interactions.present? %>
+  <% @current_inverse_interactions.each do |current_inverse_interaction| %>
+    <div style="border:1px solid green;margin-top: 5px">
+      <%= current_inverse_interaction.mission.content %>
+      <%= current_inverse_interaction_item(current_inverse_interaction) %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<% if @done_interactions.present? %>
+  <% @done_interactions.each do |interaction| %>
+    <div style="border:1px solid red;margin-top: 5px">
+      <%= interaction.mission.content %><br>
+      <%= interaction.comment %>
+    </div>
+  <% end %>
+<% end %>

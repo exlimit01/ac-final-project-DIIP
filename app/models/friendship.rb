@@ -8,4 +8,10 @@ class Friendship < ApplicationRecord
   has_many :interactions, dependent: :destroy
   has_many :missions, through: :interactions
 
+  def mission_open?
+    forward_friendship = Friendship.find_by(user_id: self.user_id, friend_id: self.friend_id)
+    backward_friendship = Friendship.find_by(user_id: self.friend_id, friend_id: self.user_id)
+    [forward_friendship.love_level, backward_friendship.love_level].min >= 0
+  end
+
 end

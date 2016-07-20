@@ -11,6 +11,15 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :interactions do
+    post :ask
+    get :reset
+    post :ok
+    post :no
+    post :done
+    get :list
+  end
+
   namespace :friendships do
     post :like
     post :none

@@ -13,6 +13,8 @@ namespace :dev do
     Mission.destroy_all
     Question.destroy_all
     Location.destroy_all
+    Friendship.destroy_all
+    Interaction.destroy_all
 
     puts "建立假資料..."
 
@@ -82,6 +84,21 @@ namespace :dev do
                           :wechat_access_level => 30,
                           :location_id => 3)
 
+    user = User.create!(:email => "kukushou@gmail.com", :password => "000000")
+    profile = Profile.create!(:nickname => "KUKU", :user_id => user.id,
+                          :age => 18,
+                          :sex => "女",
+                          :relation => "單身",
+                          :description => "Go Go Go",
+                          :aboutme => "手牽手一步兩步三步四步望著天",
+                          :facebook_link => "https://www.facebook.com/yakushou730",
+                          :facebook_access_level => 10,
+                          :line_account => "yakushou730",
+                          :line_access_level => 20,
+                          :wechat_account => "yakushou730",
+                          :wechat_access_level => 30,
+                          :location_id => 3)
+
     5.times do
       Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
                      profile_id: profile.id,
@@ -124,9 +141,41 @@ namespace :dev do
                        profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
     end
 
-    puts "---LOG---"
-    puts "Create User id from #{User.first.id} to #{User.last.id}"
-    puts "Create Profile id from #{Profile.first.id} to #{Profile.last.id}"
+    #puts "建立好友關係"
+    # 1=>2 (10), 2=>1 (100)
+    # 1=>3 (10), 3=>1 (0)
+    # 1=>4 (10), 4=>1 (0)
+    #fs1 = Friendship.create!(:user_id => User.first.id, :friend_id => User.first.id + 1, :love_level => 10, :status => "liked")
+    #fs2 = Friendship.create!(:user_id => User.first.id+1, :friend_id => User.first.id, :love_level => 100, :status => "liked")
+    #fs3 = Friendship.create!(:user_id => User.first.id, :friend_id => User.first.id + 2, :love_level => 10, :status => "liked")
+    #fs4 = Friendship.create!(:user_id => User.first.id+2, :friend_id => User.first.id, :love_level => 0, :status => "liked")
+    #fs5 = Friendship.create!(:user_id => User.first.id, :friend_id => User.first.id + 3, :love_level => 10, :status => "liked")
+    #fs6 = Friendship.create!(:user_id => User.first.id+3, :friend_id => User.first.id, :love_level => 0, :status => "liked")
+
+    #puts "建立任務結果"
+
+    #Interaction.create!(:friendship_id => fs1.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "1-1", :status => "done")
+    #Interaction.create!(:friendship_id => fs1.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "1-2", :status => "done")
+    #Interaction.create!(:friendship_id => fs1.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "1-3", :status => "done")
+    #Interaction.create!(:friendship_id => fs2.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "2-1", :status => "done")
+    #Interaction.create!(:friendship_id => fs2.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "2-2", :status => "done")
+    #Interaction.create!(:friendship_id => fs2.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "2-3", :status => "done")
+    #Interaction.create!(:friendship_id => fs3.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "3-1", :status => "done")
+    #Interaction.create!(:friendship_id => fs3.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "3-2", :status => "done")
+    #Interaction.create!(:friendship_id => fs3.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "3-3", :status => "done")
+    #Interaction.create!(:friendship_id => fs4.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "4-1", :status => "done")
+    #Interaction.create!(:friendship_id => fs4.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "4-2", :status => "done")
+    #Interaction.create!(:friendship_id => fs4.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "4-3", :status => "done")
+    #Interaction.create!(:friendship_id => fs5.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "5-1", :status => "done")
+    #Interaction.create!(:friendship_id => fs5.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "5-2", :status => "done")
+    #Interaction.create!(:friendship_id => fs5.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "5-3", :status => "done")
+    #Interaction.create!(:friendship_id => fs6.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "6-1", :status => "done")
+    #Interaction.create!(:friendship_id => fs6.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "6-2", :status => "done")
+    #Interaction.create!(:friendship_id => fs6.id, :mission_id => Faker::Number.between(Question.first.id, Question.last.id), :comment => "6-3", :status => "done")
+
+    #puts "---LOG---"
+    #puts "Create User id from #{User.first.id} to #{User.last.id}"
+    #puts "Create Profile id from #{Profile.first.id} to #{Profile.last.id}"
 
   end
 
