@@ -1,7 +1,12 @@
 <% if @current_interaction_item.present? %>
   <% @current_interaction_item.each do |current_interaction| %>
-  <div style="border:1px solid blue;margin-top: 5px">
-    <%= current_interaction.mission.content %>
+  <div class=<%= "interaction-#{current_interaction.id || 0 }" %> style="border:1px solid blue;margin-top: 5px">
+    <% if current_interaction.accept? %>
+      <%= link_to current_interaction.mission.content, "#" %>
+    <% else %>
+      <%= current_interaction.mission.content %>
+    <% end %>
+
     <%= show_interaction_status(current_interaction) %>
   </div>
   <% end %>
