@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require plugins/bootstrap/js/bootstrap.min.js
+//= require bootstrap-sprockets
 //= require plugins/jquery/jquery.min.js
 //= require plugins/jquery/jquery-migrate.min.js
 //= require plugins/back-to-top.js
@@ -27,9 +27,4 @@
 //= require js/plugins/circles-master.js
 //= require js/plugins/style-switcher.js
 
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    App.init();
-    StyleSwitcher.initStyleSwitcher();
-  });
-</script>
+
