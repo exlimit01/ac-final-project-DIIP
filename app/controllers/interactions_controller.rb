@@ -30,11 +30,22 @@ class InteractionsController < ApplicationController
     mission_id = @interaction.mission_id
 
     f = Friendship.find_by(:user_id => inverse_user_id, :friend_id => inverse_friend_id )
-    Interaction.create!(:friendship_id => f.id, :mission_id => mission_id, :status => "accept")
+    i = Interaction.create!(:friendship_id => f.id, :mission_id => mission_id, :status => "accept")
 
     @current_interaction_item = []
     @current_interaction_item << @interaction
 
+    # 任務接受後 建立一個Room
+    room = Room.create!(:user_id1 => @interaction.friendship.user_id,
+                 :user_id2 => @interaction.friendship.friend_id,
+                 :interaction_id1 => @interaction.id,
+                 :interaction_id2 => i.id,
+                 :mission_id => @interaction.mission_id)
+
+    @interaction.room = room
+    @interaction.save
+    i.room = room
+    i.save
     # respond_to do |format|
     #   format.js
     # end
@@ -73,17 +84,17 @@ class InteractionsController < ApplicationController
 
   end
 
-  def done
+  # def done
 
-    interaction_id = params[:interaction_id]
-    @interaction = Interaction.find(interaction_id)
+  #   interaction_id = params[:interaction_id]
+  #   @interaction = Interaction.find(interaction_id)
 
-    respond_to do |format|
-      format.js
-    end
+  #   respond_to do |format|
+  #     format.js
+  #   end
 
 
-  end
+  # end
 
   def list
 

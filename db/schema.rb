@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718125844) do
+ActiveRecord::Schema.define(version: 20160720113632) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -65,8 +65,10 @@ ActiveRecord::Schema.define(version: 20160718125844) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "status",                      default: "request"
+    t.integer  "room_id"
     t.index ["friendship_id"], name: "index_interactions_on_friendship_id", using: :btree
     t.index ["mission_id"], name: "index_interactions_on_mission_id", using: :btree
+    t.index ["room_id"], name: "index_interactions_on_room_id", using: :btree
   end
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -149,6 +151,25 @@ ActiveRecord::Schema.define(version: 20160718125844) do
     t.integer  "unlock_level",               default: 0
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+  end
+
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id1"
+    t.integer  "user_id2"
+    t.integer  "interaction_id1"
+    t.integer  "interaction_id2"
+    t.integer  "mission_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "talks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "content",    limit: 65535
+    t.string   "author"
+    t.integer  "room_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["room_id"], name: "index_talks_on_room_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

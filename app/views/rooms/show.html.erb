@@ -1,0 +1,15 @@
+<%= link_to "回上頁", interactions_list_path(friend_id: @friend_id), :class => "btn btn-default" %>
+
+<div id="talk-block">
+  <h4>留言</h4>
+  <%= render :partial => "room_talks/talk_block", :locals => {:room => @room, :talk => @talk} %>
+</div>
+
+<section>
+  <% @talks.each do |talk| %>
+    <div data-user="<%= talk.author %>" style="border:1px solid black;margin-top:2px">
+      <%= "USER-ID : #{talk.author}" %><br>
+      <%= "USER-TALK : #{talk.content}" %>
+    </div>
+  <% end %>
+</section>

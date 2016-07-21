@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get :reset
     post :ok
     post :no
-    post :done
+    #post :done
     get :list
   end
 
@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     post :like
     post :none
     post :block
+  end
+
+  resources :rooms do
+    resources :talks, :controller => "room_talks"
   end
 
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do

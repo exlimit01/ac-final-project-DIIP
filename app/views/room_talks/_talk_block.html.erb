@@ -1,0 +1,19 @@
+<%= form_for [@room, @talk] do |f| %>
+
+  <% if @talk.errors.any? %>
+    <ul>
+      <% @talk.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+
+    <%= f.label :content, "內容" %>
+    <%= f.text_area :content %>
+
+    <%= f.submit "送出" %>
+  </div>
+
+<% end %>

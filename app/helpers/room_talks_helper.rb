@@ -1,0 +1,2 @@
+module RoomTalksHelper
+end
