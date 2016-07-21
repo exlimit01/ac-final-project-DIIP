@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720113632) do
+ActiveRecord::Schema.define(version: 20160721025430) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -159,8 +159,9 @@ ActiveRecord::Schema.define(version: 20160720113632) do
     t.integer  "interaction_id1"
     t.integer  "interaction_id2"
     t.integer  "mission_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "active",          default: true
   end
 
   create_table "talks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
