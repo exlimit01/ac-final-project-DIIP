@@ -35,9 +35,19 @@
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#"><i class="fa fa-list"></i>  <%= link_to "修改資料", edit_registration_path(:user) %></a></li>
+                <li>
+                  <%= link_to edit_registration_path(:user) do %>
+                  <i class="fa fa-list"></i>
+                  編輯註冊資料
+                  <% end %>
+                </li>
                 <li class="divider"></li>
-                <li><a href="#"><i class="fa fa-cloud-download"></i> <%= link_to "登出", destroy_user_session_path, :method => :delete %></a></li>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => :delete do %>
+                  <i class="fa fa-cloud-download"></i>
+                  登出
+                  <% end %>
+                </li>
               </ul>
             </div>
           </div>

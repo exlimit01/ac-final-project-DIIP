@@ -87,7 +87,18 @@
                   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= answer.id %>" aria-expanded="false" aria-controls="<%= answer.id %>">
                   <%= answer.question.content %>
                   </a>
-                  <%= link_to "編輯", profile_path(@profile, aid: answer.id) %><%= link_to "刪除", profile_answer_path(@profile, answer), method: :delete %>
+                  <ul class="nav navbar-nav navbar-right", style="margin-right: 0px; margin-top: -27px" >
+                    <li>
+                      <%= link_to profile_path(@profile, aid: answer.id) do %>
+                        <i class="fa fa-pencil"></i>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
+                        <i class="fa fa-times"></i>
+                      <% end %>
+                    </li>
+                  </ul>
                 </h4>
               </div>
               <div id="<%= answer.id %>" class="panel-collapse collapse in">
