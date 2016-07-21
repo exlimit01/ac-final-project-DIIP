@@ -1,20 +1,47 @@
-<div class="row">
-    <% @profiles.each do |profile| %>
-      <div>
-        <% unless profile.is_current_user?(current_user) %>
-          <div class="col-sm-12">
-            <%= link_to profile.nickname, profile_path(profile) %>
-          </div>
-          <div class="col-sm-12">
-              <%= image_tag ("jill.jpg"), style: "max-width: 250px;" %>
-          </div>
-          <div class="col-sm-12">
-            <%= make_friend_signs(profile) %>
-          </div>
-          <div class="col-sm-12">
-            <%= make_answer_list(profile) %>
-          </div>
-        <% end %>
+<!-- Profile Content -->
+<div class="col-md-12 profile">
+  <div class="profile-body">
+    <div class="panel panel-profile">
+      <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>使用者列表</h2>
       </div>
-    <% end %>
+      <div class="panel-body margin-bottom-50">
+        <div class="media media-v2  margin-bottom-20">
+          <!-- erb -->
+          <% @profiles.each do |profile| %>
+          <% unless profile.is_current_user?(current_user) %>
+          <a class="pull-left" href="#">
+            <%= image_tag ("jill.jpg"), class: "media-object rounded-x", style: "max-width: 250px;" %>
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">
+                <%= link_to profile_path(profile) do %>
+                <button class="btn-u btn-brd rounded-3x btn-u-dark-blue" type="button"><i class="fa fa-paper-plane-o"></i> <%= profile.nickname %></button>
+                <% end %>
+              <% if profile.location.present? %>
+                 @<%= profile.location.name %>
+                <% else %>
+              <% end %>
+              <%= make_friend_signs(profile) %>
+            </h4>
+            <p><%= make_answer_list(profile) %></p>
+            <ul class="list-inline results-list pull-left">
+              <li><a href="#">25 Likes</a></li>
+              <li><a href="#">10 Share</a></li>
+            </ul>
+            <ul class="list-inline">
+              <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
+              <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
+            </ul>
+          </div>
+          <% end %>
+          <% end %>
+          <!-- End erb -->
+        </div><!--/end media media v2-->
+
+        <button type="button" class="btn-u btn-u-default btn-block">Load More</button>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- End Profile Content -->
