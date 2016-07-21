@@ -1,90 +1,126 @@
-<div>
-  <%= f.label :nickname, "暱稱" %>
-  <%= f.text_field :nickname %>
-</div>
+<!-- Profile Content -->
+<div class="col-md-9">
+  <div class="profile-body margin-bottom-20">
+    <div class="tab-v1">
+      <ul class="nav nav-justified nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#基本資料">基本資料</a></li>
+        <li><a data-toggle="tab" href="#圖像資料">圖像資料</a></li>
+        <li><a data-toggle="tab" href="#社交資料">社交資料</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="基本資料" class="profile-edit tab-pane fade in active">
+          <h2 class="heading-md">基本資料修改</h2>
+          <hr>
+          <dl class="dl-horizontal">
+            <dt><strong>暱稱 </strong></dt>
+            <dd>
+              <%= f.text_field :nickname, :required => true, :autofocus => true, :placeholder => "個人顯示名稱 請填寫" %>
+            </dd>
+            <hr>
+            <dt><strong>年齡 </strong></dt>
+            <dd>
+              <%= f.number_field :age, :required => true, :autofocus => true, :placeholder => "請選擇" %>
+            </dd>
+            <hr>
+            <dt><strong>居住地 </strong></dt>
+            <dd>
+              <%= f.collection_select :location_id, Location.all, :id, :name, :class => "form-control", :prompt => "請選擇", :required => true %>
+            </dd>
+            <hr>
+            <dt><strong>性別 </strong></dt>
+            <dd>
+              <%= f.select :sex, [["男", "男"], ["女", "女"]], :required => true, :autofocus => true, :placeholder => "請選擇" %>
+            </dd>
+            <hr>
+            <dt><strong>關係 </strong></dt>
+            <dd>
+              <%= f.select :relation, [["未婚", "未婚"], ["交往中", "交往中"], ["已婚","已婚"]], :required => true, :autofocus => true, :placeholder => "請選擇" %>
+            </dd>
+            <hr>
+            <dt><strong>興趣 </strong></dt>
+            <dd>
+              <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :name) %>
+            </dd>
+            <hr>
+            <dt><strong>專業 </strong></dt>
+            <dd>
+              <%= f.collection_check_boxes(:profession_ids, Profession.all, :id, :name) %>
+            </dd>
+            <hr>
+            <dt><strong>關於我 </strong></dt>
+            <dd>
+              <%= f.text_area :aboutme, :required => true, :autofocus => true, :placeholder => "讓別人簡單認識你(妳)吧", :placeholder => "請填寫" %>
+            </dd>
+            <hr>
+          </dl>
+          <a href="#基本資料" ><button type="button" class="btn-u btn-u-default">取消</button></a>
+          <%= f.submit "更新",class:"btn-u" %>
+        </div>
 
-<div>
-  <%= f.label :age, "年齡" %>
-  <%= f.number_field :age %>
-</div>
+        <div id="圖像資料" class="profile-edit tab-pane fade">
+          <h2 class="heading-md">圖像資料修改</h2>
+          <hr>
+          <dl class="dl-horizontal">
+            <dt><strong>首頁圖片 </strong></dt>
+            <dd>
+              <%= f.file_field :avatar %>
+              <% if @profile.avatar.exists? %>
+                <%= check_box_tag "_remove_avatar", "1" %>
+                取消照片
+              <% end %>
+            </dd>
+            <hr>
+            <dt><strong>個人照片 </strong></dt>
+            <dd>
+              <%= file_field_tag "photos[]", :type => :file, :multiple => true %>
+              <% if @profile.photos.exists? %>
+                <%= check_box_tag "_remove_photos", "1" %> Remove Photos
+              <% end %>
+            </dd>
+          </dl>
+          <a href="#圖像資料" ><button type="button" class="btn-u btn-u-default">取消</button></a>
+          <%= f.submit "更新",class:"btn-u" %>
+        </div>
 
-<div>
-  <%= f.label :sex, "性別" %>
-  <%= f.select :sex, [["男", "男"], ["女", "女"]] %>
+        <div id="社交資料" class="profile-edit tab-pane fade">
+          <h2 class="heading-md">社交資料修改</h2>
+          <hr>
+          <dl class="dl-horizontal">
+            <dt><strong>Facebook個人網址 </strong></dt>
+            <dd>
+              <%= f.url_field :facebook_link, :autofocus => true, :placeholder => "請填寫Facebook個人網址", class: "form-control" %>
+            </dd>
+            <hr>
+            <dt><strong>Facebook解鎖權限 </strong></dt>
+            <dd>
+              <%= f.number_field :facebook_access_level, :autofocus => true, :placeholder => "請填寫Facebook解鎖權限" %>
+            </dd>
+            <hr>
+            <dt><strong>Line帳號 </strong></dt>
+            <dd>
+              <%= f.text_field :line_account, :autofocus => true, :placeholder => "請填寫Facebook個人網址" %>
+            </dd>
+            <hr>
+            <dt><strong>Line解鎖權限 </strong></dt>
+            <dd>
+              <%= f.number_field :line_access_level, :autofocus => true, :placeholder => "請填寫Facebook個人網址" %>
+            </dd>
+            <hr>
+            <dt><strong>Wechat帳號 </strong></dt>
+            <dd>
+              <%= f.text_field :wechat_account, :autofocus => true, :placeholder => "請填寫Facebook個人網址" %>
+            </dd>
+            <hr>
+            <dt><strong>Wechat解鎖權限 </strong></dt>
+            <dd>
+              <%= f.label :wechat_access_level, :autofocus => true, :placeholder => "請填寫Facebook個人網址" %>
+            </dd>
+          </dl>
+          <a href="#社交資料" ><button type="button" class="btn-u btn-u-default">取消</button></a>
+          <%= f.submit "更新",class:"btn-u" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div>
-  <%= f.label :relation, "關係" %>
-  <%= f.select :relation, [["未婚", "未婚"], ["交往中", "交往中"], ["已婚","已婚"]] %>
-</div>
-
-<div>
-  <%= f.label :avatar, "個人圖像" %>
-  <%= f.file_field :avatar %>
-  <% if @profile.avatar.exists? %>
-    <%= check_box_tag "_remove_avatar", "1" %> Remove Avatar
-  <% end %>
-</div>
-
-<div>
-  <%= f.label :photos, "照片" %>
-  <%= file_field_tag "photos[]", :type => :file, :multiple => true %>
-  <% if @profile.photos.exists? %>
-    <%= check_box_tag "_remove_photos", "1" %> Remove Photos
-  <% end %>
-</div>
-
-<div>
-  <%= f.label :location_id, "Location" %>
-  <%= f.collection_select :location_id, Location.all, :id, :name, :class => "form-control", :prompt => "請選擇" %>
-</div>
-
-<div>
-  <%= f.label :description, "一句話" %>
-  <%= f.text_area :description %>
-</div>
-
-<div>
-  <%= f.label :aboutme, "關於我" %>
-  <%= f.text_area :aboutme %>
-</div>
-
-<div>
-  興趣
-  <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :name) %>
-</div>
-
-<div>
-  專業
-  <%= f.collection_check_boxes(:profession_ids, Profession.all, :id, :name) %>
-</div>
-
-<div>
-  <%= f.label :facebook_link, "Facebook網址" %>
-  <%= f.url_field :facebook_link %>
-</div>
-
-<div>
-  <%= f.label :facebook_access_level, "Facebook權重" %>
-  <%= f.number_field :facebook_access_level %>
-</div>
-
-<div>
-  <%= f.label :line_account, "Line帳號" %>
-  <%= f.text_field :line_account %>
-</div>
-
-<div>
-  <%= f.label :line_access_level, "Line權重" %>
-  <%= f.number_field :line_access_level %>
-</div>
-
-<div>
-  <%= f.label :wechat_account, "Wechat帳號" %>
-  <%= f.text_field :wechat_account %>
-</div>
-
-<div>
-  <%= f.label :wechat_access_level, "Wechat權重" %>
-  <%= f.number_field :wechat_access_level %>
-</div>
+<!-- End Profile Content -->

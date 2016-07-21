@@ -1,73 +1,7 @@
     <!--=== Profile ===-->
     <div class="container content profile">
       <div class="row">
-        <!--Left Sidebar-->
-        <div class="col-md-3 md-margin-bottom-40">
-          <div class="center-block">
-            <%= image_tag ("shou.jpg"), style: "max-width: 250px;" %>
-          </div>
-
-          <hr>
-
-          <h2><%= @profile.nickname %></h2>
-          <span><strong>年齡:</strong> <%= @profile.age %></span><br>
-          <span><strong>性別:</strong> <%= @profile.sex %></span><br>
-          <span><strong>關係:</strong> <%= @profile.relation %><br>
-          <span><strong>地點:</strong>
-            <% if @profile.location.present? %>
-               <%= @profile.location.name %>
-              <% else %>
-              尚未填寫
-            <% end %>
-            <br>
-          <span class="list-inline"><strong>興趣:</strong>
-          <% @profile.professions.each do |p| %>
-            <li> <%= p.name %></li>
-          <% end %>
-          <br>
-          <span class="list-inline"><strong>專業:</strong>
-          <% @profile.hobbies.each do |h| %>
-            <li> <%= h.name %></li>
-          <% end %>
-          <br>
-          <span><strong>關於:</strong>
-          <p><%= @profile.aboutme %></p>
-
-          <hr>
-
-          <div class="row">
-            <button class="col-sm-4 btn-u btn-default" type="button">
-            <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Facebook.png"), style: "max-width: 30px;" %> 權限:<%= @profile.facebook_access_level %></a>
-            </button>
-            <button class="col-sm-4 btn-u btn-default" type="button">
-            <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Line.png"), style: "max-width: 30px;" %> 權限:<%= @profile.line_access_level %></a>
-            </button>
-            <button class="col-sm-4 btn-u btn-default" type="button">
-            <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Wechat.png"), style: "max-width: 30px;" %> 權限:<%= @profile.wechat_access_level %></a>
-            </button>
-            <button type="button" class="popovers btn-u btn-brd rounded btn-u-xs btn-u-default" data-container="body" data-toggle="popover" data-placement="top" data-content="123123123">
-              測試
-            </button>
-          </div>
-
-          <hr>
-
-          <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-            <li class="list-group-item">
-              <%= link_to profile_path(current_user.profile) do %>
-                <i class="fa fa-user"></i>
-                個人資料
-              <% end %>
-            </li>
-            <li class="list-group-item">
-              <%= link_to edit_profile_path(current_user.profile) do %>
-                <i class="fa fa-cog"></i>
-                編輯資料
-              <% end %>
-            </li>
-          </ul>
-        </div>
-        <!--End Left Sidebar-->
+        <%= render :partial => "left_sidebar" %>
 
         <!-- Profile Content -->
         <div class="col-md-9">
