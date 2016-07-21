@@ -6,9 +6,7 @@
             <%= link_to profile.nickname, profile_path(profile) %>
           </div>
           <div class="col-sm-12">
-            <% if profile.avatar.exists? %>
-              <%= image_tag(profile.avatar.url(:thumb)) %>
-            <% end %>
+              <%= image_tag ("jill.jpg"), style: "max-width: 250px;" %>
           </div>
           <div class="col-sm-12">
             <%= make_friend_signs(profile) %>
