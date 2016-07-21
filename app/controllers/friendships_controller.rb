@@ -7,11 +7,12 @@ class FriendshipsController < ApplicationController
     if friendships.count == 0
       Friendship.create(user_id: current_user.id, friend_id: params[:friend_id], status: "liked", :love_level => 6 )
     else
-      friendships.first.update(user_id: current_user.id, friend_id: params[:friend_id], status: "liked", :love_level => 6 )
+      lv = friendships.first.love_level
+      friendships.first.update(user_id: current_user.id, friend_id: params[:friend_id], status: "liked", :love_level => (lv + 6 ))
     end
 
     # 對方跟你沒建過關係的話 建立一筆反向的無的關係
-    inverse_friendships = Friendship.where(:user_id => params[:friend_id], :friend_id => current_user.id, :love_level => 0)
+    inverse_friendships = Friendship.where(:user_id => params[:friend_id], :friend_id => current_user.id)
     if inverse_friendships.count == 0
       Friendship.create(user_id: params[:friend_id], friend_id: current_user.id, status: "none", :love_level => 0 )
     end
