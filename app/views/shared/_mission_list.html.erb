@@ -25,8 +25,9 @@
 <% if @done_interactions.present? %>
   <% @done_interactions.each do |interaction| %>
     <div style="border:1px solid red;margin-top: 5px">
-      <%= interaction.mission.content %><br>
-      <%= interaction.comment %>
+      <%#= interaction.mission.content %><br>
+      <%= link_to interaction.mission.content, room_path(interaction.room.id, :interaction_id => interaction.id, :hide_star => true) %>
+      <%#= interaction.comment %>
     </div>
   <% end %>
 <% end %>

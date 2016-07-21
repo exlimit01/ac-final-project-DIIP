@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get :reset
     post :ok
     post :no
-    #post :done
+    post :done
     get :list
   end
 

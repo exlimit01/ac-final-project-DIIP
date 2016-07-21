@@ -1,9 +1,22 @@
 <%= link_to "回上頁", interactions_list_path(friend_id: @friend_id), :class => "btn btn-default" %>
 
-<div id="talk-block">
-  <h4>留言</h4>
-  <%= render :partial => "room_talks/talk_block", :locals => {:room => @room, :talk => @talk} %>
-</div>
+<% unless @hide_star %>
+  <%= form_tag interactions_done_path(room_id: @room, friend_id: @friend_id) do %>
+    <%= label_tag "結束任務並幫對方評分" %>
+    <%= number_field_tag :star, 5, in: 1..5 %>
+    <%= submit_tag "完成" %>
+  <% end %>
+<% end %>
+
+
+<% if @room.active? %>
+  <div id="talk-block">
+    <h4>留言</h4>
+    <%= render :partial => "room_talks/talk_block", :locals => {:room => @room, :talk => @talk} %>
+  </div>
+<% else %>
+    <h4>此任務已為關閉狀態喔</h4>
+<% end %>
 
 <section>
   <% @talks.each do |talk| %>

@@ -16,6 +16,10 @@ class InteractionsController < ApplicationController
     m = Mission.all.sample
     @current_interaction_item = []
     @current_interaction_item << friendship.interactions.new(mission_id: m.id, status: "none")
+
+    # 已完成任務
+    @done_interactions = friendship.interactions.where(status: "done").order(updated_at: :desc)
+
     respond_to do |format|
       format.js
     end
@@ -84,17 +88,28 @@ class InteractionsController < ApplicationController
 
   end
 
-  # def done
+   def done
 
-  #   interaction_id = params[:interaction_id]
-  #   @interaction = Interaction.find(interaction_id)
+    room_id = params[:room_id]
+    friend_id = params[:friend_id]
 
-  #   respond_to do |format|
-  #     format.js
-  #   end
+    # 房間關閉
+    room = Room.find(params[:room_id])
+    room.update!(:active => false)
 
+    # 找到關係並更新
+    friendship = Friendship.find_by(user_id: current_user.id, friend_id: friend_id)
+    friendship.love_level += params[:star].to_i
+    friendship.save
 
-  # end
+    # 找到互動並更新
+    interaction = Interaction.find_by(room_id: room_id, friendship_id: friendship.id)
+    interaction.status = "done"
+    interaction.save
+
+    redirect_to interactions_list_path(friend_id: friend_id)
+
+   end
 
   def list
 
@@ -129,7 +144,7 @@ class InteractionsController < ApplicationController
         end
       end
       # 已完成任務
-      @done_interactions = friendship.interactions.where(status: "done")
+      @done_interactions = friendship.interactions.where(status: "done").order(updated_at: :desc)
     end
 
   end

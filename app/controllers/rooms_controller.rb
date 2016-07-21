@@ -11,6 +11,8 @@ class RoomsController < ApplicationController
     # friend_id 用來辨識回上一頁的路徑
     @friend_id =  (current_user.id == interaction.friendship.user_id )? interaction.friendship.friend_id : interaction.friendship.user_id
 
+    @hide_star = params[:hide_star]
+
   end
 
   protected
