@@ -20,6 +20,13 @@ Rails.application.routes.draw do
     get :list
   end
 
+  namespace :v2_interactions do
+    post :ok
+    post :no
+    post :done
+    get :list
+  end
+
   namespace :friendships do
     post :like
     post :none

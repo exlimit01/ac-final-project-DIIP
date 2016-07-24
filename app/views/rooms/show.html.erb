@@ -1,7 +1,8 @@
-<%= link_to "回上頁", interactions_list_path(friend_id: @friend_id), :class => "btn btn-default" %>
+<%= link_to "回上頁", v2_interactions_list_path(friend_id: @friend_id), :class => "btn btn-default" %>
 
 <% unless @hide_star %>
-  <%= form_tag interactions_done_path(room_id: @room, friend_id: @friend_id) do %>
+  <%#= form_tag interactions_done_path(room_id: @room, friend_id: @friend_id) do %>
+  <%= form_tag v2_interactions_done_path(room_id: @room, friend_id: @friend_id) do %>
     <%= label_tag "結束任務並幫對方評分" %>
     <%= number_field_tag :star, 5, in: 1..5 %>
     <%= submit_tag "完成" %>

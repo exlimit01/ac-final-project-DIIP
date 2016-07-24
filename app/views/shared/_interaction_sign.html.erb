@@ -1,0 +1,30 @@
+<% if interaction.v2_all_none? %>
+  <%= link_to link_to "接受", v2_interactions_ok_path(:user_id => interaction.friendship.user_id,
+                        :friend_id => interaction.friendship.friend_id, :interaction_id => interaction.id,
+                        :mission_id => interaction.mission_id), :class => "btn btn-default", method: :post %>
+  <%= link_to "拒絕", v2_interactions_no_path(:user_id => interaction.friendship.user_id,
+                        :friend_id => interaction.friendship.friend_id, :interaction_id => interaction.id,
+                        :mission_id => interaction.mission_id), :class => "btn btn-default", method: :post %>
+<% elsif interaction.v2_other_accept? %>
+  <%= link_to "對方已接受", "#", :class => "btn btn-warning disabled" %>
+  <%= link_to "接受", v2_interactions_ok_path(:user_id => interaction.friendship.user_id,
+                        :friend_id => interaction.friendship.friend_id, :interaction_id => interaction.id,
+                        :mission_id => interaction.mission_id), :class => "btn btn-default", method: :post %>
+  <%= link_to "拒絕", v2_interactions_no_path(:user_id => interaction.friendship.user_id,
+                        :friend_id => interaction.friendship.friend_id, :interaction_id => interaction.id,
+                        :mission_id => interaction.mission_id), :class => "btn btn-default", method: :post %>
+<% elsif interaction.v2_accept_and_wait? %>
+  <%= link_to "已接受 等待對方同意", "#", :class => "btn btn-warning disabled" %>
+<% elsif interaction.v2_reject_other? %>
+  <%= link_to "已拒絕", "#", :class => "btn btn-danger disabled" %>
+<% elsif interaction.v2_other_reject? %>
+  <%= link_to "對方已拒絕", "#", :class => "btn btn-danger disabled" %>
+<% elsif interaction.v2_start? %>
+  <%= link_to "任務開始", "#", :class => "btn btn-success disabled" %>
+<% elsif interaction.v2_me_done? %>
+  <%= link_to "結束任務 等候對方也結束", "#", :class => "btn btn-success disabled" %>
+<% elsif interaction.v2_other_done? %>
+<%= link_to "對方已結束任務 請趕快結束", "#", :class => "btn btn-success disabled" %>
+<%# elsif interaction.v2_all_done? %>
+  <%#= link_to "任務結束", "#", :class => "btn btn-success disabled" %>
+<% end %>

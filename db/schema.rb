@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721025430) do
+ActiveRecord::Schema.define(version: 20160721121926) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160721025430) do
     t.datetime "updated_at",                                      null: false
     t.string   "status",                      default: "request"
     t.integer  "room_id"
+    t.integer  "co_status",                   default: 0
     t.index ["friendship_id"], name: "index_interactions_on_friendship_id", using: :btree
     t.index ["mission_id"], name: "index_interactions_on_mission_id", using: :btree
     t.index ["room_id"], name: "index_interactions_on_room_id", using: :btree

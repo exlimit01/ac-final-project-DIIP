@@ -1,0 +1,12 @@
+<% if @friendships.present? %>
+  <% @friendships.each do |friendship| %>
+    <div>
+      <%= friendship.friend.profile.nickname %>
+      <%#= friendship.love_level %>
+      <% if friendship.mission_open? %>
+        <%#= link_to "任務表單", friendships_list_path(friend_id: friendship.friend.id) %>
+        <%= link_to "任務表單", v2_interactions_list_path(friend_id: friendship.friend.id), "data-turbolinks" => false %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

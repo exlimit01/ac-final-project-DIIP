@@ -1,0 +1,21 @@
+<div class="modal-container" >
+  <div id="notification_window">
+    <div class="message">
+      您和XXX有新任務喔
+    </div>
+    <div class="clearfix btn-set">
+      <div class="ok-box pull-left">
+        <%= link_to "查看", "#" %>
+      </div>
+      <div class="ng-box pull-right">
+        <%= link_to "晚點再看", "#" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  var msg = "您和" + <%= 123 %> + "有新任務喔"
+  $('.message').text(msg);
+</script>

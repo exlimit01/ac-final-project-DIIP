@@ -1,0 +1,24 @@
+<% if @current_interaction_item.present? %>
+  <% @current_interaction_item.each do |current_interaction| %>
+  <div class=<%= "room-#{current_interaction.id || 0 }" %> style="border:1px solid blue;margin-top: 5px">
+    <% if current_interaction.co_status >= 5 %>
+      <%= link_to current_interaction.mission.content, room_path(current_interaction.room.id, :interaction_id => current_interaction.id) %>
+    <% else %>
+      <%= current_interaction.mission.content %>
+    <% end %>
+
+    <%#= v2_show_interaction_status(current_interaction) %>
+    <%= render partial: "shared/interaction_sign", locals: {interaction: current_interaction} %>
+  </div>
+  <% end %>
+<% end %>
+
+<% if @done_interactions.present? %>
+  <% @done_interactions.each do |interaction| %>
+    <div style="border:1px solid red;margin-top: 5px">
+      <%#= interaction.mission.content %>
+      <%= link_to interaction.mission.content, room_path(interaction.room.id, :interaction_id => interaction.id, :hide_star => true) %>
+      <%#= interaction.comment %>
+    </div>
+  <% end %>
+<% end %>

@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     new_session_path(:user)
   end
+
+  #before_action :check_show_notification
+
+  # 每次action前都會觸發，詢問是否跳出任務提醒視窗
+  def check_show_notification
+
+  end
+
+
 end
