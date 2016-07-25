@@ -18,6 +18,11 @@
 //= require plugins/jquery/jquery-migrate.min.js
 //= require plugins/back-to-top.js
 //= require plugins/smoothScroll.js
+//= require plugins/backstretch/backstretch-ini.js
+//= require plugins/wow-animations/js/wow.min.js
+//= require plugins/animated-headline/js/modernizr.js
+//= require plugins/animated-headline/js/animated-headline.js
+//= require plugins/jquery.parallax.js
 //= require plugins/circles-master/circles.js
 //= require plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js
 //= require plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js
@@ -26,5 +31,6 @@
 //= require js/plugins/datepicker.js
 //= require js/plugins/circles-master.js
 //= require js/plugins/style-switcher.js
+//= require js/jquery.countdown.js
 
 

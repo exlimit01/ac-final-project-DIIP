@@ -124,7 +124,7 @@
 /*Media Queries*/
 @media (max-width: 991px) {
 	.header-v6 .navbar-brand {
-		padding-top: 20px;
+		padding-top: 15px;
 	}
 
 	.header-v6 .navbar-brand img.shrink-logo {
@@ -375,6 +375,7 @@
 
     .header-v6 .navbar-toggle {
         display: block;
+        margin: 20px 0px;
     }
 
     .header-v6 .navbar-collapse {
@@ -504,7 +505,7 @@
 	.header-v6 .navbar-nav > .active > a:hover,
 	.header-v6 .navbar-nav > .active > a:focus {
 		background: inherit;
-		color: #72c02c !important;
+		color: #258EA6 ;
 	}
 
 	.header-v6 .dropdown .dropdown-submenu > a {
@@ -691,7 +692,7 @@
 .header-v6 .mega-menu .dropdown,
 .header-v6 .mega-menu .collapse {
   	float: right;
-    margin-right: -15px;
+    margin-right: 0px;
 }
 
 .header-v6 .mega-menu .navbar-inner,
@@ -946,7 +947,7 @@
 
 	.header-fixed .header-v6.header-fixed-shrink .navbar-nav .active > a,
 	.header-fixed .header-v6.header-fixed-shrink .navbar-nav li > a:hover {
-		color: #72c02c;
+		color: #258EA6;
 	}
 
 	/*Navbar Brand*/
