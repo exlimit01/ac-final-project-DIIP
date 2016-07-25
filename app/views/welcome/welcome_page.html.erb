@@ -44,7 +44,6 @@
 
   <!-- CSS Customization -->
   <link rel="stylesheet" href="assets/css/custom.css">
-  <link rel="stylesheet" href="assets/css/pages/page_coming_soon_v1.css">
 </head>
 
 <body class="header-fixed">
@@ -408,8 +407,6 @@
   <script src="assets/plugins/jquery.parallax.js"></script>
   <script src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
   <script src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-  <script type="text/javascript" src="assets/plugins/countdown/jquery.plugin.js"></script>
-  <script type="text/javascript" src="assets/plugins/countdown/jquery.countdown.js"></script>
   <!-- JS Customization -->
   <script src="assets/js/custom.js"></script>
   <!-- JS Page Level -->
@@ -418,22 +415,15 @@
   <script src="assets/js/plugins/owl-carousel.js"></script>
   <script src="assets/js/plugins/style-switcher.js"></script>
   <script src="assets/js/jquery.countdown.js"></script>
-  <script type="text/javascript" src="assets/js/pages/page_coming_soon.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
       App.init();
-      PageComingSoon.initPageComingSoon();
+      new WOW().init();
+      App.initParallaxBg();
+      FancyBox.initFancybox();
+      OwlCarousel.initOwlCarousel();
+      StyleSwitcher.initStyleSwitcher();
     });
-  </script>
-  <script>
-    $.backstretch([
-      "assets/img/bg/19.jpg",
-      "assets/img/bg/1.jpg",
-      "assets/img/bg/18.jpg"
-      ], {
-        fade: 1000,
-        duration: 7000
-      });
   </script>
   <!--[if lt IE 9]>
   <script src="assets/plugins/respond.js"></script>
