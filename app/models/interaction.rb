@@ -6,6 +6,7 @@ class Interaction < ApplicationRecord
   belongs_to :room
 
   # enum co_status: [
+      #refresh: -1,
       #all_none: 0,
       #other_accept: 1,
       #accept_and_wait: 2,

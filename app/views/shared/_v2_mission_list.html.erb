@@ -2,7 +2,7 @@
   <% @current_interaction_item.each do |current_interaction| %>
   <div class=<%= "room-#{current_interaction.id || 0 }" %> style="border:1px solid blue;margin-top: 5px">
     <% if current_interaction.co_status >= 5 %>
-      <%= link_to current_interaction.mission.content, room_path(current_interaction.room.id, :interaction_id => current_interaction.id) %>
+      <%= link_to current_interaction.mission.content, room_path(current_interaction.room.id, :interaction_id => current_interaction.id, :co_status => current_interaction.co_status) %>
     <% else %>
       <%= current_interaction.mission.content %>
     <% end %>
@@ -17,7 +17,7 @@
   <% @done_interactions.each do |interaction| %>
     <div style="border:1px solid red;margin-top: 5px">
       <%#= interaction.mission.content %>
-      <%= link_to interaction.mission.content, room_path(interaction.room.id, :interaction_id => interaction.id, :hide_star => true) %>
+      <%= link_to interaction.mission.content, room_path(interaction.room.id, :interaction_id => interaction.id, :co_status => interaction.co_status) %>
       <%#= interaction.comment %>
     </div>
   <% end %>

@@ -22,13 +22,14 @@ class V2InteractionsController < ApplicationController
 
       # 都沒生成過任務的話
       if friendship.interactions.count == 0
+=begin
         m = Mission.all.sample
         # 生成一筆正向的
         @current_interaction_item = []
         @current_interaction_item << friendship.interactions.create!(mission_id: m.id, co_status: 0)
         # 產生一筆反向的
         inverse_friendship.interactions.create!(mission_id: m.id, co_status: 0)
-
+=end
       else
         # 有生成過任務的話
         my_last_status = friendship.interactions.last.co_status
@@ -211,6 +212,41 @@ class V2InteractionsController < ApplicationController
 
     redirect_to v2_interactions_list_path(friend_id: friend_id)
 
+  end
+
+  def refresh
+
+    Friendship.all.each do |friendship|
+      if friendship.mission_open?
+
+        if friendship.interactions.count == 0 || friendship.interactions.last.co_status == 8
+
+          user_id = friendship.user_id
+          friend_id = friendship.friend_id
+          inverse_friendship = Friendship.find_by(user_id: friend_id, friend_id: user_id)
+
+          m = Mission.all.sample
+          friendship.interactions.create!(:mission_id => m.id, :co_status => -1)
+          inverse_friendship.interactions.create!(:mission_id => m.id, :co_status => -1)
+
+        elsif friendship.interactions.last.co_status < 5 && friendship.interactions.last.co_status != -1
+
+          user_id = friendship.user_id
+          friend_id = friendship.friend_id
+          inverse_friendship = Friendship.find_by(user_id: friend_id, friend_id: user_id)
+
+          m = Mission.all.sample
+          friendship.interactions.last.update!(:mission_id => m.id, :co_status => -1)
+          inverse_friendship.interactions.last.update!(:mission_id => m.id, :co_status => -1)
+
+        end
+
+      end
+    end
+
+    Interaction.where(:co_status => -1).update(:co_status => 0)
+
+    redirect_to :back
   end
 
 end

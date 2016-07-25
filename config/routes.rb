@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     post :ok
     post :no
     post :done
+    get :refresh
     get :list
   end
 
