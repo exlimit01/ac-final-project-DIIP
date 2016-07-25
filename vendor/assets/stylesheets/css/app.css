@@ -379,7 +379,7 @@ h3.title-v3-xs {
 	font-size: 15px;
 	line-height: 18px;
 	position: relative;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 	display: inline-block;
 }
 
@@ -2216,8 +2216,9 @@ img.image-md {
 }
 
 .content {
-	padding-top: 40px;
+	padding-top: 100px;
 	padding-bottom: 40px;
+	margin-top: -60px;
 }
 
 .content-sm {

@@ -971,7 +971,7 @@
 /*Service Block v8
 ------------------------------------*/
 .service-block-v8 {
-  padding: 25px;
+  padding: 15px;
   background: #fff;
 }
 
@@ -1921,9 +1921,9 @@
 /*Call To Action v2
 ------------------------------------*/
 .call-action-v2 {
-  padding: 50px 0;
-  text-align: center;
-  background: url(../img/patterns/16.png);
+  padding: 102px 10px 30px;
+  margin-top: -60px;
+  background: url(../img/p10.png);
 }
 
 .call-action-v2 h2 {
@@ -1932,8 +1932,13 @@
 }
 
 .call-action-v2 p {
-  padding: 0 100px;
+  padding: 0;
   margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.call-action-v2 i {
+  color: #258EA6;
 }
 
 @media (max-width: 768px) {
@@ -2263,7 +2268,7 @@
   height: auto;
   padding: 50px 0;
   position: relative;
-  background: url(../img/team.jpg) repeat fixed;
+  background: url(../img/25.jpg) repeat fixed;
 }
 
 .bg-image-v2:before {
