@@ -15,6 +15,9 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  has_one :avatar, through: :profile_picture
+  has_one :profile_picture
+
   before_create :generate_authentication_token
 
   def friend_status_none?(profile)

@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :talks, :controller => "room_talks"
   end
 
+  resources :profile_pictures  #for avatar
 
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
     resources :missions
