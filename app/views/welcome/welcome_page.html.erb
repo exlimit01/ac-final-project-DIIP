@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-hant-tw">
 <head>
@@ -28,8 +29,8 @@
             <!-- Navbar Brand -->
             <div class="navbar-brand">
               <a href="#">
-                <img class="default-logo" style="border-color: #FFF3D8; border: 2px" src="assets/img/diip_logo.png" alt="Logo">
-                <img class="shrink-logo" style="border-color: #FFF3D8; border: 2px" src="assets/img/diip_logo.png" alt="Logo">
+                <%= image_tag ("diip_logo.png"), class: "default-logo", style: "border-color: #FFF3D8; border: 2px" %>
+                <%= image_tag ("diip_logo.png"), class: "shrink-logo", style: "border-color: #FFF3D8; border: 2px" %>
               </a>
             </div>
             <!-- ENd Navbar Brand -->
@@ -136,7 +137,7 @@
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/3.jpg" alt="">
+                  <%= image_tag ("3.jpg"), class: "img-responsive" %>
                 </div>
                 <div class="timeline-body text-justify">
                   <h2 class="font-light">開始</h2>
@@ -158,7 +159,7 @@
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record invert"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/woman.jpeg" alt="">
+                  <%= image_tag ("woman.jpeg"), class: "img-responsive" %>
                 </div>
                 <div class="timeline-body text-justify">
                   <h2 class="font-light"><a href="#">偶然</a></h2>
@@ -183,19 +184,19 @@
                   <div class="carousel slide carousel-v1" id="myCarousel">
                     <div class="carousel-inner">
                       <div class="item">
-                        <img class="img-responsive" src="assets/img/13.jpg" alt="">
+                        <%= image_tag ("13.jpg"), class: "img-responsive" %>
                         <div class="carousel-caption">
                           <p>任務：找到三個雙方的共同點</p>
                         </div>
                       </div>
                       <div class="item">
-                        <img class="img-responsive" src="assets/img/7.jpg" alt="">
+                        <%= image_tag ("7.jpg"), class: "img-responsive" %>
                         <div class="carousel-caption">
                           <p>任務：上傳三張你工作周邊的照片，讓對方猜猜你的工作</p>
                         </div>
                       </div>
                       <div class="item active">
-                        <img class="img-responsive" src="assets/img/12.jpeg" alt="">
+                        <%= image_tag ("12.jpeg"), class: "img-responsive" %>
                         <div class="carousel-caption">
                           <p>任務：錄下30秒的聲音，目標是對方設為鈴聲後，明天可以準時起床</p>
                         </div>
@@ -232,7 +233,7 @@
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/20.jpg" alt="">
+                  <%= image_tag ("20.jpg"), class: "img-responsive" %>
                 </div>
                 <div class="timeline-body text-justify">
                   <h2 class="font-light"><a href="#">見面</a></h2>
@@ -254,7 +255,7 @@
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record invert"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/4.jpeg" alt="">
+                  <%= image_tag ("4.jpeg"), class: "img-responsive" %>
                 </div>
                 <div class="timeline-body text-justify">
                   <h2 class="font-light">相處</h2>
@@ -278,7 +279,7 @@
                 <div class="timeline-heading">
                   <!-- 16:9 aspect ratio -->
                   <div class="embed-responsive embed-responsive-16by9">
-                    <img class="img-responsive" src="assets/img/5.jpg" alt="">
+                    <%= image_tag ("5.jpg"), class: "img-responsive" %>
                   </div>
                 </div>
                 <div class="timeline-body">
