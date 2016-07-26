@@ -11,6 +11,8 @@
     <%= render partial: "shared/interaction_sign", locals: {interaction: current_interaction} %>
   </div>
   <% end %>
+<% else %>
+  現在沒有新任務喔，請等待任務刷新
 <% end %>
 
 <% if @done_interactions.present? %>
