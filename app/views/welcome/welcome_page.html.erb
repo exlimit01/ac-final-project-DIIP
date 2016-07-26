@@ -1,48 +1,12 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="zh-hant-tw"> <!--<![endif]-->
+<html lang="zh-hant-tw">
 <head>
-  <title>DIIP 歡迎</title>
-
-  <!-- Meta -->
+  <title>DIIP 慢慢來，比較快</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico">
-
-  <!-- Web Fonts -->
-  <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
-
-  <!-- CSS Global Compulsory -->
-  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- CSS Header and Footer -->
-  <link rel="stylesheet" href="assets/css/headers/header-v6.css">
-  <link rel="stylesheet" href="assets/css/footers/footer-v1.css">
-
-  <!-- CSS Implementing Plugins -->
-  <link rel="stylesheet" href="assets/plugins/animate.css">
-  <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
-  <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="assets/plugins/animated-headline/css/animated-headline.css">
-  <link rel="stylesheet" href="assets/plugins/parallax-slider/css/parallax-slider.css">
-  <link rel="stylesheet" href="assets/plugins/fancybox/source/jquery.fancybox.css">
-  <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
-
-  <!-- CSS Page Style -->
-  <link rel="stylesheet" href="assets/css/pages/shortcode_timeline1.css">
-
-  <!-- CSS Theme -->
-  <link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
-  <link rel="stylesheet" href="assets/css/theme-skins/dark.css">
-
-  <!-- CSS Customization -->
-  <link rel="stylesheet" href="assets/css/custom.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag "favicon.ico", type: 'image/png'%>
 </head>
 
 <body class="header-fixed">
@@ -51,7 +15,7 @@
     <div class="header-v6 header-transparent header-dark-dropdown header-sticky">
       <!-- Navbar -->
       <div class="navbar mega-menu" role="navigation">
-        <div class="container">
+        <div class="container col-md-12">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="menu-container">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -64,20 +28,11 @@
             <!-- Navbar Brand -->
             <div class="navbar-brand">
               <a href="#">
-                <img class="default-logo" src="assets/img/diip-logo.png" alt="Logo">
-                <img class="shrink-logo" src="assets/img/diip-logo.png" alt="Logo">
+                <img class="default-logo" style="border-color: #FFF3D8; border: 2px" src="assets/img/diip_logo.png" alt="Logo">
+                <img class="shrink-logo" style="border-color: #FFF3D8; border: 2px" src="assets/img/diip_logo.png" alt="Logo">
               </a>
             </div>
             <!-- ENd Navbar Brand -->
-
-            <!-- Header Inner Right -->
-            <div class="pull-right">
-              <div class="topbar-buttons">
-                <a href="/users/sign_up" class="btn-u btn-u-blue margin-right-5">註冊</a>
-                <a href="/profiles/entrance" class="btn-u">登入</a>
-              </div>
-            </div>
-            <!-- End Header Inner Right -->
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -86,34 +41,17 @@
               <ul class="nav navbar-nav">
                 <!-- Nav -->
                 <li class="dropdown active">
-                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                    導覽
-                  </a>
+                  <a href="#diip_feature">產品特色</a>
                 </li>
 
                 <li class="dropdown active">
-                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                    導覽
-                  </a>
+                  <a href="#diip_story">使用情境</a>
                 </li>
 
                 <li class="dropdown active">
-                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                    導覽
-                  </a>
+                  <a href="#diip_email">馬上加入</a>
                 </li>
 
-                <li class="dropdown active">
-                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                    導覽
-                  </a>
-                </li>
-
-                <li class="dropdown active">
-                  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                    導覽
-                  </a>
-                </li>
               </ul>
             </div>
           </div><!--/navbar-collapse-->
@@ -129,7 +67,7 @@
         <span class="promo-text-v1 color-dark animated fadeInDown wow margin-bottom-10" data-wow-duration="1.5s" data-wow-delay=".5s">
           DIIP 走進你的心
         </span>
-        <h2 class="promo-text-v2 color-dark cd-headline letters type margin-bottom-20">
+        <h2 class="promo-text-v2 color-dark cd-headline letters type margin-bottom-30">
           就是喜歡
           <span class="cd-words-wrapper">
             <b class="is-visible">任性做自己</b>
@@ -138,312 +76,281 @@
           </span>
         </h2>
         <div class="animated fadeInUp wow" data-wow-duration="1.5s" data-wow-delay="1s">
-          <a href="#" class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light-grey btn-u-block rounded-4x margin-right-10">瞭解更多</a>
-          <a href="#" class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light-grey btn-u-block rounded-4x">開始體驗</a>
+          <a href="#diip_feature" class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light-grey btn-u-block rounded-4x margin-right-10">瞭解更多</a>
+          <a href="/profiles/entrance" class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light-grey btn-u-block rounded-4x">開始體驗</a>
         </div>
       </div>
     </div>
     <!--=== End Full Height Text Rotater ===-->
 
-        <!-- Begin Content -->
-        <div class="col-md-10 col-md-offset-1 margin-top-20 margin-bottom-20">
+    <section id="diip_feature" >
+    <div class="call-action-v2 parallaxBg">
+      <div class="container" style="margin-bottom: 40px">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h1 class="section-heading">特色系統</h1>
+              </div>
+          </div>
+      </div>
+      <div class="container" style="width: 85%">
+          <div class="row">
+              <div class="col-lg-3 col-md-6 text-center">
+                  <div class="service-box">
+                      <i class="fa fa-4x fa-eye-slash text-primary sr-icons  margin-bottom-10"></i>
+                      <h2>矇眼系統</h2>
+                      <p class="text-muted">真正重要的事情是用眼睛看不到的，矇眼系統讓雙方只在好感度到達一定標準，才會解鎖照片，讓你不再錯過真正適合你的人！</p>
+
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 text-center">
+                  <div class="service-box">
+                      <i class="fa fa-4x fa-gamepad text-primary sr-icons  margin-bottom-10"></i>
+                      <h2>互動任務</h2>
+                      <p class="text-muted">不再漫無目的的浪費時間，任務系統提供符合兩者關係的挑戰，透過有趣的互動，讓你不再擔心無話可說，有效拉近彼此距離！</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 text-center">
+                  <div class="service-box">
+                      <i class="fa fa-4x fa-heart text-primary sr-icons margin-bottom-10"></i>
+                      <h2>實體約會</h2>
+                      <p class="text-muted">不再只是空中相會，系統幫你講出不好意思說的話，在好感度達到標準後，系統邀請雙方來場愉快的兩人約會，不讓害羞阻擋你的緣分!</p>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 text-center">
+                  <div class="service-box">
+                      <i class="fa fa-4x fa-comments-o text-primary sr-icons  margin-bottom-10"></i>
+                      <h2>我答你問</h2>
+                      <p class="text-muted">打造屬於你的FAQ使用說明書，聊天不再只是安安幾歲住哪。接近前請詳閱公開說明書，讓我們聊點有意思的事情！</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    </section>
+    <!-- End Feature -->
+
+    <section id="diip_story">
+    <div class="container content" style="width: 90%">
           <ul class="timeline-v1">
             <li>
-              <div class="timeline-badge primary">
-              <i class="glyphicon glyphicon-record"></i>
-              </div>
+              <div class="timeline-badge primary"><i class="glyphicon glyphicon-record"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/1.jpg" alt=""/>
+                  <img class="img-responsive" src="assets/img/3.jpg" alt="">
                 </div>
                 <div class="timeline-body text-justify">
-                  <h2><a href="#">111</a></h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <a class="btn-u btn-u-sm" href="#">Read More</a>
+                  <h2 class="font-light">開始</h2>
+                  <p style="font-size: 16px">故事都是從一個不經意的舉動開始，我想，願意嘗試去追求自己的幸福也是一種勇氣吧。恩...這些系統預設的問題也太奇怪了吧，什麼叫"<em>如果你明天一早醒來，你可以增加一個技能或能力，你希望是什麼？</em>"，好吧，那我想要可以跟女生持續講話10分鐘的能力。</p>
+                  <span class="testimonials-author" style="float: right;">
+                    Alex <em>31歲 ＠台北</em>
+                  </span>
+                  <span class="clearfix"></span>
                 </div>
                 <div class="timeline-footer">
                   <ul class="list-unstyled list-inline blog-info">
-                    <li><i class="fa fa-clock-o"></i> March 28, 2014</li>
-                    <li><i class="fa fa-comments-o"></i> <a href="#">7 Comments</a></li>
+                    <li><i class="fa fa-clock-o"></i> 2016/08/03</li>
                   </ul>
-                  <a class="likes" href="#"><i class="fa fa-heart"></i>239</a>
+                  <a class="likes" href="#"><i class="fa fa-heart"></i>0</a>
                 </div>
               </div>
             </li>
-
             <li class="timeline-inverted">
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record invert"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/2.jpg" alt=""/>
+                  <img class="img-responsive" src="assets/img/woman.jpeg" alt="">
                 </div>
                 <div class="timeline-body text-justify">
-                  <h2><a href="#">222</a></h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <a class="btn-u btn-u-sm" href="#">Read More</a>
+                  <h2 class="font-light"><a href="#">偶然</a></h2>
+                  <p style="font-size: 16px">哈哈哈，這個人的Q&A好好笑喔，難道他沒有跟女生講過話，都31歲了不會還是個宅宅魔法師吧，那我就大慈大悲的來解救一下你吧</p>
+                  <span class="testimonials-author" style="float: right;">
+                    Mandy <em>28歲 ＠新北</em>
+                  </span>
+                  <span class="clearfix"></span>
                 </div>
                 <div class="timeline-footer">
                   <ul class="list-unstyled list-inline blog-info">
-                    <li><i class="fa fa-clock-o"></i> March 16, 2014</li>
-                    <li><i class="fa fa-comments-o"></i> <a href="#">12 Comments</a></li>
+                    <li><i class="fa fa-clock-o"></i> 2016/08/05</li>
                   </ul>
-                  <a class="likes" href="#"><i class="fa fa-heart"></i>87</a>
+                  <a class="likes" href="#"><i class="fa fa-heart"></i>5</a>
                 </div>
               </div>
             </li>
-
             <li>
               <div class="timeline-badge primarya"><i class="glyphicon glyphicon-record"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                    <img class="img-responsive" src="assets/img/3.jpg" alt=""/>
+                  <div class="carousel slide carousel-v1" id="myCarousel">
+                    <div class="carousel-inner">
+                      <div class="item">
+                        <img class="img-responsive" src="assets/img/13.jpg" alt="">
+                        <div class="carousel-caption">
+                          <p>任務：找到三個雙方的共同點</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img class="img-responsive" src="assets/img/7.jpg" alt="">
+                        <div class="carousel-caption">
+                          <p>任務：上傳三張你工作周邊的照片，讓對方猜猜你的工作</p>
+                        </div>
+                      </div>
+                      <div class="item active">
+                        <img class="img-responsive" src="assets/img/12.jpeg" alt="">
+                        <div class="carousel-caption">
+                          <p>任務：錄下30秒的聲音，目標是對方設為鈴聲後，明天可以準時起床</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="carousel-arrow">
+                      <a data-slide="prev" href="#myCarousel" class="left carousel-control">
+                        <i class="fa fa-angle-left"></i>
+                      </a>
+                      <a data-slide="next" href="#myCarousel" class="right carousel-control">
+                        <i class="fa fa-angle-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
                 <div class="timeline-body text-justify">
-                  <h2><a href="#">3333</a></h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <a class="btn-u btn-u-sm" href="#">Read More</a>
+                  <h2 class="font-light"><a href="#">任務</a></h2>
+                  <p style="font-size: 16px">對方也認養了一隻米克斯耶，會養狗的人最有愛心了。而且看起來應該是一位設計師，一定很有氣質，更重要的是聲音好甜美喔！ : )</p>
+                  <span class="testimonials-author" style="float: right;">
+                    Alex <em>31歲 ＠台北</em>
+                  </span>
+                  <span class="clearfix"></span>
                 </div>
                 <div class="timeline-footer">
                   <ul class="list-unstyled list-inline blog-info">
-                    <li><i class="fa fa-clock-o"></i> November 06, 2014</li>
-                    <li><i class="fa fa-comments-o"></i> <a href="#">37 Comments</a></li>
+                    <li><i class="fa fa-clock-o"></i> 2016/08/17</li>
                   </ul>
-                  <a class="likes" href="#"><i class="fa fa-heart"></i>121</a>
+                  <a class="likes" href="#"><i class="fa fa-heart"></i>47</a>
                 </div>
               </div>
             </li>
-
             <li class="timeline-inverted">
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/7.jpg" alt=""/>
+                  <img class="img-responsive" src="assets/img/20.jpg" alt="">
                 </div>
                 <div class="timeline-body text-justify">
-                  <h2><a href="#">444</a></h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <a class="btn-u btn-u-sm" href="#">Read More</a>
+                  <h2 class="font-light"><a href="#">見面</a></h2>
+                  <p style="font-size: 16px">"<em>任務：找間咖啡店，一起享受個悠閒的下午茶時光吧</em>"不知不覺我跟他的系統好感度已經到達60了耶，我怎麼覺得才過一陣子而已，但是我好像還沒有看過他長什麼樣子，希望不要是一見面就得準備回家刪好友。</p>
+                  <span class="testimonials-author" style="float: right;">
+                    Mandy <em>28歲 ＠新北</em>
+                  </span>
+                  <span class="clearfix"></span>
                 </div>
                 <div class="timeline-footer">
                   <ul class="list-unstyled list-inline blog-info">
-                    <li><i class="fa fa-clock-o"></i> November 02, 2014</li>
-                    <li><i class="fa fa-comments-o"></i> <a href="#">24 Comments</a></li>
+                    <li><i class="fa fa-clock-o"></i> 2016/08/17</li>
                   </ul>
-                  <a class="likes" href="#"><i class="fa fa-heart"></i>34</a>
+                  <a class="likes" href="#"><i class="fa fa-heart"></i>60</a>
                 </div>
               </div>
             </li>
-
             <li>
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record invert"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/8.jpg" alt=""/>
+                  <img class="img-responsive" src="assets/img/4.jpeg" alt="">
                 </div>
                 <div class="timeline-body text-justify">
-                  <h2><a href="#">555</a></h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <a class="btn-u btn-u-sm" href="#">Read More</a>
+                  <h2 class="font-light">相處</h2>
+                  <p style="font-size: 16px">她跟我想得一樣是個開朗又活潑的人，之前看她的問答說明，總是看到笑出來，而且執行任務的時候也總是古靈精怪的，我怎麼好像有一點點喜歡她。</p>
+                  <span class="testimonials-author" style="float: right;">
+                    Alex <em>31歲 ＠台北</em>
+                  </span>
+                  <span class="clearfix"></span>
                 </div>
                 <div class="timeline-footer primary">
                   <ul class="list-unstyled list-inline blog-info">
-                    <li><i class="fa fa-clock-o"></i> February 26, 2014</li>
-                    <li><i class="fa fa-comments-o"></i> <a href="#">93 Comments</a></li>
+                    <li><i class="fa fa-clock-o"></i> 2016/08/23</li>
                   </ul>
-                  <a class="likes" href="#"><i class="fa fa-heart"></i>355</a>
+                  <a class="likes" href="#"><i class="fa fa-heart"></i>78</a>
                 </div>
               </div>
             </li>
-
             <li class="timeline-inverted">
               <div class="timeline-badge primary"><i class="glyphicon glyphicon-record invert"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <img class="img-responsive" src="assets/img/9.jpg" alt=""/>
+                  <!-- 16:9 aspect ratio -->
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <img class="img-responsive" src="assets/img/5.jpg" alt="">
+                  </div>
                 </div>
                 <div class="timeline-body">
-                  <h2><a href="#">6666</a></h2>
-                  <p>I only make it responsive and remove the empty spaces to be more like Facebook timeline!</p>
-                  <a class="btn-u" href="#">Read More</a>
+                  <h2 class="font-light">新章</h2>
+                  <p  style="font-size: 16px">我們好像就剩下最後一個任務還沒有完成 "<em>最後任務：你覺得對方適合當朋友還是情人</em>"，他的選擇是？</p>
+                  <span class="testimonials-author" style="float: right;">
+                    Mandy <em>28歲 ＠新北</em>
+                  </span>
+                  <span class="clearfix"></span>
                 </div>
                 <div class="timeline-footer primary">
-                  <ul class="list-inline">
-                    <ul class="list-unstyled list-inline blog-info">
-                      <li><i class="fa fa-clock-o"></i> November 29, 2013</li>
-                      <li><i class="fa fa-comments-o"></i> <a href="#">162 Comments</a></li>
-                    </ul>
-                    <a class="likes" href="#"><i class="fa fa-heart"></i>798</a>
+                  <ul class="list-unstyled list-inline blog-info">
+                    <li><i class="fa fa-clock-o"></i>  2016/08/30</li>
                   </ul>
+                  <a class="likes" href="#"><i class="fa fa-heart"></i>95</a>
                 </div>
               </div>
             </li>
             <li class="clearfix" style="float: none;"></li>
           </ul>
-        </div>
-        <!-- End Content -->
-
-    <!-- Icon Boxes 26 -->
-    <div class="service-info no-padding">
-      <div class="container content-sm">
-        <div class="row">
-          <div class="col-sm-6 content-boxes-v3 content-boxes-v3-right sm-margin-bottom-30">
-            <div class="clearfix margin-bottom-30">
-              <i class="icon-custom icon-md rounded-x icon-color-dark icon-line icon-bar-chart"></i>
-              <div class="content-boxes-in-v3">
-                <h2 class="heading-sm">矇眼模式</h2>
-                <p>真正重要的事情是用眼睛看不到的。矇眼系統讓雙方只有互動到一定標準，才會解鎖照片，讓你不再以貌取人錯失良伴。</p>
-              </div>
-            </div>
-            <div class="clearfix margin-bottom-30">
-              <i class="icon-custom icon-md rounded-x icon-color-dark icon-line icon-directions"></i>
-              <div class="content-boxes-in-v3">
-                <h2 class="heading-sm">問答說明</h2>
-                <p>打造屬於你的使用說明書。問答說明讓你不再安安幾歲住哪，接近前請詳閱公開說明書，讓我們聊點有意思的。</p>
-              </div>
-            </div>
-            <div class="clearfix">
-              <i class="icon-custom icon-md rounded-x icon-color-dark icon-line icon-rocket"></i>
-              <div class="content-boxes-in-v3">
-                <h2 class="heading-sm">實體約會</h2>
-                <p>不再只是空中相會。任務系統幫你講不好意思說的話，在雙方關係達到標準後，系統自動邀請雙方來場愉快的兩人約會，</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 content-boxes-v3">
-            <div class="clearfix margin-bottom-30">
-              <i class="icon-custom icon-md rounded-x icon-color-dark icon-line icon-game-controller"></i>
-              <div class="content-boxes-in-v3">
-                <h2 class="heading-sm">任務系統</h2>
-                <p>不再漫無目的的浪費時間。任務系統提供符合兩者關係的挑戰，透過有趣的互動，讓你拉近彼此距離。</p>
-              </div>
-            </div>
-            <div class="clearfix margin-bottom-30">
-              <i class="icon-custom icon-md rounded-x icon-color-dark icon-line icon-badge"></i>
-              <div class="content-boxes-in-v3">
-                <h2 class="heading-sm">關係分析</h2>
-                <p>放心分享私密事。關係分析讓屬於我的小秘密，只有熟悉的人才知道，想知道先努力跟我變熟吧。</p>
-              </div>
-            </div>
-            <div class="clearfix">
-              <i class="icon-custom icon-md rounded-x icon-color-dark icon-line icon-envelope"></i>
-              <div class="content-boxes-in-v3">
-                <h2 class="heading-sm">檢舉系統</h2>
-                <p>打造對別有用心使用者不友善的環境，營造清新、健康的交友空間。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!--/container-->
     </div>
-    <!-- End Icon Boxes 26 -->
+    </section>
 
     <!--=== Content Part ===-->
+    <section id="diip_email">
     <div class="content no-padding">
       <!-- Flat Testimonials -->
-      <div class="flat-testimonials bg-image-v2 bg-image-v2-dark parallaxBg1" style="background-position: 50% 241px;">
+      <div class="flat-testimonials bg-image-v2 bg-image-v2-dark parallaxBg1" style="background-position: 20% 20%;">
         <div class="container">
-          <div class="headline-center-v2 margin-bottom-10">
-            <h2>團隊成員</h2>
+          <div class="headline-center-v2" style="margin:0 auto" >
+            <h2 style="font-size: 55px;line-height: 60px;padding: 15px 30px;border: solid 4px #fff;    letter-spacing: 12px;width: 40%;margin:0px auto">即將上線</h2>
+            <p class="margin-top-20" style="font-size: 20px;margin-bottom: 20px">第一波參與者將開放VIP功能，請留下<span class="text-highlights text-highlights-blue">信箱</span>，我們會在第一時間通知您</p>
             <span class="bordered-icon"><i class="fa fa-th-large"></i></span>
-            <p>一群致力於打造非主流的交友方式，摒棄採用相片、快速以及亂槍打鳥隨機的方式，我們相信<a href="#">慢慢來，比較快</a>。</p>
           </div><!--/end Headline Center-->
-
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="flat-testimonials-in md-margin-bottom-50">
-                <img alt="" src="assets/img/shou.jpg" class="rounded-x img-responsive">
-                <h3>Shou</h3>
-                <span class="color-green">Web Developer</span>
-                <p>一段話</p>
-              </div>
+          <div class="headline-center-v2 col-md-6 col-md-offset-3">
+            <div id="countdown" style="color: white;margin-top:20px"></div>
+              <input type="text" name="email" id="email" class="form-control margin-bottom-20" placeholder="填入您的Email">
+              <button type="submit" class="btn-u btn-brd btn-brd-width-2 btn-brd-hover rounded-2x btn-u-white btn-u-lg" style="border-color: #FFF3D8; color: #FFF3D8;width:100%">登錄</button>
             </div>
-            <div class="col-sm-4">
-              <div class="flat-testimonials-in md-margin-bottom-50">
-                <img alt="" src="assets/img/jill.jpg" class="rounded-x img-responsive">
-                <h3>Jill</h3>
-                <span class="color-green">Designer</span>
-                <p>一段話</p>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="flat-testimonials-in">
-                <img alt="" src="assets/img/david.jpg" class="rounded-x img-responsive">
-                <h3>David</h3>
-                <span class="color-green">Marketing Developer</span>
-                <p>一段話</p>
-              </div>
-            </div>
-          </div><!--/end row-->
+          </div>
         </div><!--/end container-->
       </div>
-      <!-- End Flat Testimonials -->
-      </div><!--/end container-->
     </div>
+    </section>
     <!-- End Content Part -->
 
     <!--=== Footer Version 1 ===-->
     <div class="footer-v1">
       <div class="copyright">
-        <div class="container">
+        <div class="container" style="line-height: 1">
           <div class="row">
             <!-- Social Links -->
             <div class="pull-left">
-              <ul class="footer-socials list-inline">
+              <ul class="footer-socials list-inline" style="margin-left:5px">
                 <li>
-                  <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
-                    <i class="fa fa-facebook"></i>
-                  </a>
+                  <p> 聯繫我們：exlimit01@gmail.com</p>
                 </li>
                 <li>
-                  <p>聯繫方式：exlimit01@gmail.com</p>
+                  |
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/DIIP.MakeFriends/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook" target="_blank">
+                    <button style="margin-left: -13px;background-color:#FFFFFF;padding:2px;border:0px"><i class="fa fa-facebook"></i> FB</button>
+                  </a>
                 </li>
               </ul>
             </div>
             <!-- End Social Links -->
-          </div>
         </div>
       </div><!--/copyright-->
     </div>
     <!--=== End Footer Version 1 ===-->
   </div><!--/wrapper-->
-
-
-
-  <!-- JS Global Compulsory -->
-  <script src="assets/plugins/jquery/jquery.min.js"></script>
-  <script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-  <!-- JS Implementing Plugins -->
-  <script src="assets/plugins/back-to-top.js"></script>
-  <script src="assets/plugins/smoothScroll.js"></script>
-  <script src="assets/plugins/backstretch/backstretch-ini.js"></script>
-  <script src="assets/plugins/wow-animations/js/wow.min.js"></script>
-  <script src="assets/plugins/animated-headline/js/modernizr.js"></script>
-  <script src="assets/plugins/animated-headline/js/animated-headline.js"></script>
-  <script src="assets/plugins/jquery.parallax.js"></script>
-  <script src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-  <!-- JS Customization -->
-  <script src="assets/js/custom.js"></script>
-  <!-- JS Page Level -->
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/plugins/fancy-box.js"></script>
-  <script src="assets/js/plugins/owl-carousel.js"></script>
-  <script src="assets/js/plugins/style-switcher.js"></script>
-  <script type="text/javascript">
-    jQuery(document).ready(function() {
-      App.init();
-      new WOW().init();
-      App.initParallaxBg();
-      FancyBox.initFancybox();
-      OwlCarousel.initOwlCarousel();
-      StyleSwitcher.initStyleSwitcher();
-    });
-  </script>
-  <!--[if lt IE 9]>
-  <script src="assets/plugins/respond.js"></script>
-  <script src="assets/plugins/html5shiv.js"></script>
-  <script src="assets/plugins/placeholder-IE-fixes.js"></script>
-  <![endif]-->
 </body>
 </html>

@@ -1,7 +1,10 @@
-<%= form_for @profile do |f| %>
+<div class="container content profile">
+  <div class="row">
+    <%= render :partial => "left_sidebar" %>
 
-  <%= render partial: "form", locals: {f: f} %>
+    <%= form_for @profile do |f| %>
+      <%= render partial: "form", locals: {f: f} %>
+    <% end %>
 
-  <%= f.submit "更新" %>
-
-<% end %>
+  </div>
+</div>

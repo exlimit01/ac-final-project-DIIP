@@ -36,12 +36,12 @@ class V2InteractionsController < ApplicationController
         friend_last_status = inverse_friendship.interactions.last.co_status
         # 搜尋最近一筆的任務，如果找到雙向為all_done的話，再生成兩筆
         if my_last_status == 8 || friend_last_status == 8
-          m = Mission.all.sample
+          #m = Mission.all.sample
           # 生成一筆正向的
           @current_interaction_item = []
-          @current_interaction_item << friendship.interactions.create!(mission_id: m.id, co_status: 0)
+          #@current_interaction_item << friendship.interactions.create!(mission_id: m.id, co_status: 0)
           # 產生一筆反向的
-          inverse_friendship.interactions.create!(mission_id: m.id, co_status: 0)
+          #inverse_friendship.interactions.create!(mission_id: m.id, co_status: 0)
         else
           @current_interaction_item = []
           @current_interaction_item << friendship.interactions.last

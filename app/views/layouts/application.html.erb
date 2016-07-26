@@ -80,11 +80,17 @@
                     <%#= link_to "任務專區", interactions_list_path %>
                     <%= link_to "任務專區", v2_interactions_list_path %>
                 </li>
+
                 <li class="dropdown">
                     <%= link_to "搜尋同好", profiles_path %>
                 </li>
+
                 <li>
-                  <%#= link_to "測試刷新", v2_interactions_refresh_path %>
+                  <%= link_to "測試刷新", v2_interactions_refresh_path %>
+                </li>
+
+                <li class="dropdown">
+                    <%= link_to "我要登出", destroy_user_session_path, :method => :delete %>
                 </li>
               <% end %>
             </ul>
