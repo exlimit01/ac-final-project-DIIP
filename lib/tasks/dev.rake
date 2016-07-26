@@ -68,6 +68,15 @@ namespace :dev do
     Location.create(name: "臺東縣")
     Location.create(name: "澎湖縣")
 
+    puts "建立Avatar"
+    Avatar.destroy_all
+    Avatar.create(filename: 'A1.jpg')
+    Avatar.create(filename: 'A2.jpg')
+    Avatar.create(filename: 'A3.jpg')
+    Avatar.create(filename: 'A4.jpg')
+    Avatar.create(filename: 'A5.jpg')
+    Avatar.create(filename: 'A6.jpg')
+
     puts "建立使用者 & 個人資料"
     user = User.create!(:email => "yakushou730@gmail.com", :password => "000000")
     profile = Profile.create!(:nickname => "Yao-Shang", :user_id => user.id,
