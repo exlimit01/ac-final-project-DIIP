@@ -205,6 +205,15 @@
   line-height: 63px;
 }
 
+@media (max-width: 768px) {
+  .promo-text-v2 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 55px;
+  }
+
+}
+
 /*Promo Video Icon*/
 .promo-video-icon-wrap {
   width: 64px;

@@ -407,6 +407,14 @@ h3.title-v3-xs {
 	padding: 0 70px;
 }
 
+@media (max-width: 991px) {
+	.headline-center-v2 p {
+		color: #555;
+		font-size: 14px;
+		padding: 0 20px;
+	}
+}
+
 .headline-center-v2.headline-center-v2-dark p {
 	color: #666;
 }
@@ -862,9 +870,10 @@ a.btn-u-xs {
 	border: solid 1px transparent;
 }
 .btn-u.btn-brd-width-2 {
-	padding: 7px 18px;
+	padding: 5px 18px;
 	border-width: 2px;
 }
+
 .btn-u.btn-brd:hover {
 	background: none;
 }
