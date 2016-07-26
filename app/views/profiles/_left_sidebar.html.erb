@@ -1,7 +1,9 @@
 <!--Left Sidebar-->
 <div class="col-md-3 md-margin-bottom-40">
   <div class="center-block">
-    <%= image_tag ("shou.jpg"), style: "max-width: 250px;" %>
+    <% if current_user.avatar %>
+      <%= image_tag("avatars/#{current_user.avatar.filename}") %><br>
+    <%end%>
   </div>
 
   <hr>
