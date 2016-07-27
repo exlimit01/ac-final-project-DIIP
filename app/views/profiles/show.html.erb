@@ -22,16 +22,25 @@
                   <%= answer.question.content %>
                   </a>
                   <ul class="nav navbar-nav navbar-right", style="margin-right: 0px; margin-top: -27px" >
-                    <li>
-                      <%= link_to profile_path(@profile, aid: answer.id) do %>
-                        <i class="fa fa-pencil"></i>
-                      <% end %>
-                    </li>
-                    <li>
-                      <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
-                        <i class="fa fa-times"></i>
-                      <% end %>
-                    </li>
+
+                    <% if @profile.is_current_user?(current_user) %>
+                      <li>
+                        <%= link_to profile_path(@profile, aid: answer.id) do %>
+                          <i class="fa fa-pencil"></i>
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
+                          <i class="fa fa-times"></i>
+                        <% end %>
+                      </li>
+                    <% else %>
+                      <li>
+                        <%= link_to "#" do %>
+                          <i class="fa fa-heart-o"></i>
+                        <% end %>
+                      </li>
+                    <% end %>
                   </ul>
                 </h4>
               </div>
