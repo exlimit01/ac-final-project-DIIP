@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-<<<<<<< 7ad0031ce765efb4126e7c3522916f44fa214637
 
   before_action :set_room
 
@@ -27,10 +26,4 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
-
-=======
-  def show
-    @messages = Message.all
-  end
->>>>>>> Add controller rooms
 end
