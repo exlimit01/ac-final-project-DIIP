@@ -12,11 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require cable
 //= require bootstrap-sprockets
-//= require plugins/jquery/jquery.min.js
-//= require plugins/jquery/jquery-migrate.min.js
 //= require plugins/back-to-top.js
 //= require plugins/smoothScroll.js
 //= require plugins/backstretch/backstretch-ini.js
@@ -27,11 +24,11 @@
 //= require plugins/circles-master/circles.js
 //= require plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js
 //= require plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js
-//= require js/custom.js
-//= require js/app.js
 //= require js/plugins/datepicker.js
 //= require js/plugins/circles-master.js
 //= require js/plugins/style-switcher.js
 //= require js/jquery.countdown.js
+//= require js/app.js
+//= require js/custom.js
 
 

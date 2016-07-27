@@ -2278,7 +2278,7 @@
   height: auto;
   padding: 50px 0;
   position: relative;
-  background: url('<%= asset_path("25.jpg") %>') repeat fixed;
+  background: image-url("25.jpg") repeat fixed;
 }
 
 .bg-image-v2:before {
@@ -4344,7 +4344,7 @@
 
 .blog-thumb .blog-thumb-hover:hover .hover-grad {
   opacity: 1;
-  transform 0.55s;
+  transform: 0.55s;
   transition: opacity 0.55s,
 }
 
