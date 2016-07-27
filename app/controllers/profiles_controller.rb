@@ -93,7 +93,7 @@ class ProfilesController < ApplicationController
 
   def set_friendship
 
-    if current_user.id != params[:id].to_i
+    if current_user.profile.id != params[:id].to_i
       # 檢查是否有建立過好友 沒有的話就建立
       friendships = current_user.friendships.where(friend_id: params[:id])
       if friendships.count == 0
