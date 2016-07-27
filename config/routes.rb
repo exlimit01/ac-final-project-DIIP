@@ -41,10 +41,8 @@ Rails.application.routes.draw do
 
   resources :profile_pictures  #for avatar
 
-  resources :like_answers do
-    post :like
-    post :dislike
-  end
+  post "like" => "like_answers#like"
+  post "dislike" => "like_answers#dislike"
 
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
     resources :missions
