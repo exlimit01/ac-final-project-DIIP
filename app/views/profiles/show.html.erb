@@ -72,4 +72,8 @@
   <% end %>
 </div>
 
-
+<div>
+  <% if @friendship.present? %>
+    好感度：<%= @friendship.love_level %>
+  <% end %>
+</div>

@@ -106,9 +106,15 @@ class ProfilesController < ApplicationController
         Friendship.create(user_id: params[:id], friend_id: current_user.id, status: "none", :love_level => 0 )
       end
 
+      @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id])
+
+    else
+
+      @friendship = nil
+
     end
 
-    @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id])
+
 
   end
 
