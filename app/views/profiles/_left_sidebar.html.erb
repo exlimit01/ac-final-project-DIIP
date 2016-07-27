@@ -39,12 +39,12 @@
       <% end %>
     </button>
     <button class="col-sm-4 btn-u btn-default" type="button">
-      <% if @profile.show_facebook?(@friendship) %>
+      <% if @profile.show_line?(@friendship) %>
         <a target="_blank" href="<%= @profile.line_account %>"><%= image_tag ("Line.png"), style: "max-width: 30px;" %> 權限:<%= @profile.line_access_level %></a>
       <% end %>
     </button>
     <button class="col-sm-4 btn-u btn-default" type="button">
-      <% if @profile.show_facebook?(@friendship) %>
+      <% if @profile.show_wechat?(@friendship) %>
         <a target="_blank" href="<%= @profile.wechat_account %>"><%= image_tag ("Wechat.png"), style: "max-width: 30px;" %> 權限:<%= @profile.wechat_access_level %></a>
       <% end %>
     </button>
