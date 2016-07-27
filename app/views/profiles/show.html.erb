@@ -22,16 +22,35 @@
                   <%= answer.question.content %>
                   </a>
                   <ul class="nav navbar-nav navbar-right", style="margin-right: 0px; margin-top: -27px" >
-                    <li>
-                      <%= link_to profile_path(@profile, aid: answer.id) do %>
-                        <i class="fa fa-pencil"></i>
+
+                    <% if @profile.is_current_user?(current_user) %>
+                      <li>
+                        <%= link_to profile_path(@profile, aid: answer.id) do %>
+                          <i class="fa fa-pencil"></i>
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
+                          <i class="fa fa-times"></i>
+                        <% end %>
+                      </li>
+                    <% else %>
+
+                      <% if answer.liked?(current_user) %>
+                        <li>
+                          <%= link_to like_path("#"), class: "disabled" do %>
+                            <i class="fa fa-heart"></i>
+                          <% end %>
+                        </li>
+                      <% else %>
+                        <li>
+                          <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post do %>
+                            <i class="fa fa-heart-o"></i>
+                          <% end %>
+                        </li>
                       <% end %>
-                    </li>
-                    <li>
-                      <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
-                        <i class="fa fa-times"></i>
-                      <% end %>
-                    </li>
+
+                    <% end %>
                   </ul>
                 </h4>
               </div>
@@ -72,4 +91,8 @@
   <% end %>
 </div>
 
-
+<div>
+  <% if @friendship.present? %>
+    好感度：<%= @friendship.love_level %>
+  <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725145347) do
+ActiveRecord::Schema.define(version: 20160727055807) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 20160725145347) do
     t.index ["friendship_id"], name: "index_interactions_on_friendship_id", using: :btree
     t.index ["mission_id"], name: "index_interactions_on_mission_id", using: :btree
     t.index ["room_id"], name: "index_interactions_on_room_id", using: :btree
+  end
+
+  create_table "like_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "friendship_id"
+    t.integer  "answer_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["answer_id"], name: "index_like_answers_on_answer_id", using: :btree
+    t.index ["friendship_id"], name: "index_like_answers_on_friendship_id", using: :btree
   end
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

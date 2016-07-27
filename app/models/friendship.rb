@@ -8,6 +8,9 @@ class Friendship < ApplicationRecord
   has_many :interactions, dependent: :destroy
   has_many :missions, through: :interactions
 
+  has_many :like_answers, dependent: :destroy
+  has_many :answers, through: :like_answers
+
   def mission_open?
     forward_friendship = Friendship.find_by(user_id: self.user_id, friend_id: self.friend_id)
     backward_friendship = Friendship.find_by(user_id: self.friend_id, friend_id: self.user_id)

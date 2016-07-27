@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
 
   before_action :set_profile, :only => [:show, :edit, :update, :destroy]
+  before_action :set_friendship, :only => [:show]
 
   # GET /profiles
   def index
@@ -88,6 +89,32 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def set_friendship
+
+    if current_user.id != params[:id].to_i
+      # 檢查是否有建立過好友 沒有的話就建立
+      friendships = current_user.friendships.where(friend_id: params[:id])
+      if friendships.count == 0
+        friendship = Friendship.create(user_id: current_user.id, friend_id: params[:id], status: "none", :love_level => 0 )
+      end
+
+      # 對方跟你沒建過關係的話 建立一筆反向的無的關係
+      inverse_friendships = Friendship.where(:user_id => params[:id], :friend_id => current_user.id)
+      if inverse_friendships.count == 0
+        Friendship.create(user_id: params[:id], friend_id: current_user.id, status: "none", :love_level => 0 )
+      end
+
+      @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id])
+      @inverse_frienship = Friendship.find_by(user_id: params[:id], friend_id: current_user.id)
+    else
+
+      @friendship = nil
+    end
+
+
+
   end
 
   def profile_params

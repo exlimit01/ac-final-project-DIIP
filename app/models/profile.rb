@@ -25,4 +25,30 @@ class Profile < ApplicationRecord
     self.answers.order("updated_at desc").limit(3)
   end
 
+  def show_facebook?(relationship)
+
+    if relationship.present?
+      self.facebook_access_level <= relationship.love_level
+    else
+      true
+    end
+
+  end
+
+  def show_line?(relationship)
+    if relationship.present?
+      self.line_access_level <= relationship.love_level
+    else
+      true
+    end
+
+  end
+
+  def show_wechat?(relationship)
+    if relationship.present?
+      self.wechat_access_level <= relationship.love_level
+    else
+      true
+    end
+  end
 end
