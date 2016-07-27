@@ -6,4 +6,7 @@ class Answer < ApplicationRecord
   belongs_to :profile
   belongs_to :question
 
+  has_many :like_answers, dependent: :destroy
+  has_many :friendships, through: :like_answers
+
 end
