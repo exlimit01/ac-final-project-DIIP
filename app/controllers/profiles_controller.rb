@@ -107,11 +107,10 @@ class ProfilesController < ApplicationController
       end
 
       @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id])
-
+      @inverse_frienship = Friendship.find_by(user_id: params[:id], friend_id: current_user.id)
     else
 
       @friendship = nil
-
     end
 
 

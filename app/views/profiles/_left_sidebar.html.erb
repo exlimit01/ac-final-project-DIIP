@@ -34,13 +34,19 @@
 
   <div class="row">
     <button class="col-sm-4 btn-u btn-default" type="button">
-    <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Facebook.png"), style: "max-width: 30px;" %> 權限:<%= @profile.facebook_access_level %></a>
+      <% if @profile.show_facebook?(@friendship) %>
+        <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Facebook.png"), style: "max-width: 30px;" %> 權限:<%= @profile.facebook_access_level %></a>
+      <% end %>
     </button>
     <button class="col-sm-4 btn-u btn-default" type="button">
-    <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Line.png"), style: "max-width: 30px;" %> 權限:<%= @profile.line_access_level %></a>
+      <% if @profile.show_facebook?(@friendship) %>
+        <a target="_blank" href="<%= @profile.line_account %>"><%= image_tag ("Line.png"), style: "max-width: 30px;" %> 權限:<%= @profile.line_access_level %></a>
+      <% end %>
     </button>
     <button class="col-sm-4 btn-u btn-default" type="button">
-    <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Wechat.png"), style: "max-width: 30px;" %> 權限:<%= @profile.wechat_access_level %></a>
+      <% if @profile.show_facebook?(@friendship) %>
+        <a target="_blank" href="<%= @profile.wechat_account %>"><%= image_tag ("Wechat.png"), style: "max-width: 30px;" %> 權限:<%= @profile.wechat_access_level %></a>
+      <% end %>
     </button>
     <button type="button" class="popovers btn-u btn-brd rounded btn-u-xs btn-u-default" data-container="body" data-toggle="popover" data-placement="top" data-content="123123123">
       測試
