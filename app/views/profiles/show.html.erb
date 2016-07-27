@@ -35,11 +35,21 @@
                         <% end %>
                       </li>
                     <% else %>
-                      <li>
-                        <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post do %>
-                          <i class="fa fa-heart-o"></i>
-                        <% end %>
-                      </li>
+
+                      <% if answer.liked?(current_user) %>
+                        <li>
+                          <%= link_to like_path("#"), class: "disabled" do %>
+                            <i class="fa fa-heart"></i>
+                          <% end %>
+                        </li>
+                      <% else %>
+                        <li>
+                          <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post do %>
+                            <i class="fa fa-heart-o"></i>
+                          <% end %>
+                        </li>
+                      <% end %>
+
                     <% end %>
                   </ul>
                 </h4>

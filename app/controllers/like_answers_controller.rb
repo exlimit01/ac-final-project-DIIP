@@ -6,13 +6,11 @@ class LikeAnswersController < ApplicationController
     f = Friendship.find(params[:friendship_id])
     f.love_level += 5
     f.save
-    redirect_to :back
+    redirect_to profile_path(f.friend.profile)
+
   end
 
   def dislike
-byebug
-    #LikeAnswer.create!(friendship_id:, answer_id:)
-
     redirect_to :back
   end
 
