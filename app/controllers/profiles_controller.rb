@@ -26,14 +26,18 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-    @profile.save
-
-    if params[:photos]
-      params[:photos].each do |photo|
-        @profile.photos.create(:photo => photo)
+    if @profile.save
+      if params[:photos]
+        params[:photos].each do |photo|
+          @profile.photos.create(:photo => photo)
+        end
       end
+      redirect_to profile_path(@profile)
+    else
+      render 'new'
     end
-    redirect_to profile_path(@profile)
+
+
   end
 
   #GET /profiles/:id/edit

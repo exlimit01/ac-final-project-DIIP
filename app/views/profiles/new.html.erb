@@ -1,6 +1,14 @@
 <div class="container content profile">
   <div class="row">
 
+    <% if @profile.errors.any? %>
+      <ul>
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <%= form_for @profile do |f| %>
       <div>
         <%= f.label :nickname, "暱稱" %>
@@ -17,8 +25,8 @@
         <% if current_user.avatar %>
           <%= image_tag("avatars/#{current_user.avatar.filename}") %><br>
           <%= link_to "更改頭像", profile_pictures_path%>
-        <%else%>  
-          <%= link_to "選擇頭像", profile_pictures_path%> 
+        <%else%>
+          <%= link_to "選擇頭像", profile_pictures_path%>
         <% end %>
       </div>
 
