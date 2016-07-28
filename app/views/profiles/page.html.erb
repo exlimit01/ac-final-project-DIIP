@@ -7,10 +7,104 @@
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>個人資料</h2>
       </div>
 
-      <span><strong>年齡:</strong> <%= @profile.age %></span><br>
-      <span><strong>性別:</strong> <%= @profile.sex %></span><br>
-      <span><strong>關係:</strong> <%= @profile.relation %><br>
+      <!-- Profile Content -->
+          <div class="profile-bio">
+            <div class="row">
+              <div class="col-md-5">
+                <% if @profile.photos.exists? %>
+                  <% @profile.photos.each do |image| %>
+                    <%= image_tag image.photo.url(:medium) %>
+                  <% end %>
+                <% else %>
+                  沒有照片
+                <% end %>
+                <%= image_tag ("shou.jpg"), class: "img-responsive md-margin-bottom-10", style: "max-width: 300px;margin:0 auto;margin-top:-30px" %>
+              </div>
+              <div class="col-md-7">
+                <h2><%= @profile.nickname %></h2>
+                <span><strong>年齡:</strong> <%= @profile.age %></span>
+                <span><strong>性別:</strong> <%= @profile.sex %></span>
+                <span><strong>關係:</strong> <%= @profile.relation %></span>
+                <% if @profile.location.present? %>
+                  <span><strong>位置:</strong>
+                  <%= @profile.location.name %>
+                <% end %>
+                <hr class="hr-xs">
+                <p> <%= @profile.aboutme %></p>
+              </div>
+            </div>
+          </div><!--/end row-->
 
+          <div class="row">
+            <!--Social Icons v3-->
+            <div class="col-sm-6 sm-margin-bottom-30" style="padding:3px 2px 3px 15px;background:#f7f7f7">
+              <div class="panel panel-profile">
+                <div class="panel-heading overflow-h">
+                  <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> 興趣</h2>
+                  <a href="#"><i class="fa fa-envira pull-right"></i></a>
+                </div>
+
+                <div class="panel-body" style="height: 200px;">
+                  <ul class="list-unstyled social-contacts-v2">
+                    <% @profile.hobbies.each do |h| %>
+                    <li><i class="rounded-x tw fa fa-universal-access"></i> <%= h.name %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--End Social Icons v3-->
+
+            <!--Skills-->
+            <div class="col-sm-6 sm-margin-bottom-30" style="padding:3px 15px 3px 2px;background:#f7f7f7">
+              <div class="panel panel-profile">
+                <div class="panel-heading overflow-h">
+                  <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> 專業</h2>
+                  <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                </div>
+
+                <div class="panel-body" style="height: 200px;">
+                  <ul class="list-unstyled social-contacts-v2">
+                    <% @profile.professions.each do |p| %>
+                    <li><i class="rounded-x tw fa fa-check-circle"></i> <%= p.name %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--End Skills-->
+          </div><!--/end row-->
+
+          <!--Timeline-->
+          <div class="panel panel-profile" style="padding:3px 0px;background:#f7f7f7">
+            <div class="panel-heading overflow-h">
+              <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> 社交資料</h2>
+              <a href="#"><i class="fa fa-cog pull-right"></i></a>
+            </div>
+            <div class="panel-body margin-bottom-40">
+              <ul class="list-unstyled social-contacts-v2">
+                <button type="button" class="popovers btn-u btn-brd-width-2 rounded btn-u-sea btn-u-lg" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.facebook_link %>" style="margin-right:5px" >
+                  <% if @profile.show_facebook?(@friendship) %>
+                    <span><%= image_tag ("Facebook.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.facebook_access_level %></span>
+                  <% end %>
+                </button>
+                <button type="button" class="popovers btn-u btn-brd-width-2 rounded btn-u-sea btn-u-lg" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.line_account %>" style="margin-right:5px" >
+                  <% if @profile.show_line?(@friendship) %>
+                    <span><%= image_tag ("Line.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.line_access_level %></span>
+                  <% end %>
+                </button>
+                <button type="button" class="popovers btn-u btn-brd-width-2 rounded btn-u-sea btn-u-lg" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.wechat_account %>">
+                  <% if @profile.show_wechat?(@friendship) %>
+                    <span><%= image_tag ("Wechat.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.wechat_access_level %></span>
+                  <% end %>
+                </button>
+              </ul>
+            </div>
+          </div>
+          <!--End Timeline-->
+          </div><!--/end row-->
+      <!-- End Profile Content -->
+      <!-- End Profile -->
     </div>
   </div>
 </div>
