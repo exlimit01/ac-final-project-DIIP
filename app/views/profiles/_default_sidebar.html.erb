@@ -1,0 +1,46 @@
+<!--Left Sidebar-->
+<div class="col-md-3 md-margin-bottom-40">
+    <% if current_user.avatar %>
+      <%= image_tag ("avatars/#{current_user.avatar.filename}"), class: "col-md-12 img-responsive profile-img margin-bottom-20 margin-top-20", style: "height: 20vw;" %><br>
+    <% end %>
+
+  <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1" style="margin: 0px 11px 40px; text-align:center;letter-spacing:1.5px;font-size:15px">
+    <li class="list-group-item">
+      <%= link_to do %>
+        <i class="fa fa-user"></i>
+        個人資料
+      <% end %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to profile_path(current_user.profile) do %>
+        <i class="fa fa-book"></i>
+        問答說明
+      <% end %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to  do %>
+        <i class="fa fa-heartbeat"></i>
+        配對推薦
+      <% end %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to v2_interactions_list_path do %>
+        <i class="fa fa-bookmark"></i>
+        任務專區<%= check_mission_open_number %>
+      <% end %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to profiles_path do %>
+        <i class="fa fa-user-plus"></i>
+        搜尋同好
+      <% end %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to edit_profile_path(current_user.profile) do %>
+        <i class="fa fa-cog"></i>
+        資料設定
+      <% end %>
+    </li>
+  </ul>
+</div>
+<!--End Left Sidebar-->

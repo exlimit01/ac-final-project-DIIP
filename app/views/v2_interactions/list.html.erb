@@ -1,15 +1,26 @@
-<section id="notification-list">
-  <%= render partial: "shared/v2_notification_list" %>
-</section>
+<%= render :partial => "profiles/default_sidebar" %>
 
-<hr>
+<div class="col-md-9 profile">
+  <div class="profile-body">
+    <div class="panel panel-profile">
+      <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>任務列表</h2>
+      </div>
+      <section id="notification-list">
+        <%= render partial: "shared/v2_notification_list" %>
+      </section>
 
-<section id="friend-list">
-  <%= render partial: "shared/v2_friend_list" %>
-</section>
+      <hr>
 
-<hr>
+      <section id="friend-list">
+        <%= render partial: "shared/v2_friend_list" %>
+      </section>
 
-<section id="mission-list">
-  <%= render partial: "shared/v2_mission_list" %>
-</section>
+      <hr>
+
+      <section id="mission-list">
+        <%= render partial: "shared/v2_mission_list" %>
+      </section>
+    </div>
+  </div>
+</div>
