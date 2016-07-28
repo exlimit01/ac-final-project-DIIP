@@ -1,10 +1,14 @@
-<div class="container content profile">
-  <div class="row">
-    <%= render :partial => "left_sidebar" %>
+<%= render :partial => "default_sidebar" %>
 
-    <%= form_for @profile do |f| %>
-      <%= render partial: "form", locals: {f: f} %>
-    <% end %>
-
+<div class="col-md-9 profile">
+  <div class="profile-body">
+    <div class="panel panel-profile">
+      <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>資料設定</h2>
+      </div>
+      <%= form_for @profile do |f| %>
+        <%= render partial: "form", locals: {f: f} %>
+      <% end %>
+    </div>
   </div>
 </div>
