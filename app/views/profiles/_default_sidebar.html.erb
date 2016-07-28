@@ -6,7 +6,7 @@
 
   <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1" style="margin: 0px 11px 40px; text-align:center;letter-spacing:1.5px;font-size:15px">
     <li class="list-group-item">
-      <%= link_to do %>
+      <%= link_to page_profile_path(current_user.profile) do %>
         <i class="fa fa-user"></i>
         個人資料
       <% end %>

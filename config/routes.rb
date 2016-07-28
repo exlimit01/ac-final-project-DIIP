@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       get :entrance
       get :empty
     end
+
+    member do
+        get :page
+    end
   end
 
   namespace :interactions do

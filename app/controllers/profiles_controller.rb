@@ -89,6 +89,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def page
+    @profile = Profile.find(params[:id])
+  end
+
   private
 
   def set_profile
