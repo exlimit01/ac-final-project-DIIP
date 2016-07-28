@@ -17,4 +17,17 @@ class Friendship < ApplicationRecord
     [forward_friendship.love_level, backward_friendship.love_level].min >= 0
   end
 
+  def mission_remain?
+
+    if self.interactions.count == 0
+      return false
+    end
+
+    if self.interactions.last.v2_all_done?
+      false
+    else
+      true
+    end
+  end
+
 end

@@ -17,6 +17,8 @@ class Profile < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :questions, through: :answers
 
+  validates_presence_of :nickname
+
   def is_current_user?(user)
     self.user == user
   end

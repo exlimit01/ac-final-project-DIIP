@@ -1,11 +1,15 @@
 <% if @friendships.present? %>
   <% @friendships.each do |friendship| %>
     <div>
-      <%= friendship.friend.profile.nickname %>
       <%#= friendship.love_level %>
       <% if friendship.mission_open? %>
         <%#= link_to "任務表單", friendships_list_path(friend_id: friendship.friend.id) %>
-        <%= link_to "任務表單", v2_interactions_list_path(friend_id: friendship.friend.id), "data-turbolinks" => false %>
+        <%= link_to friendship.friend.profile.nickname, v2_interactions_list_path(friend_id: friendship.friend.id), "data-turbolinks" => false %>
+
+        <% if friendship.mission_remain? %>
+          <%= "有任務未完成喔~" %>
+        <% end %>
+
       <% end %>
     </div>
   <% end %>
