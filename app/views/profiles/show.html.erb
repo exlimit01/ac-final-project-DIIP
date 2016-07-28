@@ -71,6 +71,9 @@
     </div>
     <!--=== End Profile ===-->
 
+<%= audio_tag @profile.sound.url, controls: "controls", alt: "Please use chrome, ie, or safari", preload: :auto %>
+
+
 <div>
   個人圖像 :
   <% if @profile.avatar.exists? %>

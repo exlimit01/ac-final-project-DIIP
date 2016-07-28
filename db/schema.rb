@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727055807) do
+ActiveRecord::Schema.define(version: 20160728094557) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -161,6 +161,10 @@ ActiveRecord::Schema.define(version: 20160727055807) do
     t.string   "sex"
     t.string   "relation"
     t.text     "aboutme",               limit: 65535
+    t.string   "sound_file_name"
+    t.string   "sound_content_type"
+    t.integer  "sound_file_size"
+    t.datetime "sound_updated_at"
     t.index ["location_id"], name: "index_profiles_on_location_id", using: :btree
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end

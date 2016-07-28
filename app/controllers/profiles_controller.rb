@@ -123,7 +123,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:nickname, :age, :avatar, :photos, :description, :facebook_link,
+    params.require(:profile).permit(:nickname, :age, :avatar, :sound, :photos, :description, :facebook_link,
       :facebook_access_level ,:line_account, :line_access_level, :wechat_account, :wechat_access_level, :location_id,
       :sex, :relation, :aboutme, :hobby_ids => [], :profession_ids => [])
   end

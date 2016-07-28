@@ -19,6 +19,12 @@ class Profile < ApplicationRecord
 
   validates_presence_of :nickname
 
+  has_attached_file :sound
+  validates_attachment :sound,
+    :content_type => { :content_type => ["audio/mpeg", "audio/mp3", "audio/x-m4a"] },
+    :file_name => { :matches => [/mp3\Z/, /m4a\Z/] }
+
+
   def is_current_user?(user)
     self.user == user
   end

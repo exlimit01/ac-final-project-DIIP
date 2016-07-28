@@ -31,6 +31,14 @@
       </div>
 
       <div>
+        <%= f.label :sound, "個人聲音" %><br>
+        <%= f.file_field :sound %>
+          <% if @profile.sound.exists? %>
+            <%= check_box_tag "_remove_sound", "1" %> 移除聲音
+          <% end %>
+      </div>
+
+      <div>
         <%= f.label :photos, "照片" %>
         <%= file_field_tag "photos[]", :type => :file, :multiple => true %>
         <% if @profile.photos.exists? %>
