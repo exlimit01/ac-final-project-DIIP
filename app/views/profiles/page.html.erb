@@ -18,9 +18,9 @@
                 <% else %>
                   沒有照片
                 <% end %>
-                <%= image_tag ("shou.jpg"), class: "img-responsive md-margin-bottom-10", style: "max-width: 300px;margin:0 auto;margin-top:-30px" %>
+                <%= image_tag ("shou.jpg"), class: "img-responsive md-margin-bottom-10", style: "max-width: 280px;margin:0 auto;margin-top:-30px" %>
               </div>
-              <div class="col-md-7">
+              <div class="col-md-7" style="padding-left:20px">
                 <h2><%= @profile.nickname %></h2>
                 <span><strong>年齡:</strong> <%= @profile.age %></span>
                 <span><strong>性別:</strong> <%= @profile.sex %></span>
@@ -30,7 +30,7 @@
                   <%= @profile.location.name %>
                 <% end %>
                 <hr class="hr-xs">
-                <p> <%= @profile.aboutme %></p>
+                <p style="word-break:break-all; width:34vw;"> <%= @profile.aboutme %></p>
               </div>
             </div>
           </div><!--/end row-->
