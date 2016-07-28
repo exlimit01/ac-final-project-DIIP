@@ -23,3 +23,4 @@
 # Ignore public data
 /public/system/photos/*
 /public/system/profiles/avatars/*
+/public/system/profiles/sounds/*
