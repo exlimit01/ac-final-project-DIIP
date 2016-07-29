@@ -4,7 +4,6 @@
       <%= image_tag ("avatars/#{current_user.avatar.filename}"), class: "col-md-12 img-responsive profile-img margin-bottom-20 margin-top-20", style: "height: 20vw;" %><br>
     <% end %>
 
-  <%= audio_tag @profile.sound.url, controls: "controls", alt: "Please use chrome, ie, or safari", preload: :auto, class: "col-md-12", style: "margin-top:-50px" %>
   <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1" style="margin: 0px 11px 40px; text-align:center;letter-spacing:1.5px;font-size:15px">
     <li class="list-group-item">
       <%= link_to page_profile_path(current_user.profile) do %>
