@@ -1,0 +1,28 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+<p class="fieldset field">
+  <label class="image-replace cd-email" for="signup-email">E-mail</label>
+  <%= f.email_field :email, autofocus: true, class: "full-width has-padding has-border", placeholder: "註冊信箱" %>
+  <span class="cd-error-message">Error message here!</span>
+</p>
+
+<p class="fieldset field">
+  <label class="image-replace cd-password" for="signup-password" style="margin-top:10px">Password</label>
+  <% if @minimum_password_length %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <%= f.password_field :password, autocomplete: "off", class: "full-width has-padding has-border", placeholder: "註冊密碼" %>
+</p>
+
+<p class="fieldset field">
+  <label class="image-replace cd-password" for="signup-password-confirm">Password Confirm</label>
+  <%= f.password_field :password_confirmation, autocomplete: "off", class: "full-width has-padding has-border", placeholder: "密碼確認" %>
+</p>
+
+<p class="fieldset actions">
+  <%= f.submit "註冊帳號", class: "full-width has-padding" %>
+</p>
+<% end %>
+
+

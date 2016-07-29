@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require cable
 //= require bootstrap-sprockets
+//= require plugins/login-signup-modal-window/js/main.js
 //= require plugins/back-to-top.js
 //= require plugins/smoothScroll.js
 //= require plugins/backstretch/backstretch-ini.js
