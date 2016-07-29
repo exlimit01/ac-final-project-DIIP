@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require cable
+//= require turbolinks
+//= #require cable   #disable 
 //= require bootstrap-sprockets
 //= require plugins/back-to-top.js
 //= require plugins/smoothScroll.js
