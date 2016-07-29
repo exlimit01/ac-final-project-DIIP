@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-hant-tw">
 <head>
@@ -103,9 +102,9 @@
             <b>聽到好故事</b>
           </span>
         </h2>
-        <div class="animated fadeInUp wow" data-wow-duration="1.5s" data-wow-delay="1s">
+        <div class="cd-log_reg animated fadeInUp wow" data-wow-duration="1.5s" data-wow-delay="1s">
           <a href="#diip_feature" class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light-grey btn-u-block rounded-4x margin-right-10">瞭解更多</a>
-          <a href="/profiles/entrance" class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light-grey btn-u-block rounded-4x">開始體驗</a>
+          <a href="javascript:void(0);" class="cd-signin btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light-grey btn-u-block rounded-4x">開始體驗</a>
         </div>
       </div>
     </div>
@@ -390,5 +389,90 @@
     </div>
     <!--=== End Footer Version 1 ===-->
   </div><!--/wrapper-->
+
+
+
+<!--  -->
+<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+  <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+    <ul class="cd-switcher">
+      <li><a href="javascript:void(0);">Login</a></li>
+      <li><a href="javascript:void(0);">Register</a></li>
+    </ul>
+
+    <div id="cd-login"> <!-- log in form -->
+      <div class="cd-form">
+        <div>
+          <%= render "devise/sessions/new" %>
+        </div>
+      </div>
+      <p class="cd-form-bottom-message"><a href="javascript:void(0);">Forgot your password?</a></p>
+      <!-- <a href="javascript:void(0);" class="cd-close-form">Close</a> -->
+    </div> <!-- cd-login -->
+
+    <div id="cd-signup"> <!-- sign up form -->
+      <form class="cd-form">
+        <p class="social-login">
+          <span class="social-login-facebook"><a href="#"><i class="fa fa-facebook"></i> Facebook</a></span>
+          <span class="social-login-google"><a href="#"><i class="fa fa-google"></i> Google</a></span>
+          <span class="social-login-twitter"><a href="#"><i class="fa fa-twitter"></i> Twitter</a></span>
+        </p>
+
+        <div class="lined-text"><span>Or register your new account on Unify</span><hr></div>
+
+        <p class="fieldset">
+          <label class="image-replace cd-username" for="signup-username">Username</label>
+          <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
+          <span class="cd-error-message">Error message here!</span>
+        </p>
+
+        <p class="fieldset">
+          <label class="image-replace cd-email" for="signup-email">E-mail</label>
+          <input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+          <span class="cd-error-message">Error message here!</span>
+        </p>
+
+        <p class="fieldset">
+          <label class="image-replace cd-password" for="signup-password">Password</label>
+          <input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
+          <a href="javascript:void(0);" class="hide-password">Hide</a>
+          <span class="cd-error-message">Error message here!</span>
+        </p>
+
+        <p class="fieldset">
+          <input type="checkbox" id="accept-terms">
+          <label for="accept-terms">I agree to the <a href="page_terms.html">Terms</a></label>
+        </p>
+
+        <p class="fieldset">
+          <input class="full-width has-padding" type="submit" value="Create account">
+        </p>
+      </form>
+
+      <!-- <a href="javascript:void(0);" class="cd-close-form">Close</a> -->
+    </div> <!-- cd-signup -->
+
+    <div id="cd-reset-password"> <!-- reset password form -->
+      <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+      <form class="cd-form">
+        <p class="fieldset">
+          <label class="image-replace cd-email" for="reset-email">E-mail</label>
+          <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+          <span class="cd-error-message">Error message here!</span>
+        </p>
+
+        <p class="fieldset">
+          <input class="full-width has-padding" type="submit" value="Reset password">
+        </p>
+      </form>
+
+      <p class="cd-form-bottom-message"><a href="javascript:void(0);">Back to log-in</a></p>
+    </div> <!-- cd-reset-password -->
+    <a href="javascript:void(0);" class="cd-close-form">Close</a>
+  </div> <!-- cd-user-modal-container -->
+</div> <!-- cd-user-modal -->
+<!--  -->
+
 </body>
 </html>
