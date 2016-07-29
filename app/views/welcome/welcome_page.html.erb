@@ -3,11 +3,11 @@
 <head>
   <title>DIIP 慢慢來，比較快</title>
   <meta charset="utf-8">
-  <meta property="og:url" content="http://www.diip.com.tw" >
+  <meta property="og:url" content="https://5c94b552.ngrok.io/" >
   <meta property="og:type" content="website" >
   <meta property="og:title" content="DIIP 慢慢來 比較快" >
   <meta property="og:description" content="DIIP， 一個陪伴使用者與陌生人建立關係的產品，我們鼓勵使用者，做最真實的自己。不同於一般使用照片作為敲門磚的交友軟體，我們讓使用者舒適的表達自我，用內在作為兩者溝通的橋樑。" >
-  <meta property="og:image" content="<%= asset_path("header.jpg") %>" >
+  <%= tag :meta, property: 'og:image', content: image_url('header.jpg') %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -25,7 +25,61 @@
     ga('send', 'pageview');
 
   </script>
+  <script>
+          $(document).ready(function(){
+              $("#about").on('click',function(){
+                  ga("send","event","button","aboutclick","click")
+              });
 
+              $("#services").on('click',function(){
+                  ga("send","event","button","servicesclick","click")
+              });
+
+              $("#portfolio").on('click',function(){
+                  ga("send","event","button","portfolioclick","click")
+              });
+
+              $("#contact").on('click',function(){
+                  ga("send","event","button","contactclick","click")
+              });
+              $("#submit").on('click',function(){
+                  ga("send","event","button","clickcon","conversation")
+              });
+
+
+          })
+
+  </script>
+
+  <script>
+      var a = 0;
+
+      $(document).on('scroll',function(){
+      var height = $('#intro').outerHeight() + $('#about').outerHeight() + $('#services').outerHeight() + $('#portfolio').outerHeight();
+      if (($(document).scrollTop() > height)  && a ==0 ) {
+      ga('send','pageview');
+      a = 1
+      }
+      })
+  </script>
+
+  <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '604679973043650');
+      fbq('track', "PageView");
+      </script>
+  <noscript>
+      <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=604679973043650&ev=PageView&noscript=1"
+      />
+  </noscript>
+  <!-- Hotjar Tracking Code for http://www.diip.com.tw -->
+  <!-- Hotjar Tracking Code for http://www.diip.com.tw -->
   <script>
       (function(h,o,t,j,a,r){
           h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
