@@ -40,11 +40,11 @@ namespace :dev do
     Mission.create(content: "一起去爬山")
 
     puts "建立問題"
-    Question.create(content: "你喜歡哪個歌手")
-    Question.create(content: "你喜歡什麼運動")
-    Question.create(content: "你討厭吃什麼")
-    Question.create(content: "你常去旅遊嗎")
-    Question.create(content: "你有養寵物嗎")
+    Question.create(content: "你喜歡哪個歌手", unlock_level: 10)
+    Question.create(content: "你喜歡什麼運動", unlock_level: 20)
+    Question.create(content: "你討厭吃什麼", unlock_level: 30)
+    Question.create(content: "你常去旅遊嗎", unlock_level: 40)
+    Question.create(content: "你有養寵物嗎", unlock_level: 50)
 
     puts "建立地區"
     Location.create(name: "臺北市")
