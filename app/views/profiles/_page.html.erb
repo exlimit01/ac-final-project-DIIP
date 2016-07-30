@@ -1,12 +1,18 @@
-<%= render :partial => "default_sidebar" %>
-
 <div class="col-md-9 profile">
   <div class="profile-body">
     <div class="panel panel-profile">
       <div class="panel-heading overflow-h">
-        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>個人資料</h2>
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>資料設定</h2>
       </div>
 
+<!-- Profile Content -->
+<div class="tab-v1">
+  <ul class="nav nav-justified nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#基本資料">基本資料</a></li>
+    <li><a data-toggle="tab" href="#圖像資料">圖像資料</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="基本資料" class="profile-edit tab-pane fade in active">
       <!-- Profile Content -->
           <div class="profile-bio">
             <div class="row">
@@ -19,9 +25,6 @@
                   沒有照片
                 <% end %>
                 <%= image_tag ("shou.jpg"), class: "img-responsive md-margin-bottom-10", style: "max-width: 280px;margin:0 auto;margin-top:-30px" %>
-                <div>
-                <%= audio_tag @profile.sound.url, controls: "controls", alt: "Please use chrome, ie, or safari", preload: :auto,style: "margin-top:-30px",class: "col-md-12" %>
-                </div>
               </div>
               <div class="col-md-7" style="padding-left:20px">
                 <h2><%= @profile.nickname %></h2>
@@ -40,7 +43,7 @@
 
           <div class="row">
             <!--Social Icons v3-->
-            <div class="col-sm-6 sm-margin-bottom-30" style="padding:3px 2px 3px 15px;background:#f7f7f7">
+            <div class="col-sm-6 sm-margin-bottom-30" style="padding:3px 2px;background:#f7f7f7">
               <div class="panel panel-profile">
                 <div class="panel-heading overflow-h">
                   <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> 興趣</h2>
@@ -59,7 +62,7 @@
             <!--End Social Icons v3-->
 
             <!--Skills-->
-            <div class="col-sm-6 sm-margin-bottom-30" style="padding:3px 15px 3px 2px;background:#f7f7f7">
+            <div class="col-sm-6 sm-margin-bottom-30" style="padding:3px 2px;background:#f7f7f7">
               <div class="panel panel-profile">
                 <div class="panel-heading overflow-h">
                   <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> 專業</h2>
@@ -79,12 +82,12 @@
           </div><!--/end row-->
 
           <!--Timeline-->
-          <div class="panel panel-profile" style="padding:3px 0px;background:#f7f7f7">
+          <div class="panel panel-profile" style="background:#f7f7f7">
             <div class="panel-heading overflow-h">
               <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> 社交資料</h2>
               <a href="#"><i class="fa fa-cog pull-right"></i></a>
             </div>
-            <div class="panel-body margin-bottom-40">
+            <div class="panel-body" style="background:white">
               <ul class="list-unstyled social-contacts-v2">
                 <button type="button" class="popovers btn-u btn-brd-width-2 rounded btn-u-sea btn-u-lg" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.facebook_link %>" style="margin-right:5px" >
                   <% if @profile.show_facebook?(@friendship) %>
@@ -105,9 +108,85 @@
             </div>
           </div>
           <!--End Timeline-->
-          </div><!--/end row-->
       <!-- End Profile Content -->
-      <!-- End Profile -->
+    </div>
+
+    <div id="圖像資料" class="profile-edit tab-pane fade">
+      <!--=== Profile ===-->
+      <div class="container content profile">
+        <div class="row">
+          <!-- Profile Content -->
+          <div class="col-md-9">
+            <!-- Edit Q&A -->
+            <div id="QA_block">
+              <%= render partial: "answers/QA_block" %>
+            </div>
+            <%= link_to "取消", profile_path(@profile), class: "btn btn-default btn-sm" %>
+            <!-- End Edit Q&A -->
+            <!-- General Questions -->
+            <div class="panel-group acc-v1 margin-bottom-40" id="accordion" style="width: 770px;">
+              <% @profile.answers.each do |answer| %>
+              <% if answer.question.present? %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= answer.id %>" aria-expanded="false" aria-controls="<%= answer.id %>">
+                    <%= answer.question.content %>
+                    </a>
+                    <ul class="nav navbar-nav navbar-right", style="margin-right: 0px; margin-top: -27px" >
+
+                      <% if @profile.is_current_user?(current_user) %>
+                        <li>
+                          <%= link_to profile_path(@profile, aid: answer.id) do %>
+                            <i class="fa fa-pencil"></i>
+                          <% end %>
+                        </li>
+                        <li>
+                          <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
+                            <i class="fa fa-times"></i>
+                          <% end %>
+                        </li>
+                      <% else %>
+
+                        <% if answer.liked?(current_user) %>
+                          <li>
+                            <%= link_to like_path("#"), class: "disabled" do %>
+                              <i class="fa fa-heart"></i>
+                            <% end %>
+                          </li>
+                        <% else %>
+                          <li>
+                            <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post do %>
+                              <i class="fa fa-heart-o"></i>
+                            <% end %>
+                          </li>
+                        <% end %>
+
+                      <% end %>
+                    </ul>
+                  </h4>
+                </div>
+                <div id="<%= answer.id %>" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <%= answer.content %>
+                  </div>
+                </div>
+              <% end %>
+              <% end %>
+              </div>
+            </div><!--/acc-v1-->
+            <!-- End General Questions -->
+
+          </div>
+          <!-- End Profile Content -->
+        </div>
+      </div>
+      <!--=== End Profile ===-->
+    </div>
+  </div>
+</div>
+<!-- End Profile Content -->
+
     </div>
   </div>
 </div>
