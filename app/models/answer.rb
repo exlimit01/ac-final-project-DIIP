@@ -17,4 +17,12 @@ class Answer < ApplicationRecord
     end
   end
 
+  def show?(relationship)
+    if relationship.present?
+      self.question.unlock_level <= relationship.love_level
+    else
+      true
+    end
+  end
+
 end
