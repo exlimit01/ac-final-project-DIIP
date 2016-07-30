@@ -90,6 +90,12 @@ class ProfilesController < ApplicationController
   end
 
   def page
+    if params[:aid]
+      @answer = Answer.find(params[:aid])
+    else
+      @answer = Answer.new
+    end
+
     @profile = Profile.find(params[:id])
   end
 
