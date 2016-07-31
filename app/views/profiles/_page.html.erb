@@ -17,6 +17,11 @@
           <div class="profile-bio">
             <div class="row">
               <div class="col-md-5">
+                
+                <% if @profile.user.avatar %>
+                  <%= image_tag ("avatars/#{@profile.user.avatar.filename}"), style: "height:280px ; width:280px" %><br>
+                <%end%>
+
                 <% if @profile.photos.exists? %>
                   <% @profile.photos.each do |image| %>
                     <%= image_tag image.photo.url(:medium) %>
