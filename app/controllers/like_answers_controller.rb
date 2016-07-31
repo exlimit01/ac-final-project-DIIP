@@ -20,7 +20,10 @@ class LikeAnswersController < ApplicationController
 
         if f.interactions.count == 0 || f.interactions.last.co_status == 8
 
-          m = Mission.all.sample
+          #m = Mission.all.sample
+
+          # 寫死模擬用
+          m = Mission.find_by(:unlock_level => -1)
           f.interactions.create!(:mission_id => m.id, :co_status => 0)
           inverse_friendship.interactions.create!(:mission_id => m.id, :co_status => 0)
 

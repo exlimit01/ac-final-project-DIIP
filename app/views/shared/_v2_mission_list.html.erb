@@ -18,6 +18,7 @@
     <div style="border:1px solid red;margin-top: 5px">
       <%#= interaction.mission.content %>
       <%= link_to interaction.mission.content, room_path(interaction.room.id, :interaction_id => interaction.id, :co_status => interaction.co_status) %>
+      (已完成)
       <%#= interaction.comment %>
     </div>
   <% end %>

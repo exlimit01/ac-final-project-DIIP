@@ -1,6 +1,7 @@
 
 <%= link_to "回上頁", v2_interactions_list_path(friend_id: @friend_id), :class => "btn btn-default" %>
 
+<!--
 <% unless @hide_star %>
   <%#= form_tag interactions_done_path(room_id: @room, friend_id: @friend_id) do %>
   <%= form_tag v2_interactions_done_path(room_id: @room, friend_id: @friend_id) do %>
@@ -9,8 +10,26 @@
     <%= submit_tag "完成" %>
   <% end %>
 <% end %>
+-->
+
+<section id="mission-area">
+  <% if @interaction.mission.unlock_level == -1 %>
+    <% if @step %>
+      <%= render partial: "simu/matching_mission_pass" %>
+    <% else %>
+      <%= render partial: "simu/matching_mission" %>
+    <% end %>
+  <% elsif @interaction.mission.unlock_level == -2 %>
+    <% if @step %>
+      <%= render partial: "simu/go_out_mission_pass" %>
+    <% else %>
+      <%= render partial: "simu/go_out_mission" %>
+    <% end %>
+  <% end %>
+</section>
 
 
+<!--
 <% if @room.active? %>
   <div id="talk-block">
     <h4>留言</h4>
@@ -28,4 +47,4 @@
     </div>
   <% end %>
 </section>
-
+-->

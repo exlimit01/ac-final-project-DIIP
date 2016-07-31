@@ -249,4 +249,45 @@ class V2InteractionsController < ApplicationController
     redirect_to :back
   end
 
+  def simu_matching_mission
+
+    # 好友雙方好感度都加15
+    friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:friend_id])
+    inverse_friendship = Friendship.find_by(user_id: params[:friend_id], friend_id: current_user.id)
+    friendship.love_level += 15
+    friendship.save
+    inverse_friendship.love_level += 15
+    inverse_friendship.save
+
+    room = Room.find(params[:room_id])
+    room.interactions.each do |interaction|
+      interaction.co_status = 8
+      interaction.save
+    end
+
+    # 完成以後導回原畫面
+    redirect_to room_path(params[:room_id], :co_status => 5, interaction_id: params[:interaction_id], step: "pass")
+  end
+
+  def simu_go_out_mission
+
+      # 好友雙方好感度都加15
+    friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:friend_id])
+    inverse_friendship = Friendship.find_by(user_id: params[:friend_id], friend_id: current_user.id)
+    friendship.love_level += 15
+    friendship.save
+    inverse_friendship.love_level += 15
+    inverse_friendship.save
+
+    room = Room.find(params[:room_id])
+    room.interactions.each do |interaction|
+      interaction.co_status = 8
+      interaction.save
+    end
+
+    # 完成以後導回原畫面
+    redirect_to room_path(params[:room_id], :co_status => 5, interaction_id: params[:interaction_id], step: "pass")
+
+  end
+
 end
