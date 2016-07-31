@@ -34,7 +34,6 @@ class Profile < ApplicationRecord
   end
 
   def show_facebook?(relationship)
-
     if relationship.present?
       self.facebook_access_level <= relationship.love_level
     else

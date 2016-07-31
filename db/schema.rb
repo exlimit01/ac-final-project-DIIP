@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728094557) do
+ActiveRecord::Schema.define(version: 20160729113936) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535
@@ -148,11 +148,11 @@ ActiveRecord::Schema.define(version: 20160728094557) do
     t.integer  "age",                                 default: 18
     t.text     "description",           limit: 65535
     t.string   "facebook_link"
-    t.integer  "facebook_access_level",               default: 0
+    t.integer  "facebook_access_level",               default: 30
     t.string   "line_account"
-    t.integer  "line_access_level",                   default: 0
+    t.integer  "line_access_level",                   default: 30
     t.string   "wechat_account"
-    t.integer  "wechat_access_level",                 default: 0
+    t.integer  "wechat_access_level",                 default: 30
     t.integer  "location_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(version: 20160728094557) do
     t.string   "sound_content_type"
     t.integer  "sound_file_size"
     t.datetime "sound_updated_at"
+    t.integer  "picture_access_level",                default: 30
     t.index ["location_id"], name: "index_profiles_on_location_id", using: :btree
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end

@@ -24,9 +24,12 @@
       <% end %>
     </li>
     <li class="list-group-item">
+      <span class="badge badge-red rounded-x pull-right" style="margin:0.6vw 5px 0.5vw 0px">
+      <%= check_mission_open_number %>
+      </span>
       <%= link_to v2_interactions_list_path do %>
         <i class="fa fa-bookmark"></i>
-        任務專區<%= check_mission_open_number %>
+        任務專區
       <% end %>
     </li>
     <li class="list-group-item">
