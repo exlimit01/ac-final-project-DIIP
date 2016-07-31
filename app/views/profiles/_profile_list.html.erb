@@ -4,6 +4,9 @@
     <div class="panel panel-profile">
       <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>搜尋同好</h2>
+        <h2 class="panel-title heading-sm pull-right">
+        <%= link_to"推薦", profiles_path(:sort => gender_reverse)%> 
+        </h2>
       </div>
       <div class="panel-body margin-bottom-50">
         <div class="media media-v2  margin-bottom-20">
