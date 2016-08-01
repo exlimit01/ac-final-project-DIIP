@@ -396,25 +396,10 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
-    user4 = User.create!(:email => "ddd@gmail.com", :password => "000000")
+    user4 = User.create!(:email => "eee@gmail.com", :password => "000000")
     profile4 = Profile.create!(:nickname => "匿名狐狸", :user_id => user4.id,
                           :age => 18,
                           :sex => "女",
-                          :relation => "單身",
-                          :description => "那陽光碎裂在熟悉場景，好安靜、一個人能背多少的往事，真不輕",
-                          :aboutme => "安心過生活",
-                          :facebook_link => "https://www.facebook.com/ddd",
-                          :facebook_access_level => 20,
-                          :line_account => "ddd",
-                          :line_access_level => 20,
-                          :wechat_account => "ddd",
-                          :wechat_access_level => 20,
-                          :location_id => l1.id)
-
-    user5 = User.create!(:email => "eee@gmail.com", :password => "000000")
-    profile5 = Profile.create!(:nickname => "匿名無尾熊", :user_id => user5.id,
-                          :age => 18,
-                          :sex => "男",
                           :relation => "單身",
                           :description => "那陽光碎裂在熟悉場景，好安靜、一個人能背多少的往事，真不輕",
                           :aboutme => "安心過生活",
@@ -426,19 +411,34 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
+    user5 = User.create!(:email => "fff@gmail.com", :password => "000000")
+    profile5 = Profile.create!(:nickname => "匿名無尾熊", :user_id => user5.id,
+                          :age => 18,
+                          :sex => "男",
+                          :relation => "單身",
+                          :description => "那陽光碎裂在熟悉場景，好安靜、一個人能背多少的往事，真不輕",
+                          :aboutme => "安心過生活",
+                          :facebook_link => "https://www.facebook.com/fff",
+                          :facebook_access_level => 20,
+                          :line_account => "fff",
+                          :line_access_level => 20,
+                          :wechat_account => "fff",
+                          :wechat_access_level => 20,
+                          :location_id => l1.id)
 
-    user52 = User.create!(:email => "fff@gmail.com", :password => "000000")
+
+    user52 = User.create!(:email => "ggg@gmail.com", :password => "000000")
     profile52 = Profile.create!(:nickname => "匿名哈士奇", :user_id => user52.id,
                           :age => 18,
                           :sex => "女",
                           :relation => "單身",
                           :description => "當你的心已累，以為失去了一切，其實等在前面還有一整個世界",
                           :aboutme => "和平過生活",
-                          :facebook_link => "https://www.facebook.com/fff",
+                          :facebook_link => "https://www.facebook.com/ggg",
                           :facebook_access_level => 20,
-                          :line_account => "fff",
+                          :line_account => "ggg",
                           :line_access_level => 20,
-                          :wechat_account => "fff",
+                          :wechat_account => "ggg",
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
