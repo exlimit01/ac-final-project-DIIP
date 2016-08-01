@@ -361,7 +361,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user4 = User.create!(:email => "suenciechie@gmail.com", :password => "000000")
-    profile4 = Profile.create!(:nickname => "安和路孫協志", :user_id => user4.id,
+    profile4 = Profile.create!(:nickname => "匿名狐狸", :user_id => user4.id,
                           :age => 18,
                           :sex => "男",
                           :relation => "單身",
@@ -376,7 +376,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user5 = User.create!(:email => "chenishin@gmail.com", :password => "000000")
-    profile5 = Profile.create!(:nickname => "公館陳奕迅", :user_id => user5.id,
+    profile5 = Profile.create!(:nickname => "匿名獨角獸", :user_id => user5.id,
                           :age => 18,
                           :sex => "男",
                           :relation => "單身",
@@ -391,7 +391,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user51 = User.create!(:email => "ancinya@gmail.com", :password => "000000")
-    profile51 = Profile.create!(:nickname => "平溪安心亞", :user_id => user51.id,
+    profile51 = Profile.create!(:nickname => "匿名大眼仔", :user_id => user51.id,
                           :age => 18,
                           :sex => "女",
                           :relation => "單身",
@@ -406,7 +406,7 @@ namespace :work do
                           :location_id => l2.id)
 
     user52 = User.create!(:email => "kuotsiachieh@gmail.com", :password => "000000")
-    profile52 = Profile.create!(:nickname => "松江南京郭采潔", :user_id => user52.id,
+    profile52 = Profile.create!(:nickname => "匿名哈士奇", :user_id => user52.id,
                           :age => 18,
                           :sex => "女",
                           :relation => "單身",
@@ -421,7 +421,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user53 = User.create!(:email => "kuoshefu@gmail.com", :password => "000000")
-    profile53 = Profile.create!(:nickname => "信義郭雪芙", :user_id => user53.id,
+    profile53 = Profile.create!(:nickname => "匿名圓仔", :user_id => user53.id,
                           :age => 20,
                           :sex => "女",
                           :relation => "單身",
@@ -436,7 +436,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user54 = User.create!(:email => "linchilin@gmail.com", :password => "000000")
-    profile54 = Profile.create!(:nickname => "北車林志玲", :user_id => user54.id,
+    profile54 = Profile.create!(:nickname => "匿名綿羊", :user_id => user54.id,
                           :age => 20,
                           :sex => "女",
                           :relation => "單身",
@@ -451,7 +451,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user55 = User.create!(:email => "jansauhan@gmail.com", :password => "000000")
-    profile55 = Profile.create!(:nickname => "景美張韶涵", :user_id => user55.id,
+    profile55 = Profile.create!(:nickname => "匿名粉紅豬", :user_id => user55.id,
                           :age => 20,
                           :sex => "女",
                           :relation => "單身",
@@ -466,7 +466,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user56 = User.create!(:email => "suetan@gmail.com", :password => "000000")
-    profile56 = Profile.create!(:nickname => "大安隋棠", :user_id => user56.id,
+    profile56 = Profile.create!(:nickname => "匿名牧羊犬", :user_id => user56.id,
                           :age => 24,
                           :sex => "女",
                           :relation => "單身",
@@ -481,7 +481,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user57 = User.create!(:email => "bechanjinzi@gmail.com", :password => "000000")
-    profile57 = Profile.create!(:nickname => "六張犁北川景子", :user_id => user57.id,
+    profile57 = Profile.create!(:nickname => "匿名跳跳虎", :user_id => user57.id,
                           :age => 24,
                           :sex => "女",
                           :relation => "單身",
@@ -496,7 +496,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user58 = User.create!(:email => "jiajinwen@gmail.com", :password => "000000")
-    profile58 = Profile.create!(:nickname => "龍山寺賈靜雯", :user_id => user58.id,
+    profile58 = Profile.create!(:nickname => "匿名獅子王", :user_id => user58.id,
                           :age => 24,
                           :sex => "女",
                           :relation => "單身",
@@ -511,7 +511,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user59 = User.create!(:email => "linichen@gmail.com", :password => "000000")
-    profile59 = Profile.create!(:nickname => "木柵林依晨", :user_id => user59.id,
+    profile59 = Profile.create!(:nickname => "匿名浣熊", :user_id => user59.id,
                           :age => 24,
                           :sex => "女",
                           :relation => "單身",
@@ -526,7 +526,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user60 = User.create!(:email => "suenjianzi@gmail.com", :password => "000000")
-    profile60 = Profile.create!(:nickname => "板南線孫燕姿", :user_id => user60.id,
+    profile60 = Profile.create!(:nickname => "匿名土撥鼠", :user_id => user60.id,
                           :age => 24,
                           :sex => "女",
                           :relation => "單身",
