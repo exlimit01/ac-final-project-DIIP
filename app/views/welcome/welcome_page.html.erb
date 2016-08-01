@@ -445,5 +445,40 @@
     <!--=== End Footer Version 1 ===-->
   </div><!--/wrapper-->
 
+
+
+<!--  -->
+<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+  <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+    <ul class="cd-switcher">
+      <li><a href="javascript:void(0);">Login</a></li>
+      <li><a href="javascript:void(0);">Register</a></li>
+    </ul>
+
+    <div class="cd-login"> <!-- log in form -->
+      <div class="cd-form">
+        <div>
+          <%= render "devise/sessions/new" %>
+        </div>
+      </div>
+      <!-- <a href="javascript:void(0);" class="cd-close-form">Close</a> -->
+    </div> <!-- cd-login -->
+
+    <div class="cd-signup" style="margin-top:-55px"> <!-- sign up form -->
+      <div class="cd-form">
+
+        <div class="lined-text"><span>或者註冊您的帳號</span><hr></div>
+
+        <%= render "devise/registrations/new" %>
+      </div>
+
+      <!-- <a href="javascript:void(0);" class="cd-close-form">Close</a> -->
+    </div> <!-- cd-signup -->
+
+    <a href="javascript:void(0);" class="cd-close-form">Close</a>
+  </div> <!-- cd-user-modal-container -->
+</div> <!-- cd-user-modal -->
+<!--  -->
+
 </body>
 </html>
