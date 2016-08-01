@@ -1,9 +1,13 @@
-<% Avatar.all.each do |a| %>
-  
-  <%= link_to image_tag("avatars/#{a.filename}"), profile_pictures_path(avatar_id: a.id), method: :post %>
 
-<% end %>
+<div class="avatar" >
+<br>
+  <% Avatar.all.each do |a| %>
+    
+    <%= link_to image_tag("avatars/#{a.filename}", style: "height:280px ; width:280px" ), profile_pictures_path(avatar_id: a.id), method: :post %>
 
+  <% end %>
+
+</div>
 
 <br>
-<%=link_to "Back", current_user.profile  %>
+<%=link_to "Back", current_user.profile, style: "font-size: 100px"  %>
