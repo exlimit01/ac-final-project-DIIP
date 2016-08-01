@@ -31,6 +31,9 @@ Rails.application.routes.draw do
     post :done
     get :refresh
     get :list
+
+    post :simu_matching_mission
+    post :simu_go_out_mission
   end
 
   namespace :friendships do

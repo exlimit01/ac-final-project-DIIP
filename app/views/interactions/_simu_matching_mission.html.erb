@@ -1,0 +1,29 @@
+<h1>默契考驗</h1>
+
+<hr>
+
+<%= form_tag v2_interactions_simu_matching_mission_path(room_id: @room, friend_id: @friend_id, interaction_id: @interaction.id) do %>
+    <h2>長方形．紅色</h2>
+    <%= radio_button_tag 'Question_1', '1', true %>磚頭
+    <%= radio_button_tag 'Question_1', '2' %>紅包
+    <%= radio_button_tag 'Question_1', '3' %>Youtube
+
+    <br>
+    <br>
+
+    <h2>好吃的．限時的</h2>
+    <%= radio_button_tag 'Question_2', '1', true %>泡芙
+    <%= radio_button_tag 'Question_2', '2' %>麻辣鍋
+    <%= radio_button_tag 'Question_2', '3' %>素食
+
+    <br>
+    <br>
+
+    <h2>戶外的．大戰．肚子痛</h2>
+    <%= radio_button_tag 'Question_3', '1', true %>水球
+    <%= radio_button_tag 'Question_3', '2' %>大胃王比賽
+    <%= radio_button_tag 'Question_3', '3' %>野外求生
+    <br>
+    <br>
+    <%= submit_tag "完成", :class => "btn btn-primary" %>
+<% end %>
