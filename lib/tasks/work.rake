@@ -368,7 +368,7 @@ namespace :work do
 
     user2 = User.create!(:email => "bbb@gmail.com", :password => "000000")
     profile2 = Profile.create!(:nickname => "匿名犀牛", :user_id => user2.id,
-                          :age => 35,
+                          :age => 32,
                           :sex => "男",
                           :relation => "已婚",
                           :description => "永遠等待那一日咱可以出頭天，人生不怕風浪只怕自己沒志氣",
@@ -383,7 +383,7 @@ namespace :work do
 
     user3 = User.create!(:email => "ddd@gmail.com", :password => "000000")
     profile3 = Profile.create!(:nickname => "匿名獨角獸", :user_id => user3.id,
-                          :age => 20,
+                          :age => 28,
                           :sex => "女",
                           :relation => "單身",
                           :description => "當你的愛已碎，以為純真會幻滅，其實等在前面、還有一整個世界，新的視野、新的起點",
@@ -398,7 +398,7 @@ namespace :work do
 
     user4 = User.create!(:email => "eee@gmail.com", :password => "000000")
     profile4 = Profile.create!(:nickname => "匿名狐狸", :user_id => user4.id,
-                          :age => 18,
+                          :age => 30,
                           :sex => "女",
                           :relation => "單身",
                           :description => "那陽光碎裂在熟悉場景，好安靜、一個人能背多少的往事，真不輕",
@@ -412,8 +412,8 @@ namespace :work do
                           :location_id => l1.id)
 
     user5 = User.create!(:email => "fff@gmail.com", :password => "000000")
-    profile5 = Profile.create!(:nickname => "匿名無尾熊", :user_id => user5.id,
-                          :age => 18,
+    profile5 = Profile.create!(:nickname => "匿名食蟻獸", :user_id => user5.id,
+                          :age => 22,
                           :sex => "男",
                           :relation => "單身",
                           :description => "那陽光碎裂在熟悉場景，好安靜、一個人能背多少的往事，真不輕",
@@ -428,8 +428,8 @@ namespace :work do
 
 
     user52 = User.create!(:email => "ggg@gmail.com", :password => "000000")
-    profile52 = Profile.create!(:nickname => "匿名哈士奇", :user_id => user52.id,
-                          :age => 18,
+    profile52 = Profile.create!(:nickname => "匿名駝鹿", :user_id => user52.id,
+                          :age => 23,
                           :sex => "女",
                           :relation => "單身",
                           :description => "當你的心已累，以為失去了一切，其實等在前面還有一整個世界",
@@ -443,8 +443,8 @@ namespace :work do
                           :location_id => l1.id)
 
     user53 = User.create!(:email => "kuoshefu@gmail.com", :password => "000000")
-    profile53 = Profile.create!(:nickname => "匿名圓仔", :user_id => user53.id,
-                          :age => 20,
+    profile53 = Profile.create!(:nickname => "匿名蠑螈", :user_id => user53.id,
+                          :age => 24,
                           :sex => "女",
                           :relation => "單身",
                           :description => "當風雨都過去迎著風看天空，不放棄才能夠有感動",
@@ -458,8 +458,8 @@ namespace :work do
                           :location_id => l1.id)
 
     user54 = User.create!(:email => "linchilin@gmail.com", :password => "000000")
-    profile54 = Profile.create!(:nickname => "匿名綿羊", :user_id => user54.id,
-                          :age => 20,
+    profile54 = Profile.create!(:nickname => "匿名海怪", :user_id => user54.id,
+                          :age => 25,
                           :sex => "女",
                           :relation => "單身",
                           :description => "這一生這一次為自己抬起頭，至少要驕傲的盛開過",
@@ -473,8 +473,8 @@ namespace :work do
                           :location_id => l1.id)
 
     user55 = User.create!(:email => "jansauhan@gmail.com", :password => "000000")
-    profile55 = Profile.create!(:nickname => "匿名粉紅豬", :user_id => user55.id,
-                          :age => 20,
+    profile55 = Profile.create!(:nickname => "匿名地鼠", :user_id => user55.id,
+                          :age => 26,
                           :sex => "女",
                           :relation => "單身",
                           :description => "我不好也不壞不特別出眾，我只是敢不同",
@@ -488,8 +488,8 @@ namespace :work do
                           :location_id => l1.id)
 
     user56 = User.create!(:email => "suetan@gmail.com", :password => "000000")
-    profile56 = Profile.create!(:nickname => "匿名牧羊犬", :user_id => user56.id,
-                          :age => 24,
+    profile56 = Profile.create!(:nickname => "匿名鹿角兔", :user_id => user56.id,
+                          :age => 27,
                           :sex => "女",
                           :relation => "單身",
                           :description => "我的人生就是一錯再錯，錯完了再從頭",
@@ -503,8 +503,8 @@ namespace :work do
                           :location_id => l1.id)
 
     user57 = User.create!(:email => "bechanjinzi@gmail.com", :password => "000000")
-    profile57 = Profile.create!(:nickname => "匿名跳跳虎", :user_id => user57.id,
-                          :age => 24,
+    profile57 = Profile.create!(:nickname => "匿名鴨子", :user_id => user57.id,
+                          :age => 28,
                           :sex => "女",
                           :relation => "單身",
                           :description => "就放肆愛放肆追、放肆去闖、放肆是我的信仰",
@@ -518,8 +518,8 @@ namespace :work do
                           :location_id => l1.id)
 
     user58 = User.create!(:email => "jiajinwen@gmail.com", :password => "000000")
-    profile58 = Profile.create!(:nickname => "匿名獅子王", :user_id => user58.id,
-                          :age => 24,
+    profile58 = Profile.create!(:nickname => "匿名長頸鹿", :user_id => user58.id,
+                          :age => 29,
                           :sex => "女",
                           :relation => "單身",
                           :description => "每一個險惡的浪，都會有浪花綻放，我決定邊衝邊欣賞",
@@ -533,7 +533,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user59 = User.create!(:email => "linichen@gmail.com", :password => "000000")
-    profile59 = Profile.create!(:nickname => "匿名浣熊", :user_id => user59.id,
+    profile59 = Profile.create!(:nickname => "匿名臭鼬", :user_id => user59.id,
                           :age => 24,
                           :sex => "女",
                           :relation => "單身",
@@ -548,7 +548,7 @@ namespace :work do
                           :location_id => l1.id)
 
     user60 = User.create!(:email => "suenjianzi@gmail.com", :password => "000000")
-    profile60 = Profile.create!(:nickname => "匿名土撥鼠", :user_id => user60.id,
+    profile60 = Profile.create!(:nickname => "匿名海豚", :user_id => user60.id,
                           :age => 24,
                           :sex => "女",
                           :relation => "單身",
