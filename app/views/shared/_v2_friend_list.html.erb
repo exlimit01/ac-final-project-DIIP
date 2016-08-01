@@ -6,7 +6,12 @@
         <%#= link_to "任務表單", friendships_list_path(friend_id: friendship.friend.id) %>
         <div class="col-sm-6 sm-margin-bottom-20">
           <div class="profile-blog">
-            <img class="rounded-x" src="assets/img/testimonials/img1.jpg" alt="">
+            <!-- <img class="" src="assets/img/avatar/img1.jpg" alt=""> -->
+
+            <% if friendship.friend.avatar.present? %>
+              <%= image_tag ("avatars/#{friendship.friend.avatar.filename}"),class: "rounded-x" %>
+            <% end %>
+
             <div class="name-location">
              <strong style="display:inline-block"><%= link_to friendship.friend.profile.nickname, v2_interactions_list_path(friend_id: friendship.friend.id), "data-turbolinks" => false %></strong>
               <span class="btn-u btn-brd rounded-4x btn-u-green btn-u-sm">
