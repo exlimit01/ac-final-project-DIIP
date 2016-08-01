@@ -307,14 +307,50 @@ namespace :work do
     l20 = Location.create(name: "澎湖縣")
 
     puts "建立Avatar"
-    Avatar.create(filename: 'A1.jpg')
-    Avatar.create(filename: 'A2.jpg')
-    Avatar.create(filename: 'A3.jpg')
-    Avatar.create(filename: 'A4.jpg')
-    Avatar.create(filename: 'A5.jpg')
-    Avatar.create(filename: 'A6.jpg')
+    Avatar.destroy_all
+    Avatar.create(filename: 'man-1.png')
+    Avatar.create(filename: 'man-2.png')
+    Avatar.create(filename: 'man-3.png')
+    Avatar.create(filename: 'man-4.png')
+    Avatar.create(filename: 'man-5.png')
+    Avatar.create(filename: 'man-6.png')
+    Avatar.create(filename: 'man-7.png')
+    Avatar.create(filename: 'man-8.png')
+    Avatar.create(filename: 'man-9.png')
+    Avatar.create(filename: 'woman-1.png')
+    Avatar.create(filename: 'woman-2.png')
+    Avatar.create(filename: 'woman-3.png')
+    Avatar.create(filename: 'woman-4.png')
+    Avatar.create(filename: 'woman-5.png')
+    Avatar.create(filename: 'woman-6.png')
+    Avatar.create(filename: 'woman-7.png')
+    Avatar.create(filename: 'woman-8.png')
+    Avatar.create(filename: 'woman-9.png')
+    Avatar.create(filename: 'woman-10.png')
+    Avatar.create(filename: 'woman-11.png')
+    Avatar.create(filename: 'woman-12.png')
+    Avatar.create(filename: 'woman-13.png')
+    Avatar.create(filename: 'woman-14.png')
+    Avatar.create(filename: 'woman-15.png')
 
     puts "建立使用者 & 個人資料"
+
+    user51 = User.create!(:email => "ccc@gmail.com", :password => "000000")
+    profile51 = Profile.create!(:nickname => "匿名皮卡丘", :user_id => user51.id,
+                          :age => 18,
+                          :sex => "女",
+                          :relation => "單身",
+                          :description => "就算整個世界把我拋棄，而至少快樂傷心我自​​己決定",
+                          :aboutme => "快樂過生活",
+                          :facebook_link => "https://www.facebook.com/ccc",
+                          :facebook_access_level => 20,
+                          :line_account => "ccc",
+                          :line_access_level => 20,
+                          :wechat_account => "ccc",
+                          :wechat_access_level => 20,
+                          :location_id => l2.id)
+
+
     user1 = User.create!(:email => "yakushou730@gmail.com", :password => "000000")
     profile1 = Profile.create!(:nickname => "匿名毛怪", :user_id => user1.id,
                           :age => 29,
@@ -390,20 +426,6 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
-    user51 = User.create!(:email => "ccc@gmail.com", :password => "000000")
-    profile51 = Profile.create!(:nickname => "匿名皮卡丘", :user_id => user51.id,
-                          :age => 18,
-                          :sex => "女",
-                          :relation => "單身",
-                          :description => "就算整個世界把我拋棄，而至少快樂傷心我自​​己決定",
-                          :aboutme => "快樂過生活",
-                          :facebook_link => "https://www.facebook.com/ccc",
-                          :facebook_access_level => 20,
-                          :line_account => "ccc",
-                          :line_access_level => 20,
-                          :wechat_account => "ccc",
-                          :wechat_access_level => 20,
-                          :location_id => l2.id)
 
     user52 = User.create!(:email => "kuotsiachieh@gmail.com", :password => "000000")
     profile52 = Profile.create!(:nickname => "匿名哈士奇", :user_id => user52.id,
