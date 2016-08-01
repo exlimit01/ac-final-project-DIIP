@@ -107,21 +107,23 @@
 
     <div style="width: 300px;margin-left: -10px;">
       <div style="margin-bottom:15px">
+        <% if @profile.show_facebook?(@friendship) %>
         <button type="button" class="popovers btn-u btn-brd-width-1 rounded btn-u-sea btn-u-xs" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.facebook_link %>" >
-          <% if @profile.show_facebook?(@friendship) %>
             <span><%= image_tag ("Facebook.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.facebook_access_level %></span>
-          <% end %>
         </button>
+        <% end %>
+
+        <% if @profile.show_line?(@friendship) %>
         <button type="button" class="popovers btn-u btn-brd-width-1 rounded btn-u-sea btn-u-xs" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.line_account %>" style="margin-right:5px;padding:2px 5px" >
-          <% if @profile.show_line?(@friendship) %>
             <span><%= image_tag ("Line.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.line_access_level %></span>
-          <% end %>
         </button>
+        <% end %>
+
+        <% if @profile.show_wechat?(@friendship) %>
         <button type="button" class="popovers btn-u btn-brd-width-1 rounded btn-u-sea btn-u-xs" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.wechat_account %>" style="margin-right:5px;padding:2px 5px" >
-          <% if @profile.show_wechat?(@friendship) %>
             <span><%= image_tag ("Wechat.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.wechat_access_level %></span>
-          <% end %>
         </button>
+        <% end %>
       </div>
     </div>
 
