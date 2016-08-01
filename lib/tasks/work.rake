@@ -345,18 +345,18 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l2.id)
 
-    user3 = User.create!(:email => "ccc@gmail.com", :password => "000000")
-    profile3 = Profile.create!(:nickname => "匿名皮卡丘", :user_id => user3.id,
-                          :age => 18,
-                          :sex => "女",
+    user3 = User.create!(:email => "lionking@gmail.com", :password => "000000")
+    profile3 = Profile.create!(:nickname => "匿名獅子王", :user_id => user3.id,
+                          :age => 20,
+                          :sex => "男",
                           :relation => "單身",
                           :description => "當你的愛已碎，以為純真會幻滅，其實等在前面、還有一整個世界，新的視野、新的起點",
                           :aboutme => "安心過生活",
-                          :facebook_link => "https://www.facebook.com/ccc",
+                          :facebook_link => "https://www.facebook.com/LionKing",
                           :facebook_access_level => 20,
-                          :line_account => "ccc",
+                          :line_account => "LionKing",
                           :line_access_level => 20,
-                          :wechat_account => "ccc",
+                          :wechat_account => "LionKing",
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
@@ -390,18 +390,18 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
-    user51 = User.create!(:email => "ancinya@gmail.com", :password => "000000")
-    profile51 = Profile.create!(:nickname => "匿名大眼仔", :user_id => user51.id,
+    user51 = User.create!(:email => "ccc@gmail.com", :password => "000000")
+    profile51 = Profile.create!(:nickname => "匿名皮卡丘", :user_id => user51.id,
                           :age => 18,
                           :sex => "女",
                           :relation => "單身",
                           :description => "就算整個世界把我拋棄，而至少快樂傷心我自​​己決定",
                           :aboutme => "快樂過生活",
-                          :facebook_link => "https://www.facebook.com/AnCinYia",
+                          :facebook_link => "https://www.facebook.com/ccc",
                           :facebook_access_level => 20,
-                          :line_account => "AnCinYia",
+                          :line_account => "ccc",
                           :line_access_level => 20,
-                          :wechat_account => "AnCinYa",
+                          :wechat_account => "ccc",
                           :wechat_access_level => 20,
                           :location_id => l2.id)
 
