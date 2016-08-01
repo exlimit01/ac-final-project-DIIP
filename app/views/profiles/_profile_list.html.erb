@@ -4,12 +4,12 @@
     <div class="panel panel-profile">
       <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>搜尋同好</h2>
-      
+
         <h2 class="panel-title heading-sm pull-right">
-        <%= link_to"推薦", profiles_path(:sort => gender_reverse)%> 
-        <%= link_to"所有用戶", profiles_path%> 
+        <%= link_to"推薦", profiles_path(:sort => gender_reverse)%>
+        <%= link_to"所有用戶", profiles_path%>
         </h2>
-      
+
       </div>
       <div class="panel-body margin-bottom-50">
         <div class="media media-v2  margin-bottom-20">
@@ -17,7 +17,9 @@
           <% @profiles.each do |profile| %>
           <% unless profile.is_current_user?(current_user) %>
           <a class="pull-left" href="#">
-            <%= image_tag ("jill.jpg"), class: "media-object rounded-x", style: "max-width: 250px;" %>
+            <%if profile.user.avatar.present?%>
+             <%= image_tag ("avatars/#{profile.user.avatar.filename}"), class: "media-object rounded-x", style: "max-width: 250px;" %>
+           <%end%>
           </a>
           <div class="media-body">
             <h4 class="media-heading">
