@@ -11,8 +11,8 @@ namespace :work do
     m_matching = Mission.find_by(:unlock_level => -1)
     m_go_out = Mission.find_by(:unlock_level => -2)
 
-    f_ab = Friendship.create(:user_id => f_aaa.id, :friend_id => f_bbb.id, :love_level => 0)
-    f_ba = Friendship.create(:user_id => f_bbb.id, :friend_id => f_aaa.id, :love_level => 0)
+    #f_ab = Friendship.create(:user_id => f_aaa.id, :friend_id => f_bbb.id, :love_level => 0)
+    #f_ba = Friendship.create(:user_id => f_bbb.id, :friend_id => f_aaa.id, :love_level => 0)
     f_ac = Friendship.create(:user_id => f_aaa.id, :friend_id => f_ccc.id, :love_level => 0)
     f_ca = Friendship.create(:user_id => f_ccc.id, :friend_id => f_aaa.id, :love_level => 20)
     f_bc = Friendship.create(:user_id => f_bbb.id, :friend_id => f_ccc.id, :love_level => 0)
@@ -20,8 +20,8 @@ namespace :work do
 
     f_ac.interactions.destroy_all
     f_ca.interactions.destroy_all
-    f_ab.interactions.destroy_all
-    f_ba.interactions.destroy_all
+    #f_ab.interactions.destroy_all
+    #f_ba.interactions.destroy_all
 
     f_ac.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
     f_ca.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
@@ -55,8 +55,8 @@ namespace :work do
     m_matching = Mission.find_by(:unlock_level => -1)
     m_go_out = Mission.find_by(:unlock_level => -2)
 
-    f_ab = Friendship.create(:user_id => f_aaa.id, :friend_id => f_bbb.id, :love_level => 0)
-    f_ba = Friendship.create(:user_id => f_bbb.id, :friend_id => f_aaa.id, :love_level => 0)
+    #f_ab = Friendship.create(:user_id => f_aaa.id, :friend_id => f_bbb.id, :love_level => 0)
+    #f_ba = Friendship.create(:user_id => f_bbb.id, :friend_id => f_aaa.id, :love_level => 0)
     f_ac = Friendship.create(:user_id => f_aaa.id, :friend_id => f_ccc.id, :love_level => 0)
     f_ca = Friendship.create(:user_id => f_ccc.id, :friend_id => f_aaa.id, :love_level => 20)
     f_bc = Friendship.create(:user_id => f_bbb.id, :friend_id => f_ccc.id, :love_level => 0)
@@ -64,8 +64,8 @@ namespace :work do
 
     f_ac.interactions.destroy_all
     f_ca.interactions.destroy_all
-    f_ab.interactions.destroy_all
-    f_ba.interactions.destroy_all
+    #f_ab.interactions.destroy_all
+    #f_ba.interactions.destroy_all
 
     #f_ac.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
     #f_ca.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
