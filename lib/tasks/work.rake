@@ -348,7 +348,7 @@ namespace :work do
     user3 = User.create!(:email => "ccc@gmail.com", :password => "000000")
     profile3 = Profile.create!(:nickname => "匿名皮卡丘", :user_id => user3.id,
                           :age => 18,
-                          :sex => "男",
+                          :sex => "女",
                           :relation => "單身",
                           :description => "當你的愛已碎，以為純真會幻滅，其實等在前面、還有一整個世界，新的視野、新的起點",
                           :aboutme => "安心過生活",
