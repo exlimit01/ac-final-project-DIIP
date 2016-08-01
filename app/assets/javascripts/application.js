@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
+//= #require cable   #disable 
 //= require bootstrap-sprockets
 //= require plugins/login-signup-modal-window/js/main.js
 //= require plugins/back-to-top.js
@@ -27,6 +29,7 @@
 //= require js/plugins/datepicker.js
 //= require js/plugins/circles-master.js
 //= require js/plugins/style-switcher.js
+//= require js/plugins/owl-carousel.js
 //= require js/jquery.countdown.js
 //= require js/app.js
 //= require js/custom.js

@@ -6,21 +6,9 @@
 
   <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1" style="margin: 0px 11px 40px; text-align:center;letter-spacing:1.5px;font-size:15px">
     <li class="list-group-item">
-      <%= link_to page_profile_path(current_user.profile) do %>
-        <i class="fa fa-user"></i>
-        個人資料
-      <% end %>
-    </li>
-    <li class="list-group-item">
       <%= link_to profile_path(current_user.profile) do %>
-        <i class="fa fa-book"></i>
-        問答說明
-      <% end %>
-    </li>
-    <li class="list-group-item">
-      <%= link_to  do %>
-        <i class="fa fa-heartbeat"></i>
-        配對推薦
+        <i class="fa fa-user"></i>
+        個人介面
       <% end %>
     </li>
     <li class="list-group-item">
@@ -28,7 +16,7 @@
       <%= check_mission_open_number %>
       </span>
       <%= link_to v2_interactions_list_path do %>
-        <i class="fa fa-bookmark"></i>
+        <i class="fa fa-heartbeat"></i>
         任務專區
       <% end %>
     </li>

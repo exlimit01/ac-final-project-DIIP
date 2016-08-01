@@ -40,11 +40,11 @@ namespace :dev do
     Mission.create(content: "一起去爬山")
 
     puts "建立問題"
-    Question.create(content: "你喜歡哪個歌手")
-    Question.create(content: "你喜歡什麼運動")
-    Question.create(content: "你討厭吃什麼")
-    Question.create(content: "你常去旅遊嗎")
-    Question.create(content: "你有養寵物嗎")
+    Question.create(content: "你喜歡哪個歌手", unlock_level: 10)
+    Question.create(content: "你喜歡什麼運動", unlock_level: 20)
+    Question.create(content: "你討厭吃什麼", unlock_level: 30)
+    Question.create(content: "你常去旅遊嗎", unlock_level: 40)
+    Question.create(content: "你有養寵物嗎", unlock_level: 50)
 
     puts "建立地區"
     Location.create(name: "臺北市")
@@ -70,12 +70,30 @@ namespace :dev do
 
     puts "建立Avatar"
     Avatar.destroy_all
-    Avatar.create(filename: 'A1.jpg')
-    Avatar.create(filename: 'A2.jpg')
-    Avatar.create(filename: 'A3.jpg')
-    Avatar.create(filename: 'A4.jpg')
-    Avatar.create(filename: 'A5.jpg')
-    Avatar.create(filename: 'A6.jpg')
+    Avatar.create(filename: 'man-1.png')
+    Avatar.create(filename: 'man-2.png')
+    Avatar.create(filename: 'man-3.png')
+    Avatar.create(filename: 'man-4.png')
+    Avatar.create(filename: 'man-5.png')
+    Avatar.create(filename: 'man-6.png')
+    Avatar.create(filename: 'man-7.png')
+    Avatar.create(filename: 'man-8.png')
+    Avatar.create(filename: 'man-9.png')
+    Avatar.create(filename: 'woman-1.png')
+    Avatar.create(filename: 'woman-2.png')
+    Avatar.create(filename: 'woman-3.png')
+    Avatar.create(filename: 'woman-4.png')
+    Avatar.create(filename: 'woman-5.png')
+    Avatar.create(filename: 'woman-6.png')
+    Avatar.create(filename: 'woman-7.png')
+    Avatar.create(filename: 'woman-8.png')
+    Avatar.create(filename: 'woman-9.png')
+    Avatar.create(filename: 'woman-10.png')
+    Avatar.create(filename: 'woman-11.png')
+    Avatar.create(filename: 'woman-12.png')
+    Avatar.create(filename: 'woman-13.png')
+    Avatar.create(filename: 'woman-14.png')
+    Avatar.create(filename: 'woman-15.png')
 
     puts "建立使用者 & 個人資料"
     user = User.create!(:email => "yakushou730@gmail.com", :password => "000000")

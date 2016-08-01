@@ -30,4 +30,16 @@ module ProfilesHelper
     total_answers_tag.html_safe
   end
 
+  def gender_reverse
+    if current_user.profile.sex == "男"
+      return "女"
+    else 
+      return "男" 
+    end 
+  end
+
+
+
+
+
 end

@@ -1,5 +1,92 @@
 namespace :work do
 
+  task :force_give_matching_mission => :environment do
+
+    Friendship.destroy_all
+
+    f_aaa = User.find_by_email("yakushou730@gmail.com")
+    f_bbb = User.find_by_email("bbb@gmail.com")
+    f_ccc = User.find_by_email("ccc@gmail.com")
+
+    m_matching = Mission.find_by(:unlock_level => -1)
+    m_go_out = Mission.find_by(:unlock_level => -2)
+
+    #f_ab = Friendship.create(:user_id => f_aaa.id, :friend_id => f_bbb.id, :love_level => 0)
+    #f_ba = Friendship.create(:user_id => f_bbb.id, :friend_id => f_aaa.id, :love_level => 0)
+    f_ac = Friendship.create(:user_id => f_aaa.id, :friend_id => f_ccc.id, :love_level => 0)
+    f_ca = Friendship.create(:user_id => f_ccc.id, :friend_id => f_aaa.id, :love_level => 20)
+    f_bc = Friendship.create(:user_id => f_bbb.id, :friend_id => f_ccc.id, :love_level => 0)
+    f_cb = Friendship.create(:user_id => f_ccc.id, :friend_id => f_bbb.id, :love_level => 80)
+
+    f_ac.interactions.destroy_all
+    f_ca.interactions.destroy_all
+    #f_ab.interactions.destroy_all
+    #f_ba.interactions.destroy_all
+
+    f_ac.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
+    f_ca.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
+
+    10.times do
+      m = Mission.all.sample
+      f_bc_inters = f_bc.interactions.create!(:mission_id => m.id, :co_status => 8)
+      f_cb_inters = f_cb.interactions.create!(:mission_id => m.id, :co_status => 8)
+      r = Room.create(user_id1: f_bc.id, user_id2: f_cb.id, interaction_id1: f_bc_inters.id, interaction_id2: f_cb_inters.id, mission_id: m.id)
+      f_bc_inters.room = r
+      f_bc_inters.save
+      f_cb_inters.room = r
+      f_cb_inters.save
+    end
+
+    f_bc.interactions.create!(:mission_id => m_go_out.id, :co_status => 0)
+    f_cb.interactions.create!(:mission_id => m_go_out.id, :co_status => 0)
+
+
+  end
+
+  # 模擬功能
+  task :reset_simu_mission => :environment do
+
+    Friendship.destroy_all
+
+    f_aaa = User.find_by_email("yakushou730@gmail.com")
+    f_bbb = User.find_by_email("bbb@gmail.com")
+    f_ccc = User.find_by_email("ccc@gmail.com")
+
+    m_matching = Mission.find_by(:unlock_level => -1)
+    m_go_out = Mission.find_by(:unlock_level => -2)
+
+    #f_ab = Friendship.create(:user_id => f_aaa.id, :friend_id => f_bbb.id, :love_level => 0)
+    #f_ba = Friendship.create(:user_id => f_bbb.id, :friend_id => f_aaa.id, :love_level => 0)
+    f_ac = Friendship.create(:user_id => f_aaa.id, :friend_id => f_ccc.id, :love_level => 0)
+    f_ca = Friendship.create(:user_id => f_ccc.id, :friend_id => f_aaa.id, :love_level => 20)
+    f_bc = Friendship.create(:user_id => f_bbb.id, :friend_id => f_ccc.id, :love_level => 0)
+    f_cb = Friendship.create(:user_id => f_ccc.id, :friend_id => f_bbb.id, :love_level => 80)
+
+    f_ac.interactions.destroy_all
+    f_ca.interactions.destroy_all
+    #f_ab.interactions.destroy_all
+    #f_ba.interactions.destroy_all
+
+    #f_ac.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
+    #f_ca.interactions.create!(:mission_id => m_matching.id, :co_status => 0)
+
+    10.times do
+      m = Mission.all.sample
+      f_bc_inters = f_bc.interactions.create!(:mission_id => m.id, :co_status => 8)
+      f_cb_inters = f_cb.interactions.create!(:mission_id => m.id, :co_status => 8)
+      r = Room.create(user_id1: f_bc.id, user_id2: f_cb.id, interaction_id1: f_bc_inters.id, interaction_id2: f_cb_inters.id, mission_id: m.id)
+      f_bc_inters.room = r
+      f_bc_inters.save
+      f_cb_inters.room = r
+      f_cb_inters.save
+    end
+
+    f_bc.interactions.create!(:mission_id => m_go_out.id, :co_status => 0)
+    f_cb.interactions.create!(:mission_id => m_go_out.id, :co_status => 0)
+
+  end
+
+  # 真的會用到的功能
   task :refresh_interactions => :environment do
 
     Friendship.all.each do |friendship|
@@ -28,13 +115,14 @@ namespace :work do
         end
 
       end
+
     end
 
     Interaction.where(:co_status => -1).update(:co_status => 0)
 
   end
 
-  task :set_user => :environment do
+  task :set_all => :environment do
 
     sex_array = ["男", "女"]
     relation_array = ["單身", "交往中", "已婚"]
@@ -52,32 +140,149 @@ namespace :work do
     Avatar.destroy_all
 
     puts "建立興趣"
+    Hobby.create(name: "攝影")
+    Hobby.create(name: "科技")
+    Hobby.create(name: "設計")
+    Hobby.create(name: "音樂")
+    Hobby.create(name: "藝術")
+    Hobby.create(name: "閱讀")
+    Hobby.create(name: "美食")
+    Hobby.create(name: "電影")
+    Hobby.create(name: "單車")
+    Hobby.create(name: "寫作")
+    Hobby.create(name: "跑步")
+    Hobby.create(name: "健身")
+    Hobby.create(name: "咖啡")
+    Hobby.create(name: "政治")
+    Hobby.create(name: "登山")
+    Hobby.create(name: "程式")
+    Hobby.create(name: "手作")
+    Hobby.create(name: "廚藝")
+    Hobby.create(name: "舞蹈")
+    Hobby.create(name: "瑜珈")
+    Hobby.create(name: "繪畫")
+    Hobby.create(name: "寵物")
+    Hobby.create(name: "志工")
+    Hobby.create(name: "動畫")
+    Hobby.create(name: "流行")
+    Hobby.create(name: "購物")
+    Hobby.create(name: "運動")
+    Hobby.create(name: "狗")
+    Hobby.create(name: "貓")
+    Hobby.create(name: "棒球")
     Hobby.create(name: "籃球")
+    Hobby.create(name: "足球")
+    Hobby.create(name: "品酒")
+    Hobby.create(name: "甜點")
+    Hobby.create(name: "遊戲")
     Hobby.create(name: "游泳")
-    Hobby.create(name: "旅遊")
-    Hobby.create(name: "聽音樂")
-    Hobby.create(name: "逛街")
+    Hobby.create(name: "衝浪")
+    Hobby.create(name: "唱歌")
 
     puts "建立專業"
-    Profession.create(name: "科技")
-    Profession.create(name: "金融")
-    Profession.create(name: "醫療")
-    Profession.create(name: "服務")
-    Profession.create(name: "教育")
+    Profession.create(name: "學生")
+    Profession.create(name: "專案管理")
+    Profession.create(name: "軟體開發")
+    Profession.create(name: "前端開發")
+    Profession.create(name: "後端開發")
+
+    Profession.create(name: "顧問服務")
+    Profession.create(name: "設計師")
+    Profession.create(name: "藝術家")
+    Profession.create(name: "建築師")
+    Profession.create(name: "老師")
+    Profession.create(name: "護士")
+    Profession.create(name: "作家")
+    Profession.create(name: "編輯")
+    Profession.create(name: "廚師")
+    Profession.create(name: "攝影師")
+    Profession.create(name: "爸爸")
+    Profession.create(name: "媽媽")
+
+    Profession.create(name: "表演藝術")
+    Profession.create(name: "醫師")
+    Profession.create(name: "心理學家")
+    Profession.create(name: "創業者")
+    Profession.create(name: "美髮師")
+    Profession.create(name: "健身教練")
+    Profession.create(name: "社群媒體")
+    Profession.create(name: "演說家")
+    Profession.create(name: "歌曲創作")
 
     puts "建立任務"
-    Mission.create(content: "一起去看電影")
-    Mission.create(content: "一起去唱歌")
-    Mission.create(content: "一起去郊遊")
-    Mission.create(content: "一起去健身房")
-    Mission.create(content: "一起去爬山")
+    Mission.create(content: "默契考驗", unlock_level: -1)
+    Mission.create(content: "見面任務", unlock_level: -2)
+    Mission.create(content: "說出對方目前最吸引自己的地方", unlock_level: 10)
+    Mission.create(content: "連續三天在你睡覺前跟對方說晚安，以及在起床後跟對方說早安", unlock_level: 10)
+    Mission.create(content: "找到對方三樣跟自己相同的喜好或興趣", unlock_level: 10)
+    Mission.create(content: "在今天睡前寫下你今天一整天的日記", unlock_level: 10)
+    Mission.create(content: "告訴對方你最近的煩惱，以及尋求對方的建議", unlock_level: 10)
+    Mission.create(content: "告訴對方最近覺得最惱火的人以及原因", unlock_level: 10)
+    Mission.create(content: "分享三間自己最喜歡的餐廳", unlock_level: 10)
+
+    Mission.create(content: "錄下自己最拿手的歌給對方聽", unlock_level: 31)
+    Mission.create(content: "告訴對方，你已經開始喜歡他的某些特質", unlock_level: 31)
+    Mission.create(content: "告訴對方有沒有什麼事情是我夢寐以求想做的？為何我沒有做這件事？", unlock_level: 31)
+    Mission.create(content: "分享一個你的私人困擾，並請你的夥伴給你一些建議", unlock_level: 31)
+    Mission.create(content: "如果你覺得能和你對面的夥伴成為親密的朋友，請跟他分享身為親密朋友該知道的事", unlock_level: 31)
+    Mission.create(content: "輪流分享到目前為止，你覺得對面夥伴的三個正向特質", unlock_level: 31)
+    Mission.create(content: "花四分鐘時間告訴對方你的人生故事，越詳細越好。", unlock_level: 31)
+    Mission.create(content: "和對方分享你人生中最尷尬的片刻", unlock_level: 31)
+    Mission.create(content: "告訴對方你到目前為主，對對方分享的事情感到最印象深刻的事情", unlock_level: 31)
+    Mission.create(content: "告訴上一次在別人面前哭泣是什麼時候？還是通常自己一個人哭泣？", unlock_level: 31)
+
+    Mission.create(content: "一起參加近期的活動或展覽", unlock_level: 61)
+    Mission.create(content: "一起看電影", unlock_level: 61)
+    Mission.create(content: "一起吃飯", unlock_level: 61)
+    Mission.create(content: "幫對方挑一件適合它的服飾", unlock_level: 61)
+    Mission.create(content: "陪對方一起剪頭髮並給出自己的建議", unlock_level: 61)
+    Mission.create(content: "跟對方說一件你還沒跟別人說過的事情", unlock_level: 61)
+    Mission.create(content: "誠實的告訴對方，你最喜歡他的地方", unlock_level: 61)
+
+    Mission.create(content: "詢問對方如果兩個人在一起，有哪些事情是對方最不能忍受的事情", unlock_level: 81)
+    Mission.create(content: "詢問對方如果兩個人在一起，是否能夠接受不帶對方，自己去做一些事情", unlock_level: 81)
+    Mission.create(content: "邀請對方一起發掘當地最美的風景", unlock_level: 81)
+    Mission.create(content: "傳一張你還沒有給別人看到的自拍給對方", unlock_level: 81)
+    Mission.create(content: "嘗試與對方手牽手15分鐘不放開", unlock_level: 81)
+    Mission.create(content: "嘗試跟對方撒嬌，並上傳音檔給對方", unlock_level: 81)
 
     puts "建立問題"
-    Question.create(content: "你喜歡哪個歌手")
-    Question.create(content: "你喜歡什麼運動")
-    Question.create(content: "你討厭吃什麼")
-    Question.create(content: "你常去旅遊嗎")
-    Question.create(content: "你有養寵物嗎")
+    Question.create(content: "完成以下這個句子：「我希望有人能與我共享...，因為...」")
+    Question.create(content: "對於我而言，哪些事情開不得玩笑？")
+    Question.create(content: "如果我今晚就會死去，死去前沒有機會再與任何人溝通，我會最後悔沒和誰說什麼話？為什麼這些話我不及早跟他說？")
+    Question.create(content: "我的房子著火了，裡頭有所有我愛的東西，我只有幾分鐘的時間可以救出一個東西，我會選擇救什麼？")
+    Question.create(content: "我希望自己出名嗎？希望自己以什麼方式出名？")
+    Question.create(content: "再打電話之前，我是否曾經預演過自己要說什麼？為什麼？")
+    Question.create(content: "對於我來說，一個「完美」的一天必須具備什麼元素？")
+    Question.create(content: "我上一次唱歌給自己聽是什麼時候？上一次唱給別人聽呢？")
+    Question.create(content: "如果我能夠活到九十歲，而且能選擇保有三十歲的身體或三十歲的心靈活力，我會選擇保有哪個？")
+    Question.create(content: "你對於自己將如何死去，是否曾有過神秘的預感？")
+    Question.create(content: "我在目前人生中最感激的事情是什麼？")
+    Question.create(content: "如果我能改變你成長過程中的任何一件事，我會想改變什麼？")
+    Question.create(content: "如果我明天一早醒來，可以增加一個技能或能力，我希望是什麼？")
+    Question.create(content: "如果有一個水晶球可以告訴我關於自己的所有事、我的人生或我的未來，我最想知道什麼是？")
+    Question.create(content: "我目前人生最大的成就是什麼？")
+    Question.create(content: "在友情中，我最重視的事情是什麼？")
+    Question.create(content: "我目前人生中最珍惜的是哪一段回憶？")
+    Question.create(content: "我目前人生中最糟糕的是哪一段回憶？")
+    Question.create(content: "如果我知道一年後你會死掉，我會想改變現在你的生活方式嗎？為什麼？")
+    Question.create(content: "友情對於我的意義是什麼？")
+    Question.create(content: "愛情以及喜歡在我人生中扮演著什麼樣的角色？")
+    Question.create(content: "我會覺得自己比其他家庭的孩子更幸福嗎？")
+    Question.create(content: "我覺得自己與媽媽的關係如何？我跟另一半一起出去玩的時候，通常是各付各的還是由我來付，為什麼？")
+    Question.create(content: "我在今年最想要達到的目標是什麼？")
+    Question.create(content: "我曾經將時間及精力花在哪些對我其實不那麼重要的事情上？")
+    Question.create(content: "做哪件事情最能讓我感到具有意義？為什麼？")
+    Question.create(content: "做哪件事情最能讓我感到快樂？為什麼？")
+    Question.create(content: "我的家人意見不同時，是會大聲爭執、平靜討論還是冷戰？")
+    Question.create(content: "我談過最久的一次戀愛是多久？為什麼最後分開？")
+    Question.create(content: "我曾經最瘋狂的經驗是什麼？")
+    Question.create(content: "有哪三件事情是我絕對不會去做的？")
+    Question.create(content: "我做過最浪漫的一件事情是什麼？")
+    Question.create(content: "我目前最喜歡的一位歌手，為什麼？")
+    Question.create(content: "我目前最喜歡的三部電影，為什麼？")
+    Question.create(content: "如果我樂透中獎得到一億獎金，會怎麼花這筆錢？")
+    Question.create(content: "家族裡的所有成員哪個人死去，你會最傷心？為什麼？")
 
     puts "建立地區"
     l1 = Location.create(name: "臺北市")
@@ -111,47 +316,47 @@ namespace :work do
 
     puts "建立使用者 & 個人資料"
     user1 = User.create!(:email => "yakushou730@gmail.com", :password => "000000")
-    profile1 = Profile.create!(:nickname => "鶯歌吳彥祖", :user_id => user1.id,
+    profile1 = Profile.create!(:nickname => "匿名毛怪", :user_id => user1.id,
                           :age => 29,
                           :sex => "男",
                           :relation => "單身",
                           :description => "逆風的方向，更適合飛翔",
                           :aboutme => "開心過生活",
-                          :facebook_link => "https://www.facebook.com/yakushou730",
+                          :facebook_link => "https://www.facebook.com/aaa",
                           :facebook_access_level => 20,
-                          :line_account => "yakushou730",
+                          :line_account => "aaa",
                           :line_access_level => 20,
-                          :wechat_account => "yakushou730",
+                          :wechat_account => "aaa",
                           :wechat_access_level => 20,
                           :location_id => l2.id)
 
-    user2 = User.create!(:email => "gutianlou@gmail.com", :password => "000000")
-    profile2 = Profile.create!(:nickname => "板橋古天樂", :user_id => user2.id,
+    user2 = User.create!(:email => "bbb@gmail.com", :password => "000000")
+    profile2 = Profile.create!(:nickname => "匿名犀牛", :user_id => user2.id,
                           :age => 35,
                           :sex => "男",
                           :relation => "已婚",
                           :description => "永遠等待那一日咱可以出頭天，人生不怕風浪只怕自己沒志氣",
                           :aboutme => "和平過生活",
-                          :facebook_link => "https://www.facebook.com/GuTianLou",
+                          :facebook_link => "https://www.facebook.com/bbb",
                           :facebook_access_level => 20,
-                          :line_account => "GuTianLou",
+                          :line_account => "bbb",
                           :line_access_level => 20,
-                          :wechat_account => "GuTianLou",
+                          :wechat_account => "bbb",
                           :wechat_access_level => 20,
                           :location_id => l2.id)
 
-    user3 = User.create!(:email => "fondisou@gmail.com", :password => "000000")
-    profile3 = Profile.create!(:nickname => "大安馮迪索", :user_id => user3.id,
+    user3 = User.create!(:email => "ccc@gmail.com", :password => "000000")
+    profile3 = Profile.create!(:nickname => "匿名皮卡丘", :user_id => user3.id,
                           :age => 18,
                           :sex => "男",
                           :relation => "單身",
                           :description => "當你的愛已碎，以為純真會幻滅，其實等在前面、還有一整個世界，新的視野、新的起點",
                           :aboutme => "安心過生活",
-                          :facebook_link => "https://www.facebook.com/FonDiSou",
+                          :facebook_link => "https://www.facebook.com/ccc",
                           :facebook_access_level => 20,
-                          :line_account => "FonDiSou",
+                          :line_account => "ccc",
                           :line_access_level => 20,
-                          :wechat_account => "FonDiSou",
+                          :wechat_account => "ccc",
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
@@ -185,9 +390,6 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
-
-
-
     user51 = User.create!(:email => "ancinya@gmail.com", :password => "000000")
     profile51 = Profile.create!(:nickname => "平溪安心亞", :user_id => user51.id,
                           :age => 18,
@@ -202,8 +404,6 @@ namespace :work do
                           :wechat_account => "AnCinYa",
                           :wechat_access_level => 20,
                           :location_id => l2.id)
-
-
 
     user52 = User.create!(:email => "kuotsiachieh@gmail.com", :password => "000000")
     profile52 = Profile.create!(:nickname => "松江南京郭采潔", :user_id => user52.id,
@@ -340,82 +540,122 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
-    user61 = User.create!(:email => "jipaime@gmail.com", :password => "000000")
-    profile61 = Profile.create!(:nickname => "淡水雞排妹", :user_id => user61.id,
-                          :age => 24,
-                          :sex => "女",
-                          :relation => "單身",
-                          :description => "想要征服的世界，始終都沒有改變，那地上無聲蒸發我的淚",
-                          :aboutme => "認真過生活",
-                          :facebook_link => "https://www.facebook.com/JiPaiMe",
-                          :facebook_access_level => 20,
-                          :line_account => "JiPaiMe",
-                          :line_access_level => 20,
-                          :wechat_account => "JiPaiMe",
-                          :wechat_access_level => 20,
-                          :location_id => l2.id)
 
-    user62 = User.create!(:email => "chenchiaan@gmail.com", :password => "000000")
-    profile62 = Profile.create!(:nickname => "土城陳喬恩", :user_id => user62.id,
-                          :age => 24,
-                          :sex => "女",
-                          :relation => "單身",
-                          :description => "經過了漫長的等候，夢想是夢想，我還是一個我",
-                          :aboutme => "歡喜過生活",
-                          :facebook_link => "https://www.facebook.com/ChenChiaAn",
-                          :facebook_access_level => 20,
-                          :line_account => "ChenChiaAn",
-                          :line_access_level => 20,
-                          :wechat_account => "ChenChiaAn",
-                          :wechat_access_level => 20,
-                          :location_id => l2.id)
+    5.times do
 
-    user63 = User.create!(:email => "tsaiilin@gmail.com", :password => "000000")
-    profile63 = Profile.create!(:nickname => "永和蔡依林", :user_id => user63.id,
-                          :age => 24,
-                          :sex => "女",
-                          :relation => "單身",
-                          :description => "如果說了後悔，是不是一切就能倒退，回憶多麼美，活著多麼狼狽",
-                          :aboutme => "喜悅過生活",
-                          :facebook_link => "https://www.facebook.com/TsaiILin",
-                          :facebook_access_level => 20,
-                          :line_account => "TsaiILin",
-                          :line_access_level => 20,
-                          :wechat_account => "TsaiILin",
-                          :wechat_access_level => 20,
-                          :location_id => l2.id)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile1.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile2.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile3.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile4.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile5.id,
+                     content: Faker::Lorem.sentence)
 
-    user64 = User.create!(:email => "tianfujian@gmail.com", :password => "000000")
-    profile64 = Profile.create!(:nickname => "泰山田馥甄", :user_id => user64.id,
-                          :age => 24,
-                          :sex => "女",
-                          :relation => "單身",
-                          :description => "有沒有那麼一個明天，重頭活一遍",
-                          :aboutme => "用心過生活",
-                          :facebook_link => "https://www.facebook.com/TianFuJian",
-                          :facebook_access_level => 20,
-                          :line_account => "TianFuJian",
-                          :line_access_level => 20,
-                          :wechat_account => "TianFuJian",
-                          :wechat_access_level => 20,
-                          :location_id => l2.id)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile51.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile52.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile53.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile54.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile55.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile56.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile57.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile58.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile59.id,
+                     content: Faker::Lorem.sentence)
+      Answer.create!(question_id: Faker::Number.between(Question.first.id, Question.last.id),
+                     profile_id: profile60.id,
+                     content: Faker::Lorem.sentence)
+    end
 
-    user65 = User.create!(:email => "cieginian@gmail.com", :password => "000000")
-    profile65 = Profile.create!(:nickname => "新莊謝金燕", :user_id => user65.id,
-                          :age => 24,
-                          :sex => "女",
-                          :relation => "單身",
-                          :description => "有沒有那麼一張書籤，停止那一天，最單純的笑臉和最美那一年",
-                          :aboutme => "舒服過生活",
-                          :facebook_link => "https://www.facebook.com/CieGinIan",
-                          :facebook_access_level => 20,
-                          :line_account => "CieGinIan",
-                          :line_access_level => 20,
-                          :wechat_account => "CieGinIan",
-                          :wechat_access_level => 20,
-                          :location_id => l2.id)
+    3.times do
 
+      HobbyTag.create!(profile_id: profile1.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile2.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile3.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile4.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile5.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile51.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile52.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile53.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile54.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile55.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile56.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile57.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile58.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile59.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
+      HobbyTag.create!(profile_id: profile60.id,
+                       hobby_id: Faker::Number.between(Hobby.first.id, Hobby.last.id))
 
+    end
+
+    ProfessionTag.create!(profile_id: profile1.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile2.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile3.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile4.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile5.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile51.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile52.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile53.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile54.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile55.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile56.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile57.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile58.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile59.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
+    ProfessionTag.create!(profile_id: profile60.id,
+                       profession_id: Faker::Number.between(Profession.first.id, Profession.last.id))
 
 
 

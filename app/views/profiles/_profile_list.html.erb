@@ -4,6 +4,12 @@
     <div class="panel panel-profile">
       <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>搜尋同好</h2>
+      
+        <h2 class="panel-title heading-sm pull-right">
+        <%= link_to"推薦", profiles_path(:sort => gender_reverse)%> 
+        <%= link_to"所有用戶", profiles_path%> 
+        </h2>
+      
       </div>
       <div class="panel-body margin-bottom-50">
         <div class="media media-v2  margin-bottom-20">
@@ -15,7 +21,7 @@
           </a>
           <div class="media-body">
             <h4 class="media-heading">
-                <%= link_to page_profile_path(profile) do %>
+                <%= link_to profile_path(profile) do %>
                 <button class="btn-u btn-brd rounded-3x btn-u-dark-blue" type="button"><i class="fa fa-paper-plane-o"></i> <%= profile.nickname %></button>
                 <% end %>
               <% if profile.location.present? %>
