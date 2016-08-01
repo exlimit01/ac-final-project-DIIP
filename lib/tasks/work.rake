@@ -122,7 +122,7 @@ namespace :work do
 
   end
 
-  task :reset_all => :environment do
+  task :set_all => :environment do
 
     sex_array = ["男", "女"]
     relation_array = ["單身", "交往中", "已婚"]
@@ -336,7 +336,7 @@ namespace :work do
     puts "建立使用者 & 個人資料"
 
     user51 = User.create!(:email => "ccc@gmail.com", :password => "000000")
-    profile51 = Profile.create!(:nickname => "匿名皮卡丘", :user_id => user51.id,
+    profile51 = Profile.create!(:nickname => "匿名花栗鼠", :user_id => user51.id,
                           :age => 18,
                           :sex => "女",
                           :relation => "單身",
@@ -381,64 +381,64 @@ namespace :work do
                           :wechat_access_level => 20,
                           :location_id => l2.id)
 
-    user3 = User.create!(:email => "lionking@gmail.com", :password => "000000")
-    profile3 = Profile.create!(:nickname => "匿名獅子王", :user_id => user3.id,
+    user3 = User.create!(:email => "ddd@gmail.com", :password => "000000")
+    profile3 = Profile.create!(:nickname => "匿名獨角獸", :user_id => user3.id,
                           :age => 20,
-                          :sex => "男",
+                          :sex => "女",
                           :relation => "單身",
                           :description => "當你的愛已碎，以為純真會幻滅，其實等在前面、還有一整個世界，新的視野、新的起點",
                           :aboutme => "安心過生活",
-                          :facebook_link => "https://www.facebook.com/LionKing",
+                          :facebook_link => "https://www.facebook.com/ddd",
                           :facebook_access_level => 20,
-                          :line_account => "LionKing",
+                          :line_account => "ddd",
                           :line_access_level => 20,
-                          :wechat_account => "LionKing",
+                          :wechat_account => "ddd",
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
-    user4 = User.create!(:email => "suenciechie@gmail.com", :password => "000000")
+    user4 = User.create!(:email => "ddd@gmail.com", :password => "000000")
     profile4 = Profile.create!(:nickname => "匿名狐狸", :user_id => user4.id,
                           :age => 18,
-                          :sex => "男",
+                          :sex => "女",
                           :relation => "單身",
                           :description => "那陽光碎裂在熟悉場景，好安靜、一個人能背多少的往事，真不輕",
                           :aboutme => "安心過生活",
-                          :facebook_link => "https://www.facebook.com/SuenCieChie",
+                          :facebook_link => "https://www.facebook.com/ddd",
                           :facebook_access_level => 20,
-                          :line_account => "SuenCieChie",
+                          :line_account => "ddd",
                           :line_access_level => 20,
-                          :wechat_account => "SuenCieChie",
+                          :wechat_account => "ddd",
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
-    user5 = User.create!(:email => "chenishin@gmail.com", :password => "000000")
-    profile5 = Profile.create!(:nickname => "匿名獨角獸", :user_id => user5.id,
+    user5 = User.create!(:email => "eee@gmail.com", :password => "000000")
+    profile5 = Profile.create!(:nickname => "匿名無尾熊", :user_id => user5.id,
                           :age => 18,
                           :sex => "男",
                           :relation => "單身",
                           :description => "那陽光碎裂在熟悉場景，好安靜、一個人能背多少的往事，真不輕",
                           :aboutme => "安心過生活",
-                          :facebook_link => "https://www.facebook.com/ChenIShin",
+                          :facebook_link => "https://www.facebook.com/eee",
                           :facebook_access_level => 20,
-                          :line_account => "ChenIShin",
+                          :line_account => "eee",
                           :line_access_level => 20,
-                          :wechat_account => "ChenIShin",
+                          :wechat_account => "eee",
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
 
-    user52 = User.create!(:email => "kuotsiachieh@gmail.com", :password => "000000")
+    user52 = User.create!(:email => "fff@gmail.com", :password => "000000")
     profile52 = Profile.create!(:nickname => "匿名哈士奇", :user_id => user52.id,
                           :age => 18,
                           :sex => "女",
                           :relation => "單身",
                           :description => "當你的心已累，以為失去了一切，其實等在前面還有一整個世界",
                           :aboutme => "和平過生活",
-                          :facebook_link => "https://www.facebook.com/KuoTsaiChieh",
+                          :facebook_link => "https://www.facebook.com/fff",
                           :facebook_access_level => 20,
-                          :line_account => "KuoTsaiChieh",
+                          :line_account => "fff",
                           :line_access_level => 20,
-                          :wechat_account => "KuoTsaiChieh",
+                          :wechat_account => "fff",
                           :wechat_access_level => 20,
                           :location_id => l1.id)
 
