@@ -1,113 +1,80 @@
-    <%= render :partial => "default_sidebar" %>
-<div class="col-md-9 profile">
-  <div class="profile-body">
-    <div class="panel panel-profile">
-      <div class="panel-heading overflow-h">
-        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>問答說明</h2>
-      </div>
-      <!--=== Profile ===-->
-      <div class="container content profile">
-        <div class="row">
-          <!-- Profile Content -->
-          <div class="col-md-9">
-            <!-- Edit Q&A -->
-            <div id="QA_block">
-              <%= render partial: "answers/QA_block" %>
-            </div>
-            <%= link_to "取消", profile_path(@profile), class: "btn btn-default btn-sm" %>
-            <!-- End Edit Q&A -->
-            <!-- General Questions -->
-            <div class="panel-group acc-v1 margin-bottom-40" id="accordion">
-              <% @profile.answers.each do |answer| %>
-              <% if answer.question.present? %>
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= answer.id %>" aria-expanded="false" aria-controls="<%= answer.id %>">
-                    <%= answer.question.content %>
-                    </a>
-                    <ul class="nav navbar-nav navbar-right", style="margin-right: 0px; margin-top: -27px" >
+    <%= render :partial => "topbar" %>
+    <%= render :partial => "left_sidebar" %>
 
-                      <% if @profile.is_current_user?(current_user) %>
-                        <li>
-                          <%= link_to profile_path(@profile, aid: answer.id) do %>
-                            <i class="fa fa-pencil"></i>
-                          <% end %>
-                        </li>
-                        <li>
-                          <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
-                            <i class="fa fa-times"></i>
-                          <% end %>
-                        </li>
-                      <% else %>
-
-                        <% if answer.liked?(current_user) %>
-                          <li>
-                            <%= link_to like_path("#"), class: "disabled" do %>
-                              <i class="fa fa-heart"></i>
-                            <% end %>
-                          </li>
-                        <% else %>
-                          <li>
-                            <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post do %>
-                              <i class="fa fa-heart-o"></i>
-                            <% end %>
-                          </li>
-                        <% end %>
-
-                      <% end %>
-                    </ul>
-                  </h4>
-                </div>
-                <div id="<%= answer.id %>" class="panel-collapse collapse in">
-                  <div class="panel-body">
-                    <%= answer.content %>
-                  </div>
-                </div>
-              <% end %>
-              <% end %>
-              </div>
-            </div><!--/acc-v1-->
-            <!-- End General Questions -->
-
+    <div class="col-md-9 profile">
+      <div class="profile-body">
+        <div class="panel panel-profile">
+          <div class="panel-heading overflow-h">
+            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>個人資料</h2>
           </div>
+        <!-- QA -->
+          <!--=== Profile ===-->
+            <div class="row">
+              <!-- Profile Content -->
+              <div class="col-md-12" style="">
+                <!-- Edit Q&A -->
+                <div id="QA_block">
+                  <%= render partial: "answers/QA_block" %>
+                </div>
+                <!-- End Edit Q&A -->
+                <!-- General Questions -->
+                <div class="panel-group acc-v1 margin-bottom-40" id="accordion">
+                  <% @profile.answers.each do |answer| %>
+                  <% if answer.question.present? %>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<%= answer.id %>" aria-expanded="false" aria-controls="<%= answer.id %>">
+                        <%= answer.question.content %>
+                        </a>
+                        <ul class="nav navbar-nav navbar-right", style="margin-right: 0px; margin-top: -27px" >
+
+                          <% if @profile.is_current_user?(current_user) %>
+                            <li>
+                              <%= link_to profile_path(@profile, aid: answer.id) do %>
+                                <i class="fa fa-pencil"></i>
+                              <% end %>
+                            </li>
+                            <li>
+                              <%= link_to profile_answer_path(@profile, answer), method: :delete do %>
+                                <i class="fa fa-times"></i>
+                              <% end %>
+                            </li>
+                          <% else %>
+
+                            <% if answer.liked?(current_user) %>
+                              <li>
+                                <%= link_to like_path("#"), class: "disabled" do %>
+                                  <i class="fa fa-heart"></i>
+                                <% end %>
+                              </li>
+                            <% else %>
+                              <li>
+                                <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post do %>
+                                  <i class="fa fa-heart-o"></i>
+                                <% end %>
+                              </li>
+                            <% end %>
+
+                          <% end %>
+                        </ul>
+                      </h4>
+                    </div>
+                    <div id="<%= answer.id %>" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <%= answer.content %>
+                      </div>
+                    </div>
+                  <% end %>
+                  <% end %>
+                  </div>
+                </div><!--/acc-v1-->
+                <!-- End General Questions -->
+              </div>
+              <!-- End QA -->
+            </div><!--/end row-->
           <!-- End Profile Content -->
+          <!-- End Profile -->
         </div>
       </div>
-      <!--=== End Profile ===-->
     </div>
-  </div>
-</div>
-
-
-<!-- <div>
->>>>>>> sync layouts
-  個人圖像 :
-  <% if @profile.avatar.exists? %>
-    <%= image_tag(@profile.avatar.url(:medium)) %>
-  <% else %>
-    沒有圖片
-  <% end %>
-</div>
-
-<div>
-  照片 :
-  <% if @profile.photos.exists? %>
-    <% @profile.photos.each do |image| %>
-      <%= image_tag image.photo.url(:medium) %>
-    <% end %>
-  <% else %>
-    沒有照片
-  <% end %>
-</div>
-
-<div>
-  <% if @friendship.present? %>
-    好感度：<%= @friendship.love_level %>
-  <% end %>
-</div>
-</div>
-
-對方好感度：<%= @inverse_friendship.love_level %>
-
--->
