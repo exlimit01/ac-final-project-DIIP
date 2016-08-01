@@ -122,7 +122,7 @@ namespace :work do
 
   end
 
-  task :set_all => :environment do
+  task :reset_all => :environment do
 
     sex_array = ["男", "女"]
     relation_array = ["單身", "交往中", "已婚"]
