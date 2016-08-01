@@ -1,4 +1,5 @@
-    <%= render :partial => "default_sidebar" %>
+    <%= render :partial => "topbar" %>
+    <%= render :partial => "left_sidebar" %>
 
     <div class="col-md-9 profile">
       <div class="profile-body">
@@ -11,7 +12,7 @@
               <div class="profile-bio">
                 <div class="row">
                   <div class="col-md-5">
-                    
+
                     <% if @profile.user.avatar %>
                       <%= image_tag ("avatars/#{@profile.user.avatar.filename}"), style: "height:280px ; width:280px" %><br>
                     <%end%>
@@ -22,7 +23,7 @@
                     <% else %>
                       沒有照片
                     <% end %>
-                    
+
                     <div>
                     <%= audio_tag @profile.sound.url, controls: "controls", alt: "Please use chrome, ie, or safari", preload: :auto,style: "margin-top:-30px",class: "col-md-12" %>
                     </div>

@@ -1,75 +1,131 @@
-<!--Left Sidebar-->
-<div class="col-md-3 md-margin-bottom-40">
-  <div class="center-block">
-    <% if current_user.avatar %>
-      <%= image_tag("avatars/#{current_user.avatar.filename}") %><br>
-    <%end%>
+<div class="col-md-3">
+  <!--Left Sidebar-->
+  <div class="col-md-12" style="text-align:left;margin-top:35px;border: 4px solid #66BAB7;border-radius: 20px;">
+    <div class="center-block" style="text-align:center">
+      <% if current_user.avatar %>
+        <%= image_tag ("avatars/#{current_user.avatar.filename}"), style: "width:300px;margin-top:30px" %><br>
+      <%end%>
+      <h1 style="margin:20px 0px;font-size: 30px;color: #383F51;letter-spacing: 1px;"><%= @profile.nickname %></h2>
+
+      <div>
+      <% if @friendship.present? %>
+        <h3 class="heading-xs">好感度 <span class="pull-right"><%= @friendship.love_level %>%</span></h3>
+        <div class="progress progress-u progress-xxs">
+          <div style="width: <%= @friendship.love_level %>%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+          </div>
+        </div>
+      <% end %>
+      </div>
+
+    </div>
+
+    <hr class="hr-xs">
+
+    <div style="color: #66BAB7;position:relative;left:4vw;">
+      <i class="fa fa-user" ></i>
+      <span style="font-size: 18px;letter-spacing: 0px;">
+      <strong>&nbsp;年齡:</strong>
+        <span style="position: relative;left: 2vw;">
+        <%= @profile.age %>
+        </span>
+      </span>
+    </div>
+
+    <hr class="hr-xs">
+
+    <div style="color: #66BAB7;position:relative;left:4vw;">
+      <i class="fa fa-user" style="color: #66BAB7;"></i>
+      <span style="font-size: 18px;color: #66BAB7;letter-spacing: 0px;"">
+      <strong>&nbsp;性別:</strong>
+        <span style="position: relative;left: 2vw;">
+        <%= @profile.sex %>
+        </span>
+      </span>
+    </div>
+
+    <hr class="hr-xs">
+
+    <div style="color: #66BAB7;position:relative;left:4vw;">
+      <i class="fa fa-user"></i>
+      <span style="font-size: 18px;letter-spacing: 0px;">
+      <strong>&nbsp;關係:</strong>
+        <span style="position: relative;left: 2vw;">
+        <%= @profile.relation %>
+        </span>
+      </span>
+    </div>
+    <hr class="hr-xs">
+
+    <div style="color: #66BAB7;position:relative;left:4vw;">
+      <i class="fa fa-user"></i>
+      <span style="font-size: 18px;letter-spacing: 0px;"><strong>&nbsp;地點:</strong>
+        <span style="position: relative;left: 2vw;">
+        <% if @profile.location.present? %>
+          <%= @profile.location.name %>
+          <% else %>
+          尚未填寫
+        <% end %>
+        </span>
+      </span>
+    </div>
+    <hr class="hr-xs">
+  </div>
+  <!--End Left Sidebar-->
+
+  <div class="col-md-12" style="text-align:left;margin-top:15px;border: 4px solid #66BAB7;border-radius: 20px;">
+    <div class="heading heading-v4">
+      <h2 style="color:#66BAB7">興趣</h2>
+    </div>
+
+    <div class="panel-body" style="padding:0px 15px;">
+       <ul class="list-inline tags-v2 margin-bottom-10">
+       <% @profile.hobbies.each do |h| %>
+         <li>
+          <a style="border: 2px solid #66BAB7;border-radius: 5px;" href="#"><%= h.name %></a></li>
+       <% end %>
+       </ul>
+    </div>
   </div>
 
-  <hr>
+  <div class="col-md-12" style="text-align:left;margin-top:15px;border: 4px solid #66BAB7;border-radius: 20px;">
+    <div class="heading heading-v4">
+      <h2 style="color:#66BAB7">關於我</h2>
+    </div>
 
-  <h2><%= @profile.nickname %></h2>
-  <span><strong>年齡:</strong> <%= @profile.age %></span><br>
-  <span><strong>性別:</strong> <%= @profile.sex %></span><br>
-  <span><strong>關係:</strong> <%= @profile.relation %><br>
-  <span><strong>地點:</strong>
-    <% if @profile.location.present? %>
-       <%= @profile.location.name %>
-      <% else %>
-      尚未填寫
-    <% end %>
-    <br>
-  <span class="list-inline"><strong>興趣:</strong>
-  <% @profile.professions.each do |p| %>
-    <li> <%= p.name %></li>
-  <% end %>
-  <br>
-  <span class="list-inline"><strong>專業:</strong>
-  <% @profile.hobbies.each do |h| %>
-    <li> <%= h.name %></li>
-  <% end %>
-  <br>
-  <span><strong>關於:</strong>
-  <p><%= @profile.aboutme %></p>
+    <div style="color: #66BAB7;font-size: 18px;">
+      <div style="word-break: break-all;margin-bottom:15px">
+      <%= @profile.aboutme %>
+      </div>
+    </div>
 
-  <hr>
-
-  <div class="row">
-    <button class="col-sm-4 btn-u btn-default" type="button">
-      <% if @profile.show_facebook?(@friendship) %>
-        <a target="_blank" href="<%= @profile.facebook_link %>"><%= image_tag ("Facebook.png"), style: "max-width: 30px;" %> 權限:<%= @profile.facebook_access_level %></a>
-      <% end %>
-    </button>
-    <button class="col-sm-4 btn-u btn-default" type="button">
-      <% if @profile.show_line?(@friendship) %>
-        <a target="_blank" href="<%= @profile.line_account %>"><%= image_tag ("Line.png"), style: "max-width: 30px;" %> 權限:<%= @profile.line_access_level %></a>
-      <% end %>
-    </button>
-    <button class="col-sm-4 btn-u btn-default" type="button">
-      <% if @profile.show_wechat?(@friendship) %>
-        <a target="_blank" href="<%= @profile.wechat_account %>"><%= image_tag ("Wechat.png"), style: "max-width: 30px;" %> 權限:<%= @profile.wechat_access_level %></a>
-      <% end %>
-    </button>
-    <button type="button" class="popovers btn-u btn-brd rounded btn-u-xs btn-u-default" data-container="body" data-toggle="popover" data-placement="top" data-content="123123123">
-      測試
-    </button>
   </div>
 
-  <hr>
+  <div class="col-md-12" style="text-align:left;margin-top:15px;border: 4px solid #66BAB7;border-radius: 20px;">
+    <div class="heading heading-v4">
+      <h2 style="color:#66BAB7">社交資料</h2>
+    </div>
 
-  <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-    <li class="list-group-item">
-      <%= link_to profile_path(current_user.profile) do %>
-        <i class="fa fa-user"></i>
-        個人資料
-      <% end %>
-    </li>
-    <li class="list-group-item">
-      <%= link_to edit_profile_path(current_user.profile) do %>
-        <i class="fa fa-cog"></i>
-        編輯資料
-      <% end %>
-    </li>
-  </ul>
+    <div>
+      <div style="margin-bottom:15px">
+        <button type="button" class="popovers btn-u btn-brd-width-1 rounded btn-u-sea btn-u-xs" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.facebook_link %>" style="margin-right:5px" >
+          <% if @profile.show_facebook?(@friendship) %>
+            <span><%= image_tag ("Facebook.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.facebook_access_level %></span>
+          <% end %>
+        </button>
+        <button type="button" class="popovers btn-u btn-brd-width-1 rounded btn-u-sea btn-u-xs" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.line_account %>" style="margin-right:5px" >
+          <% if @profile.show_line?(@friendship) %>
+            <span><%= image_tag ("Line.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.line_access_level %></span>
+          <% end %>
+        </button>
+        <button type="button" class="popovers btn-u btn-brd-width-1 rounded btn-u-sea btn-u-xs" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= @profile.wechat_account %>">
+          <% if @profile.show_wechat?(@friendship) %>
+            <span><%= image_tag ("Wechat.png"),style: "max-width: 30px;margin-right: 2px" %> 權限:<%= @profile.wechat_access_level %></span>
+          <% end %>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
 </div>
-<!--End Left Sidebar-->
+
