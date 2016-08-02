@@ -1,5 +1,5 @@
-
-<%= link_to "回上頁", v2_interactions_list_path(friend_id: @friend_id), :class => "btn btn-default" %>
+<%= render :partial => "profiles/topbar" %>
+<%= render :partial => "profiles/left_sidebar" %>
 
 <!--
 <% unless @hide_star %>
@@ -11,22 +11,28 @@
   <% end %>
 <% end %>
 -->
-
-<section id="mission-area">
-  <% if @interaction.mission.unlock_level == -1 %>
-    <% if @step %>
-      <%= render partial: "simu/matching_mission_pass" %>
-    <% else %>
-      <%= render partial: "simu/matching_mission" %>
-    <% end %>
-  <% elsif @interaction.mission.unlock_level == -2 %>
-    <% if @step %>
-      <%= render partial: "simu/go_out_mission_pass" %>
-    <% else %>
-      <%= render partial: "simu/go_out_mission" %>
-    <% end %>
-  <% end %>
-</section>
+<div class="col-md-9">
+  <div class="col-md-12" style="border-left: 4px solid #D8D8D8;margin-left:20px;padding-left:4.3vw;min-height:100vh">
+  <i class="fa fa-circle" style="color:#258EA6;font-size:30px;position: absolute;left: -1.75%;top: -3.1%;z-index: 1;"></i>
+    <section id="mission-area">
+      <% if @interaction.mission.unlock_level == -1 %>
+        <% if @step %>
+          <%= render partial: "simu/matching_mission_pass" %>
+        <% else %>
+          <%= render partial: "simu/matching_mission" %>
+        <% end %>
+      <% elsif @interaction.mission.unlock_level == -2 %>
+        <% if @step %>
+          <%= render partial: "simu/go_out_mission_pass" %>
+        <% else %>
+          <%= render partial: "simu/go_out_mission" %>
+        <% end %>
+      <% end %>
+    </section>
+    <hr>
+    <%= link_to "回上頁", v2_interactions_list_path(friend_id: @friend_id), :class => "btn btn-default" %>
+  </div>
+</div>
 
 
 <!--

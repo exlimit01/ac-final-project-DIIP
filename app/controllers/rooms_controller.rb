@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
 
   before_action :set_room
+  before_action :set_profile
 
   def show
     interaction = Interaction.find(params[:interaction_id])
@@ -29,6 +30,10 @@ class RoomsController < ApplicationController
 
   def set_room
     @room = Room.find(params[:id])
+  end
+
+  def set_profile
+    @profile = current_user.profile
   end
 
 end
