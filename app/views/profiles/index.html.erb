@@ -1,7 +1,25 @@
     <%= render :partial => "topbar" %>
+
+
+
+
+<div class="row">
+
 <%= render :partial => "left_sidebar" %>
 
-<div id="user-list">
-  <%= render :partial => "profile_list" %>
+  <div  class="col-md-9">
+    <div class="center-block" style="width:900px;">
+
+    <div id="profile-list" class="clearfix">
+      <% @profiles.each do |profile| %>
+
+      <%= render :partial => "profile_list", :locals => {:profile => profile}%>
+      <% end %>
+    </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
 </div>
+
+
 

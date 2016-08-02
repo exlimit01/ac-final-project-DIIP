@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
   def index
 
     @profiles = Profile.all
-
     case params[:sort]
 
       when "女" then
