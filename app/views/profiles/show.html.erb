@@ -1,8 +1,10 @@
     <%= render :partial => "topbar" %>
     <%= render :partial => "left_sidebar" %>
 
+  <i class="fa fa-circle" style="color:#258EA6;font-size:30px;position: absolute;left: 27.85%;top: 1.05%;z-index: 1;"></i>
+
 <div class="col-md-9 profile">
-  <div class="col-md-12" style="border-left: 4px solid #D8D8D8;margin-left:20px;padding-left:50px">
+  <div class="col-md-12" style="border-left: 4px solid #D8D8D8;margin-left:20px;padding-left:4.3vw">
   <!--   <div id="QA_block">
       <%= render partial: "answers/QA_block" %>
     </div> -->
@@ -10,19 +12,21 @@
   <% @profile.answers.each do |answer| %>
     <% if answer.question.present? %>
     <div style="border: 4px solid #66BAB7;border-radius: 20px;margin-bottom:20px;">
-      <div style="font-size: 36px;color: #66BAB7;letter-spacing: 0px;margin-left:10px;line-height:30px">
-        <p style="position:relative;top:15px;color: #66BAB7;">Q:&nbsp;<%= answer.question.content %></p>
+      <div style="font-size: 20px;color: #66BAB7;letter-spacing: 0px;margin-left:10px;line-height:30px">
+        <p style="position:relative;top:15px;color: #66BAB7;margin:0px">
+        <i class="fa fa-question-circle" style="color:pink;font-size:35px;position:relative;top:4px"></i>
+        <%= answer.question.content %></p>
           <div>
-            <ul class="nav navbar-nav navbar-right", style="margin-right: 10px; margin-top: -30px" >
+            <ul class="nav navbar-nav navbar-right", style="margin-right: 3px; margin-top: -13px;font-size:16px;color:#66BAB7" >
 
               <% if @profile.is_current_user?(current_user) %>
                 <li>
-                  <%= link_to profile_path(@profile, aid: answer.id),style: "padding:0px 20px" do %>
+                  <%= link_to profile_path(@profile, aid: answer.id),style: "padding:0px 10px;" do %>
                     <i class="fa fa-pencil"></i>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to profile_answer_path(@profile, answer), method: :delete,style: "padding:0px 20px" do %>
+                  <%= link_to profile_answer_path(@profile, answer), method: :delete,style: "padding:0px 10px" do %>
                     <i class="fa fa-times"></i>
                   <% end %>
                 </li>
@@ -30,13 +34,13 @@
 
                 <% if answer.liked?(current_user) %>
                   <li>
-                    <%= link_to like_path("#"), class: "disabled",style: "padding:0px" do %>
+                    <%= link_to like_path("#"), class: "disabled",style: "padding:0px;margin-right:10px" do %>
                       <i class="fa fa-heart"></i>
                     <% end %>
                   </li>
                 <% else %>
                   <li>
-                    <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post,style: "padding:0px" do %>
+                    <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post,style: "padding:0px;margin-right:10px" do %>
                       <i class="fa fa-heart-o"></i>
                     <% end %>
                   </li>
@@ -48,8 +52,8 @@
         <hr class="hr-sm">
       </div>
     <% end %>
-      <div style="font-size: 36px;color: #66BAB7;letter-spacing: 0px;margin-left:10px">
-        <p style="position:relative;top:-15px;color: #66BAB7;">A:&nbsp;<%= answer.content %></p>
+      <div style="font-size: 20px;color: #66BAB7;letter-spacing: 0px;margin:-20px 0px 10px 10px">
+        <p style="position:relative;color: #66BAB7;"><%= answer.content %></p>
       </div>
     </div>
   <% end %>
