@@ -2,14 +2,14 @@
 <%= render :partial => "profiles/default_sidebar" %>
 
 <div class="col-md-9 profile">
-  <div class="profile-body">
+  <div class="profile-body" style="background:white">
     <div class="panel panel-profile">
       <!-- <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>任務列表</h2>
       </div> -->
-      <!-- <section id="friend-list">
-        <%#= render partial: "shared/v2_friend_list" %>
-      </section> -->
+      <section id="friend-list">
+        <%= render partial: "shared/v2_friend_list" %>
+      </section> 
     </div>
     <div style="margin: 240px"></div>
     <div class="dividar clearfix">

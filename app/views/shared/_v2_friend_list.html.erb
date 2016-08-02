@@ -4,24 +4,24 @@
       <%#= friendship.love_level %>
       <% if friendship.mission_open? %>
         <%#= link_to "任務表單", friendships_list_path(friend_id: friendship.friend.id) %>
-        <div class="col-sm-6 sm-margin-bottom-20">
+        <div class="col-md-3 sm-margin-bottom-20">
           <div class="profile-blog">
             <!-- <img class="" src="assets/img/avatar/img1.jpg" alt=""> -->
 
-            <% if friendship.friend.avatar.present? %>
-              <%= image_tag ("avatars/#{friendship.friend.avatar.filename}"),class: "rounded-x" %>
-            <% end %>
-
             <div class="name-location">
-             <strong style="display:inline-block"><%= link_to friendship.friend.profile.nickname, v2_interactions_list_path(friend_id: friendship.friend.id), "data-turbolinks" => false %></strong>
+              <strong style="display:inline-block; text-align:center;"><%= link_to image_tag("avatars/#{friendship.friend.avatar.filename}", style: "height:14.7rem ; width:14.7rem ; text-align:center ; margin-right:0 ;" ), v2_interactions_list_path(friend_id: friendship.friend.id), "data-turbolinks" => false %><br> 
+
+              <%=friendship.friend.profile.nickname%><br>
+              
               <span class="btn-u btn-brd rounded-4x btn-u-green btn-u-sm">
               <i class="fa fa-envelope-o"></i>
                 <% if friendship.mission_remain? %>
                   <%= "新任務" %>
                 <% end %>
               </span>
-            <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-          </div>
+              <br>
+              </strong>        
+      
         </div>
       <% end %>
     </div>
