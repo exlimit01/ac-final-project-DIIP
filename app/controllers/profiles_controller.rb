@@ -56,11 +56,15 @@ class ProfilesController < ApplicationController
 
   #GET /profiles/:id/edit
   def edit
-
+    @answer = @profile.answers.new
   end
 
   #PATCH /profiles/:id
   def update
+
+    unless params[:answer][:content] == ""
+      @profile.answers.create(:question_id => params[:answer][:question_id], :content => params[:answer][:content])
+    end
 
     if params[:_remove_avatar] == "1"
       @profile.avatar = nil
