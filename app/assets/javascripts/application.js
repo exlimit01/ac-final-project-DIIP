@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= #require cable   #disable 
+//= #require cable   #disable
 //= require bootstrap-sprockets
 //= require plugins/login-signup-modal-window/js/main.js
 //= require plugins/back-to-top.js
