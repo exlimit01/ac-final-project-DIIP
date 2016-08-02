@@ -4,6 +4,7 @@
     <li class="active"><a data-toggle="tab" href="#基本資料">基本資料</a></li>
     <li><a data-toggle="tab" href="#圖像資料">圖像資料</a></li>
     <li><a data-toggle="tab" href="#社交資料">社交資料</a></li>
+    <li><a data-toggle="tab" href="#問答資料">問答資料</a></li>
   </ul>
   <div class="tab-content">
     <div id="基本資料" class="profile-edit tab-pane fade in active">
@@ -63,7 +64,7 @@
         <dd>
           <%= f.label :avatar, "個人圖像" %><br>
           <% if current_user.avatar %>
-            <%= image_tag("avatars/#{current_user.avatar.filename}") %><br>
+            <%= image_tag("avatars/#{current_user.avatar.filename}", size: "200") %><br>
             <%= link_to "更改頭像", profile_pictures_path%>
           <%else%>
             <%= link_to "選擇頭像", profile_pictures_path%>
@@ -118,6 +119,12 @@
       </dl>
       <a href="#社交資料" ><button type="button" class="btn-u btn-u-default">取消</button></a>
       <%= f.submit "更新",class:"btn-u" %>
+    </div>
+
+    <div id="問答資料" class="profile-edit tab-pane fade" >
+      <h2 class="heading-md">問答資料新增</h2>
+      <hr>
+      <%= render partial: "answers/QA_block" %>
     </div>
   </div>
 </div>

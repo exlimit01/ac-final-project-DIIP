@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
   before_action :set_profile
 
   def create
+
     @answer = @profile.answers.new(answer_params)
 
     if @answer.save
