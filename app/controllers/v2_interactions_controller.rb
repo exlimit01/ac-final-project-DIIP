@@ -1,5 +1,7 @@
 class V2InteractionsController < ApplicationController
 
+  before_action :set_profile
+
   def list
     # 列出任務list
     # 搜尋最近一筆的任務，如果找到雙向都不為accept或都不為done且超過24小時的話，刪掉兩筆
@@ -288,6 +290,10 @@ class V2InteractionsController < ApplicationController
     # 完成以後導回原畫面
     redirect_to room_path(params[:room_id], :co_status => 5, interaction_id: params[:interaction_id], step: "pass")
 
+  end
+
+  def set_profile
+    @profile = current_user.profile
   end
 
 end
