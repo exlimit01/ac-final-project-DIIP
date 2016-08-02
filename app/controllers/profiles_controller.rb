@@ -3,10 +3,11 @@ class ProfilesController < ApplicationController
   before_action :set_profile, :only => [:show, :edit, :update, :destroy]
   before_action :set_friendship, :only => [:show, :page]
 
+  before_action :set_current_profile, :only => [:index]
   # GET /profiles
   def index
+
     @profiles = Profile.all
-    @profile = current_user.profile
     case params[:sort]
 
       when "女" then
@@ -21,6 +22,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/:id
   def show
+
     if params[:aid]
       @answer = Answer.find(params[:aid])
     else
@@ -53,11 +55,15 @@ class ProfilesController < ApplicationController
 
   #GET /profiles/:id/edit
   def edit
-
+    @answer = @profile.answers.new
   end
 
   #PATCH /profiles/:id
   def update
+
+    unless params[:answer][:content] == ""
+      @profile.answers.create(:question_id => params[:answer][:question_id], :content => params[:answer][:content])
+    end
 
     if params[:_remove_avatar] == "1"
       @profile.avatar = nil
@@ -147,6 +153,10 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:nickname, :age, :avatar, :sound, :photos, :description, :facebook_link,
       :facebook_access_level ,:line_account, :line_access_level, :wechat_account, :wechat_access_level, :location_id,
       :sex, :relation, :aboutme, :hobby_ids => [], :profession_ids => [])
+  end
+
+  def set_current_profile
+    @profile = current_user.profile
   end
 
 
