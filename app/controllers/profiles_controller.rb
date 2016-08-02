@@ -1,9 +1,9 @@
 class ProfilesController < ApplicationController
 
-  before_action :set_profile, :only => [:edit, :update, :destroy]
+  before_action :set_profile, :only => [:show, :edit, :update, :destroy]
   before_action :set_friendship, :only => [:show, :page]
 
-  before_action :set_current_profile, :only => [:show, :index]
+  before_action :set_current_profile, :only => [:index]
   # GET /profiles
   def index
 
