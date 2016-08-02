@@ -1,20 +1,22 @@
-    <%= render :partial => "profiles/topbar" %>
+<%= render :partial => "profiles/topbar" %>
 <%= render :partial => "profiles/default_sidebar" %>
 
 <div class="col-md-9 profile">
   <div class="profile-body">
     <div class="panel panel-profile">
-      <div class="panel-heading overflow-h">
+      <!-- <div class="panel-heading overflow-h">
         <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>任務列表</h2>
-      </div>
-
-      <section id="friend-list">
-        <%= render partial: "shared/v2_friend_list" %>
-      </section>
-
+      </div> -->
+      <!-- <section id="friend-list">
+        <%#= render partial: "shared/v2_friend_list" %>
+      </section> -->
     </div>
-    <div style="margin-top: 200px"></div>
-    <section id="mission-list">
+    <div style="margin: 240px"></div>
+    <div class="dividar clearfix">
+      <div class="heri-line pull-left"></div>
+      <div class="ball pull-right"></div>
+    </div>
+    <section id="mission-list", style="border: 4px solid #66BAB7;border-radius: 20px;margin:30px">
       <%= render partial: "shared/v2_mission_list" %>
     </section>
   </div>
