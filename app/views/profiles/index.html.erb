@@ -12,8 +12,9 @@
 
     <div id="profile-list" class="clearfix">
       <% @profiles.each do |profile| %>
-
-      <%= render :partial => "profile_list", :locals => {:profile => profile}%>
+        <% unless profile.is_current_user?(current_user) %>
+          <%= render :partial => "profile_list", :locals => {:profile => profile}%>
+        <% end %>
       <% end %>
     </div>
     </div>
