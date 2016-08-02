@@ -34,13 +34,13 @@
 
                 <% if answer.liked?(current_user) %>
                   <li>
-                    <%= link_to like_path("#"), class: "disabled",style: "padding:0px" do %>
+                    <%= link_to like_path("#"), class: "disabled",style: "padding:0px;margin-right:10px" do %>
                       <i class="fa fa-heart"></i>
                     <% end %>
                   </li>
                 <% else %>
                   <li>
-                    <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post,style: "padding:0px" do %>
+                    <%= link_to like_path(friendship_id: @friendship.id, answer_id: answer.id), method: :post,style: "padding:0px;margin-right:10px" do %>
                       <i class="fa fa-heart-o"></i>
                     <% end %>
                   </li>
