@@ -3,9 +3,12 @@
   <div class="col-md-12" style="text-align:left;margin-top:35px;border: 4px solid #66BAB7;border-radius: 20px;">
     <div class="center-block" style="text-align:center">
       <% if @profile.user.avatar.present? %>
-        <%= image_tag ("avatars/#{@profile.user.avatar.filename}"),class: "img-responsive col-md-12" ,style: "max-width:300px;margin-top:30px" %><br>
+          <div class="avatar-border" style= "border:3px solid black;border-radius:50%;height:200px;margin-top:30px;width:200px;margin-left:8px">
+          <%= image_tag ("avatars/#{@profile.user.avatar.filename}"),class: "img-responsive col-md-12" ,style: "padding: 0px;"%>
+          </div>
+      <br>
       <%end%>
-      <h1 style="margin:20px 0px;font-size: 30px;color: #383F51;letter-spacing: 1px;position:relative;top:8px;"><%= @profile.nickname %></h1>
+      <h1 style="margin:20px 0px;font-size: 24px;color: #383F51;letter-spacing: 1px;position:relative;top:8px;"><%= @profile.nickname %></h1>
 
       <div>
       <% if @friendship.present? %>
