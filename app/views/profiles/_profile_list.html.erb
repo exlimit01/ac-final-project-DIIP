@@ -1,55 +1,47 @@
-<!-- Profile Content -->
-<div class="col-md-9 profile">
-  <div class="profile-body">
-    <div class="panel panel-profile">
-      <div class="panel-heading overflow-h">
-        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-users"></i>搜尋同好</h2>
 
-        <h2 class="panel-title heading-sm pull-right">
-        <%= link_to"推薦", profiles_path(:sort => gender_reverse)%>
-        <%= link_to"所有用戶", profiles_path%>
-        </h2>
-
-      </div>
-      <div class="panel-body margin-bottom-50">
-        <div class="media media-v2  margin-bottom-20">
-          <!-- erb -->
-          <% @profiles.each do |profile| %>
-          <% unless profile.is_current_user?(current_user) %>
-          <a class="pull-left" href="#">
-            <%if profile.user.avatar.present?%>
-             <%= image_tag ("avatars/#{profile.user.avatar.filename}"), class: "media-object rounded-x", style: "max-width: 250px;" %>
-           <%end%>
-          </a>
-          <div class="media-body">
-            <h4 class="media-heading">
-                <%= link_to profile_path(profile) do %>
-                <button class="btn-u btn-brd rounded-3x btn-u-dark-blue" type="button"><i class="fa fa-paper-plane-o"></i> <%= profile.nickname %></button>
-                <% end %>
-              <% if profile.location.present? %>
-                 @<%= profile.location.name %>
-                <% else %>
-              <% end %>
-              <%= make_friend_signs(profile) %>
-            </h4>
-            <p><%= make_answer_list(profile) %></p>
-            <ul class="list-inline results-list pull-left">
-              <li><a href="#">25 Likes</a></li>
-              <li><a href="#">10 Share</a></li>
-            </ul>
-            <ul class="list-inline">
-              <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
-            </ul>
-          </div>
-          <% end %>
-          <% end %>
-          <!-- End erb -->
-        </div><!--/end media media v2-->
-
-        <button type="button" class="btn-u btn-u-default btn-block">Load More</button>
-      </div>
+  <div id="list-card" class="col-md-6">
+    <div class="col-md-6">
+      <h3>  <%= profile.nickname %></h3>
+      <p>
+      <%= link_to "#" do %>
+        <%= image_tag("heart_before.png") %>
+      <% end %>
+      </p>
+      <p>
+      <% profile.hobbies.each do |h|%>
+        <%= link_to h.name ,"#", :class => "list-card-hobby btn" %>
+      <% end %>
+      </p>
     </div>
+    <div class="col-md-6">
+      <%if profile.user.avatar.present?%>
+        <div class="avatar-border">
+          <%= image_tag ("avatars/#{profile.user.avatar.filename}"), style: "width: 100%;" %>
+        </div>
+      <%end%>
+    </div>
+    <div class="clearfix"></div>
+
+
+    <% profile.get_lasest_3_answers.each do |answer|%>
+      <div class="list-card-qa">
+        <hr>
+        <div class="col-md-1">
+          <p><%= image_tag "Q_icon" %></p>
+        </div>
+        <div class="col-md-11">
+          <p><%= answer.question.content %></p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-1">
+          <p><%= image_tag "A_icon" %></p>
+        </div>
+        <div class="col-md-11">
+          <p><%= answer.content %></p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    <% end %>
   </div>
-</div>
-<!-- End Profile Content -->
+
+

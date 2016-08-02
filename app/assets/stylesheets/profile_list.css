@@ -1,0 +1,45 @@
+#profile-list{
+  background-color: #95C7D2;
+
+  margin-left: -20px;
+  margin-right: -20px;
+  padding:10px;
+
+  border-radius: 20px;
+}
+
+#list-card {
+
+  background-color: #D4E8ED;
+  margin: 10px 10px;
+  width: 440px;
+  height: 600px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+
+#list-card hr {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.list-card-hobby {
+  font-size:15px;
+  margin: 5px 2px;
+  background-color: white;
+  color: #96989B;
+  border-radius: 10px;
+}
+
+.avatar-border {
+  border-color: #293044;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+.list-card-qa p{
+  color:#83BDCB;
+  margin: 20px 0 0 0;
+}

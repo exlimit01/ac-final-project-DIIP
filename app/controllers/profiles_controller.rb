@@ -6,14 +6,14 @@ class ProfilesController < ApplicationController
   # GET /profiles
   def index
     @profiles = Profile.all
-  
+    @profile = current_user.profile
     case params[:sort]
-       
-      when "女" then 
+
+      when "女" then
         @profiles = Profile.where(sex: "女")
-      when "男" then 
+      when "男" then
         @profiles = Profile.where(sex: "男")
-      
+
     end
 
   end
